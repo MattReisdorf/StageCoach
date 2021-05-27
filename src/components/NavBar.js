@@ -16,6 +16,7 @@ function NavBar() {
 
             <Link
                 to = '/' className = 'page-name'
+                id = 'projectTitle'
             >
                 StageCoach
             </Link>
