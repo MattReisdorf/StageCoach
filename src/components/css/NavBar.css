@@ -1,0 +1,29 @@
+.my-nav {
+    color: white;
+    padding: 15px;
+    font-size: 1.3em;
+}
+
+.nav-background {
+    background-color: rgb(190, 171, 157);
+    padding: 15px;
+}
+
+.page-name {
+    color: rgb(236, 235, 228);
+    text-decoration: none;
+    font-size: 2.5em;
+}
+
+.page-name:hover{
+    color: rgb(236, 235, 228);
+}
+
+.other-links{
+    color: rgb(236, 235, 228);
+    text-decoration: none;
+}
+
+.other-links:hover {
+    color: rgb(209, 208, 201);
+}
