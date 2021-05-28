@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import '../css/Home.css';
+import Calendar from "../Calendar/Calendar.js"
 
 class Home extends Component {
 
@@ -25,7 +26,7 @@ class Home extends Component {
 
                 <div className = 'container'>
                     <div className = 'calendar-placeholder'>
-                        <h4>Week's Worth of Shows</h4>
+                        <Calendar />
                     </div>
                 </div>
 
