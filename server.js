@@ -1,6 +1,8 @@
 const express = require("express");
+const session = require('express-session');
 const Sequelize = require("sequelize");
 require('dotenv').config();
+const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
 const PORT = process.env.PORT || 3001;
 const app = express();
@@ -28,6 +30,18 @@ const sequelize = process.env.JAWSDB_URL
       },
     }
 );
+
+const sess = {
+  secret: 'Forg for president',
+  cookie: {},
+  resave: false,
+  saveUninitialized: true,
+  store: new SequelizeStore({
+    db: sequelize
+  })
+};
+
+app.use(session(sess));
 
 // app.use(routes);
 
