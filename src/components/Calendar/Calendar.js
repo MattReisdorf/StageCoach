@@ -16,6 +16,7 @@ class Calendar extends React.Component {
       <div className="header row flex-middle">
         <div className="col col-start">
           <div className="icon" onClick={this.prevMonth}>
+            {/* left-facing stagecoach? */}
             chevron_left
           </div>
         </div>
@@ -23,6 +24,7 @@ class Calendar extends React.Component {
           <span>{dateFns.format(this.state.currentDay, dateFormat)}</span>
         </div>
         <div className="col col-end" onClick={this.nextMonth}>
+          {/* right-facing stagecoach? */}
           <div className="icon">chevron_right</div>
         </div>
       </div>
@@ -76,7 +78,10 @@ class Calendar extends React.Component {
             onClick={() => this.onDateClick(dateFns.parse(cloneDay, "eeee mmmm do", new Date()))}
           >
             <span className="number">{formattedDate}</span>
+            <span className="shows">Zach Duty Live In Concert</span>
+            {/* this is where the on:hover displays the larger date # for background text */}
             <span className="bg">{formattedDate}</span>
+            
           </div>
         );
         day = dateFns.addDays(day, 1);

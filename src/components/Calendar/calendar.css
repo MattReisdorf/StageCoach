@@ -163,14 +163,19 @@ main {
   transition: 0.25s ease-out;
 }
 
+/* this is where we will add band's image on:hover */
+
 .calendar .body .cell:hover {
-  background: var(--bg-color);
+  background: black;
   transition: 0.5s ease-out;
+  color: white;
 }
+
+/* this is the current/selected day. it will need stylized to match the stagecoach color scheme */
 
 .calendar .body .selected {
   border-left: 10px solid transparent;
-  border-image: linear-gradient(45deg, #1a8fff 0%, #53cbf1 40%);
+  border-color: rgb(192,78,33, 50%);
   border-image-slice: 1;
 }
 
