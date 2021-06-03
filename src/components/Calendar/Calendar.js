@@ -5,7 +5,8 @@ import './calendar.css';
 class Calendar extends React.Component {
   state = {
     currentMonth: new Date(),
-    selectedDate: new Date()
+    selectedDate: new Date(),
+    currentDay: new Date(),
   };
 
   renderHeader() {
@@ -19,7 +20,7 @@ class Calendar extends React.Component {
           </div>
         </div>
         <div className="col col-center">
-          <span>{dateFns.format(this.state.currentMonth, dateFormat)}</span>
+          <span>{dateFns.format(this.state.currentDay, dateFormat)}</span>
         </div>
         <div className="col col-end" onClick={this.nextMonth}>
           <div className="icon">chevron_right</div>
@@ -58,11 +59,12 @@ class Calendar extends React.Component {
     let days = [];
     let day = startDate;
     let formattedDate = "";
-
+    
     while (day <= endDate) {
       for (let i = 0; i < 7; i++) {
         formattedDate = dateFns.format(day, dateFormat);
         const cloneDay = day;
+        console.log(cloneDay);
         days.push(
           <div
             className={`col cell ${
@@ -71,7 +73,7 @@ class Calendar extends React.Component {
                 : dateFns.isSameDay(day, selectedDate) ? "selected" : ""
             }`}
             key={day}
-            onClick={() => this.onDateClick(dateFns.parse(cloneDay))}
+            onClick={() => this.onDateClick(dateFns.parse(cloneDay, "eeee mmmm do", new Date()))}
           >
             <span className="number">{formattedDate}</span>
             <span className="bg">{formattedDate}</span>
@@ -93,17 +95,23 @@ class Calendar extends React.Component {
     this.setState({
       selectedDate: day
     });
+
+    // this.renderHeader()
+
   };
+
 
   nextMonth = () => {
     this.setState({
-      currentMonth: dateFns.addMonths(this.state.currentMonth, 1)
+      currentMonth: dateFns.addMonths(this.state.currentMonth, 1),
+      currentDay: dateFns.startOfMonth(this.state.currentMonth)
     });
   };
 
   prevMonth = () => {
     this.setState({
-      currentMonth: dateFns.subMonths(this.state.currentMonth, 1)
+      currentMonth: dateFns.subMonths(this.state.currentMonth, 1),
+      currentDay: dateFns.startOfMonth(this.state.currentMonth)
     });
   };
 
