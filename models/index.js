@@ -12,11 +12,11 @@ Venue.hasMany(Show, {
     onDelete: 'CASCADE'
 });
 
-Show.belongsToMany(Artist, {
+Show.belongsTo(Artist, {
     foreignKey: 'artist_id'
 });
 
-Show.belongsToMany(Venue, {
+Show.belongsTo(Venue, {
     foreignKey: 'venue_id'
 });
 
