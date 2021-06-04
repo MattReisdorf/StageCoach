@@ -216,45 +216,45 @@ Venue.init(
                 updatedArtistData.password = await bcrypt.hash(updatedArtistData.password, 10);
                 return updatedArtistData;
             },
-            validationFailed: async (newArtistData, options, error) => {
-                //Username Validation + applicable Err
-            },
-            validationFailed: async (newArtistData, options, error) => {
-                //Email Validation + applicable Err
-            },
-            validationFailed: async (newArtistData, options, error) => {
-                //Password Validation + applicable Err
-            },
-            validationFailed: async (newArtistData, options, error) => {
-                //City Validation + applicable Err
-            },
-            validationFailed: async (newArtistData, options, error) => {
-                //State Validation + applicable Err
-            },
-            validationFailed: async (newArtistData, options, error) => {
-                //venue Name Validation + applicable Err
-            },
-            validationFailed: async (newArtistData, options, error) => {
-                //Bio Validation + applicable Err
-            },
-            validationFailed: async (newArtistData, options, error) => {
-                //Contact_title Validation + applicable Err
-            },
-            validationFailed: async (newArtistData, options, error) => {
-                //Contact_name Validation + applicable Err
-            },
-            validationFailed: async (newArtistData, options, error) => {
-                //Contact_number Validation + applicable Err
-            },
-            validationFailed: async (newArtistData, options, error) => {
-                //Contact_email Validation + applicable Err
-            },
-            validationFailed: async (newArtistData, options, error) => {
-                //specs_capacity Validation + applicable Err
-            },
-            validationFailed: async (newArtistData, options, error) => {
-                //specs_description Validation + applicable Err
-            },
+            // validationFailed: async (newArtistData, options, error) => {
+            //     //Username Validation + applicable Err
+            // },
+            // validationFailed: async (newArtistData, options, error) => {
+            //     //Email Validation + applicable Err
+            // },
+            // validationFailed: async (newArtistData, options, error) => {
+            //     //Password Validation + applicable Err
+            // },
+            // validationFailed: async (newArtistData, options, error) => {
+            //     //City Validation + applicable Err
+            // },
+            // validationFailed: async (newArtistData, options, error) => {
+            //     //State Validation + applicable Err
+            // },
+            // validationFailed: async (newArtistData, options, error) => {
+            //     //venue Name Validation + applicable Err
+            // },
+            // validationFailed: async (newArtistData, options, error) => {
+            //     //Bio Validation + applicable Err
+            // },
+            // validationFailed: async (newArtistData, options, error) => {
+            //     //Contact_title Validation + applicable Err
+            // },
+            // validationFailed: async (newArtistData, options, error) => {
+            //     //Contact_name Validation + applicable Err
+            // },
+            // validationFailed: async (newArtistData, options, error) => {
+            //     //Contact_number Validation + applicable Err
+            // },
+            // validationFailed: async (newArtistData, options, error) => {
+            //     //Contact_email Validation + applicable Err
+            // },
+            // validationFailed: async (newArtistData, options, error) => {
+            //     //specs_capacity Validation + applicable Err
+            // },
+            // validationFailed: async (newArtistData, options, error) => {
+            //     //specs_description Validation + applicable Err
+            // },
         },
         sequelize,
         timestamps: false,
