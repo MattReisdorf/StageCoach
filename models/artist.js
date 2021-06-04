@@ -177,54 +177,54 @@ Artist.init(
                 updatedArtistData.password = await bcrypt.hash(updatedArtistData.password, 10);
                 return updatedArtistData;
             },
-            validationFailed: async (newArtistData, options, error) => {
-                //Username Validation + applicable Err
-            },
-            validationFailed: async (newArtistData, options, error) => {
-                //Email Validation + applicable Err
-            },
-            validationFailed: async (newArtistData, options, error) => {
-                //Password Validation + applicable Err
-            },
-            validationFailed: async (newArtistData, options, error) => {
-                //City Validation + applicable Err
-            },
-            validationFailed: async (newArtistData, options, error) => {
-                //State Validation + applicable Err
-            },
-            validationFailed: async (newArtistData, options, error) => {
-                //Artist Name Validation + applicable Err
-            },
-            validationFailed: async (newArtistData, options, error) => {
-                //Bio Validation + applicable Err
-            },
-            validationFailed: async (newArtistData, options, error) => {
-                //Youtube_One Validation + applicable Err
-            },
-            validationFailed: async (newArtistData, options, error) => {
-                //Youtube_Two Validation + applicable Err
-            },
-            validationFailed: async (newArtistData, options, error) => {
-                //Youtube_Three Validation + applicable Err
-            },
-            validationFailed: async (newArtistData, options, error) => {
-                //Bandcamp_One Validation + applicable Err
-            },
-            validationFailed: async (newArtistData, options, error) => {
-                //Bandcamp_Two Validation + applicable Err
-            },
-            validationFailed: async (newArtistData, options, error) => {
-                //Bandcamp_Three Validation + applicable Err
-            },
-            validationFailed: async (newArtistData, options, error) => {
-                //SoundCloud_One Validation + applicable Err
-            },
-            validationFailed: async (newArtistData, options, error) => {
-                //Soundcloud_Two Validation + applicable Err
-            },
-            validationFailed: async (newArtistData, options, error) => {
-                //Soundcloud_Three Validation + applicable Err
-            },
+            // validationFailed: async (newArtistData, options, error) => {
+            //     //Username Validation + applicable Err
+            // },
+            // validationFailed: async (newArtistData, options, error) => {
+            //     //Email Validation + applicable Err
+            // },
+            // validationFailed: async (newArtistData, options, error) => {
+            //     //Password Validation + applicable Err
+            // },
+            // validationFailed: async (newArtistData, options, error) => {
+            //     //City Validation + applicable Err
+            // },
+            // validationFailed: async (newArtistData, options, error) => {
+            //     //State Validation + applicable Err
+            // },
+            // validationFailed: async (newArtistData, options, error) => {
+            //     //Artist Name Validation + applicable Err
+            // },
+            // validationFailed: async (newArtistData, options, error) => {
+            //     //Bio Validation + applicable Err
+            // },
+            // validationFailed: async (newArtistData, options, error) => {
+            //     //Youtube_One Validation + applicable Err
+            // },
+            // validationFailed: async (newArtistData, options, error) => {
+            //     //Youtube_Two Validation + applicable Err
+            // },
+            // validationFailed: async (newArtistData, options, error) => {
+            //     //Youtube_Three Validation + applicable Err
+            // },
+            // validationFailed: async (newArtistData, options, error) => {
+            //     //Bandcamp_One Validation + applicable Err
+            // },
+            // validationFailed: async (newArtistData, options, error) => {
+            //     //Bandcamp_Two Validation + applicable Err
+            // },
+            // validationFailed: async (newArtistData, options, error) => {
+            //     //Bandcamp_Three Validation + applicable Err
+            // },
+            // validationFailed: async (newArtistData, options, error) => {
+            //     //SoundCloud_One Validation + applicable Err
+            // },
+            // validationFailed: async (newArtistData, options, error) => {
+            //     //Soundcloud_Two Validation + applicable Err
+            // },
+            // validationFailed: async (newArtistData, options, error) => {
+            //     //Soundcloud_Three Validation + applicable Err
+            // },
         },
         sequelize,
         timestamps: false,
