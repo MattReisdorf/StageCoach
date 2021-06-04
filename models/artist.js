@@ -50,7 +50,6 @@ Artist.init(
             type: DataTypes.STRING,
             trim: true,
             validate: {
-                isAlpha: true,
                 is: /^[a-zA-Z.'-]+/g,
                 allowNull: false
             }
@@ -59,7 +58,6 @@ Artist.init(
             type: DataTypes.STRING,
             trim: true,
             validate: {
-                isAlpha: true,
                 is: /^[a-zA-Z.'-]+/g,
                 allowNull: false
             }
@@ -76,6 +74,7 @@ Artist.init(
         bio: {
             type: DataTypes.STRING,
             allowNull: true,
+            trim: true,
             validate: {
                 max: 1000
             }
