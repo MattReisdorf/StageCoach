@@ -153,7 +153,9 @@ Venue.init(
             allowNull: true,
             trim: true,
             validate: {
-                isNumeric: true
+                isNumeric: true,
+                min: 10,
+                max: 10
             }
         },
         contact_email: {

@@ -177,9 +177,9 @@ Artist.init(
                 updatedArtistData.password = await bcrypt.hash(updatedArtistData.password, 10);
                 return updatedArtistData;
             },
-            // validationFailed: async (newArtistData, options, error) => {
-            //     //Username Validation + applicable Err
-            // },
+            validationFailed: async (newArtistData, options, error) => {
+                console.log(newArtistData)
+            },
             // validationFailed: async (newArtistData, options, error) => {
             //     //Email Validation + applicable Err
             // },
