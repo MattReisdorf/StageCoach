@@ -1,8 +1,8 @@
 {
-<<<<<<< HEAD
   "name": "stagecoach",
   "version": "0.1.0",
   "private": true,
+  "main": "server.js",
   "dependencies": {
     "@testing-library/jest-dom": "^5.12.0",
     "@testing-library/react": "^11.2.7",
@@ -15,12 +15,6 @@
     "react-scripts": "4.0.3",
     "web-vitals": "^1.1.2"
   },
-=======
-  "name": "StageCoach",
-  "version": "1.0.0",
-  "description": "",
-  "main": "server.js",
->>>>>>> main
   "scripts": {
     "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
     "start:prod": "node server.js",

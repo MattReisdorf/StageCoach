@@ -4,7 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import '../css/Home.css';
 
 // import '../../utils/APIKEYSNSHIT';
-import ipifyKey from '../../utils/APIKEYSNSHIT';
+// import ipifyKey from '../../utils/APIKEYSNSHIT';
 
 
 class Home extends Component {
