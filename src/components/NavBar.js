@@ -1,19 +1,15 @@
 import React from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './css/NavBar.css';
 
 
 function NavBar() {
 
-    const location = useLocation();
+    // const location = useLocation();
 
     return (
         <nav className = 'navbar nav-background'>
-            {/* <a class = 'navbar-brand' href = '/'>
-                StageCoach
-            </a> */}
-
             <Link
                 to = '/' className = 'page-name'
             >
