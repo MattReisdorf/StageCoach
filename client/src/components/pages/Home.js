@@ -3,8 +3,7 @@ import React, { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../css/Home.css';
 
-// import '../../utils/APIKEYSNSHIT';
-// import ipifyKey from '../../utils/APIKEYSNSHIT';
+require('dotenv').config();
 
 
 class Home extends Component {
@@ -19,17 +18,17 @@ class Home extends Component {
     }
 
     // componentDidMount() {
-    //     fetch('https://geo.ipify.org/api/v1?apiKey=' + ipifyKey.key)
-    //     .then(res => res.json())
-    //     .then(
-    //         (result => {
-    //             console.log(result);
-    //             this.setState({
-    //                 city: result.location.city,
-    //                 state: result.location.region
-    //             })
-    //         })
-    //     )
+        // fetch(process.env.REACT_APP_IPIFY)
+        // .then(res => res.json())
+        // .then(
+        //     (result => {
+        //         console.log(result);
+        //         this.setState({
+        //             city: result.location.city,
+        //             state: result.location.region
+        //         })
+        //     })
+        // )
     // }
 
     //logical stuff for calendar/location gonna go here
@@ -37,7 +36,6 @@ class Home extends Component {
 
 
     render() {
-        // console.log(this.state.results);
         if (this.state.city === '') {
 
             return (
