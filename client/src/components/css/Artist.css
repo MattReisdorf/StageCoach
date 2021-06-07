@@ -1,0 +1,55 @@
+#artist-main-box {
+    width: 80vw;
+    margin-top: 25px;
+    padding: 10px;
+    background-color: rgb(190,171,157,.10)
+    
+}
+
+/* bio css */
+
+#bio-box #events-media-box {
+    border: 2px dotted grey;
+    height: 500px;
+    padding: 10px;
+}
+
+#bio-content {
+    padding: 20px;
+    background-color: rgb(190,171,157,.20);
+}
+
+#profile-image {
+    width: 100%;
+}
+
+/* shows css */
+
+
+/* embed css */
+/* #youtubes iframe {
+    width: 100% !important;
+    height: auto !important;
+} */
+
+.videoWrapper {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+}
+
+.videoWrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+#soundclouds iframe {
+
+}
+
+#bandcamps {
+
+}
