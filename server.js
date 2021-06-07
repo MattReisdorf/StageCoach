@@ -1,13 +1,14 @@
 const express = require("express");
-const session = require('express-session');
-require('dotenv').config();
-const SequelizeStore = require('connect-session-sequelize')(session.Store);
-const sequelize = require('./config/connection')
+const session = require("express-session");
+require("dotenv").config();
+const SequelizeStore = require("connect-session-sequelize")(session.Store);
+const sequelize = require("./config/connection");
 
 const PORT = process.env.PORT || 3001;
 const app = express();
 
-// const routes = require("./routes");
+const routes = require("./routes");
+app.use(routes);
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -17,20 +18,21 @@ if (process.env.NODE_ENV === "production") {
 }
 
 const sess = {
-  secret: 'Forg for president',
+  secret: "Forg for president",
   cookie: {},
   resave: false,
   saveUninitialized: true,
   store: new SequelizeStore({
-    db: sequelize
-  })
+    db: sequelize,
+  }),
 };
 
 app.use(session(sess));
 
 // app.use(routes);
 
-app.listen(PORT, function() {
-  console.log(`🌎 ==> API server now on port ${PORT}!`);
+sequelize.sync({ force: false }).then(function () {
+  app.listen(PORT, function () {
+    console.log(`🌎 ==> API server now on port ${PORT}!`);
+  });
 });
-
