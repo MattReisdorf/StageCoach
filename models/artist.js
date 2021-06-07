@@ -120,6 +120,12 @@ Artist.init(
             trim: true,
             allowNull: true,
         },
+        // imgur_url: {
+        //     type: DateTypes.TEXT,
+        //     trim: true,
+        //     allowNull: true,
+        // }
+
     },
     {
         hooks: {
