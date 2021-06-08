@@ -14,6 +14,7 @@ function App() {
              <Route exact path = '/' component = {Home} />
              <Route exact path = '/artists/:id' component = {Artist} />
              <Route exact path = '/signup' component = {Signup} />
+             {/* <Route exact path = '/search' component = {Search} */}
              <Route exact path = '/venues/:id' component = {Venue} />
 
         </Router>

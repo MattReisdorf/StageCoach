@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # dependencies
@@ -24,8 +23,6 @@ yarn-debug.log*
 yarn-error.log*
 
 /src/utils/APIKEYSNSHIT.js
-=======
 node_modules
 DS_STORE
 .env
->>>>>>> main
