@@ -184,105 +184,36 @@ function Signup() {
                             <option>WY</option>
                         </select>
                     </div>
-                    <br/>
                     <div className="input-group mb-3">
-                        <span className="input-group-text" id="basic-addon1">Artist Name:</span>
+                        <span className="input-group-text" id="basic-addon1">Venue Name:</span>
                         <input type="text" id="venue_name" className="form-control input_values venue_input_values" placeholder="Your venue's name here!" aria-label="Venue" aria-describedby="basic-addon1" />
                     </div>
                     <div className="input-group mb-3">
                         <span className="input-group-text" id="basic-addon1">Bio:</span>
-                        <textarea type="text" id="artist_bio" className="form-control input_values artist_input_values" placeholder="Tell us about yourself!" aria-label="Bio" aria-describedby="basic-addon1" />
+                        <textarea type="text" id="venue_bio" className="form-control input_values venue_input_values" placeholder="Tell us about yourself!" aria-label="Bio" aria-describedby="basic-addon1" />
                     </div>
-                    <h1>Now that the required stuffs out of the way, why not add some of your media?</h1>
-                    <div className="input-group mb-3">
-                        <span className="input-group-text" id="basic-addon1">Profile Pic:</span>
-                        <input type="text" id="imgur_url" className="form-control input_values artist_input_values" placeholder="Upload a photo! Imgur links only please." aria-label="imgur_url" aria-describedby="basic-addon1" />
+                    <h1>Extraaaaa!</h1>
+                    <div>
+                        <h2>Minimum age to enter:</h2>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault" checked/>
+                            <label class="form-check-label" for="flexRadioDefault">
+                                All Ages
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="eighteen_plus"/>
+                            <label class="form-check-label" for="flexRadio">
+                                18+
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="twentyone_plus"/>
+                            <label class="form-check-label" for="flexRadio">
+                                21+
+                            </label>
+                        </div>
                     </div>
-                    <button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#picModal">
-                    Help me add a profile pic!
-                    </button>
-                    <table className="table text-center">
-                        <thead>
-                            <tr>
-                            <th scope="col">Youtube</th>
-                            <th scope="col">Bandcamp</th>
-                            <th scope="col">Soundcloud</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                            <td><div className="input-group mb-3">
-                                    <span className="input-group-text" id="basic-addon1">Youtube 1:</span>
-                                    <input type="text" id="youtube_one" className="form-control input_values artist_input_values table_values" placeholder="Youtube Embed links only please." aria-label="youtube_one" aria-describedby="basic-addon1" />
-                            </div></td>
-                            <td><div className="input-group mb-3">
-                                <span className="input-group-text" id="basic-addon1">Bandcamp 1:</span>
-                                <input type="text" id="bandcamp_one" className="form-control input_values artist_input_values table_values" placeholder="Bandcamp Embed links only please." aria-label="bandcamp_one" aria-describedby="basic-addon1" />
-                            </div></td>
-                            <td><div className="input-group mb-3">
-                                <span className="input-group-text" id="basic-addon1">Soundcloud 1:</span>
-                                <input type="text" id="soundcloud_one" className="form-control input_values artist_input_values table_values" placeholder="Soundcloud Embed links only please." aria-label="soundcloud_one" aria-describedby="basic-addon1" />
-                            </div></td>
-                            </tr>
-                            <tr>
-                            <td><div className="input-group mb-3">
-                                    <span className="input-group-text" id="basic-addon1">Youtube 2:</span>
-                                    <input type="text" id="youtube_two" className="form-control input_values artist_input_values table_values" placeholder="Youtube Embed links only please." aria-label="youtube_two" aria-describedby="basic-addon1" />
-                            </div></td>
-                            <td><div className="input-group mb-3">
-                                <span className="input-group-text" id="basic-addon1">Bandcamp 2:</span>
-                                <input type="text" id="bandcamp_two" className="form-control input_values artist_input_values table_values" placeholder="Bandcamp Embed links only please." aria-label="bandcamp_two" aria-describedby="basic-addon1" />
-                            </div></td>
-                            <td><div className="input-group mb-3">
-                                <span className="input-group-text" id="basic-addon1">Soundcloud 2:</span>
-                                <input type="text" id="soundcloud_two" className="form-control input_values artist_input_values table_values" placeholder="Soundcloud Embed links only please." aria-label="soundcloud_two" aria-describedby="basic-addon1" />
-                            </div></td>
-                            </tr>
-                            <tr>
-                            <td><div className="input-group mb-3">
-                                    <span className="input-group-text" id="basic-addon1">Youtube 3:</span>
-                                    <input type="text" id="youtube_three" className="form-control input_values artist_input_values table_values" placeholder="Youtube Embed links only please." aria-label="youtube_three" aria-describedby="basic-addon1" />
-                            </div></td>
-                            <td><div className="input-group mb-3">
-                                <span className="input-group-text" id="basic-addon1">Bandcamp 3:</span>
-                                <input type="text" id="bandcamp_three" className="form-control input_values artist_input_values table_values" placeholder="Bandcamp Embed links only please." aria-label="bandcamp_three" aria-describedby="basic-addon1" />
-                            </div></td>
-                            <td><div className="input-group mb-3">
-                                <span className="input-group-text" id="basic-addon1">Soundcloud 3:</span>
-                                <input type="text" id="soundcloud_three" className="form-control input_values artist_input_values table_values" placeholder="Soundcloud Embed links only please." aria-label="soundcloud_three" aria-describedby="basic-addon1" />
-                            </div></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#embedModal">
-                    Help me embed!
-                    </button>
-                    <table className="table text-center">
-                        <thead>
-                            <tr>
-                                <th scope="col">Website</th>
-                                <th scope="col">Bandcamp</th>
-                                <th scope="col">Soundcloud</th>
-                                <th scope="col">Spotify</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                            <td><div className="input-group mb-3">
-                                    <input type="text" id="website_url" className="form-control input_values artist_input_values table_values" placeholder="Your website URL here!" aria-label="website_url" aria-describedby="basic-addon1" />
-                            </div></td>
-                            <td><div className="input-group mb-3">
-                                    <input type="text" id="bandcamp_url" className="form-control input_values artist_input_values table_values" placeholder="Your bandcamp URL here!" aria-label="bandcamp_url" aria-describedby="basic-addon1" />
-                            </div></td>
-                            <td><div className="input-group mb-3">
-                                    <input type="text" id="soundcloud_url" className="form-control input_values artist_input_values table_values" placeholder="Your soundcloud URL here!" aria-label="soundcloud_url" aria-describedby="basic-addon1" />
-                            </div></td>
-                            <td><div className="input-group mb-3">
-                                    <input type="text" id="spotify_url" className="form-control input_values artist_input_values table_values" placeholder="Your spotify URL here!" aria-label="spotify_url" aria-describedby="basic-addon1" />
-                            </div></td>
-                            </tr>
-                        </tbody>
-                    </table>
                     <button type="submit" className="btn btn-primary btn-lg">Submit!</button>
                 </form>
             </div>
@@ -355,7 +286,7 @@ function Signup() {
                     </div>
                     <div className="input-group mb-3">
                         <span className="input-group-text" id="basic-addon1">State:</span>
-                        <select className = 'form-select input_values venue_input_values' aria-label="City" aria-describedby="basic-addon1" id="venue_state">
+                        <select className = 'form-select input_values venue_input_values' aria-label="State" aria-describedby="basic-addon1" id="venue_state">
                             <option>AL</option>
                             <option>AK</option>
                             <option>AZ</option>
@@ -408,7 +339,6 @@ function Signup() {
                             <option>WY</option>
                         </select>
                     </div>
-                    <br/>
                     <div className="input-group mb-3">
                         <span className="input-group-text" id="basic-addon1">Artist Name:</span>
                         <input type="text" id="artist_name" className="form-control input_values artist_input_values" placeholder="Your band / artist name here!" aria-label="Artist" aria-describedby="basic-addon1" />
@@ -470,6 +400,7 @@ function Signup() {
                     <button type="submit" className="btn btn-primary btn-lg">Submit!</button>
                 </form>
             </div>
+
         }
 
         return (
