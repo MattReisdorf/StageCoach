@@ -3,8 +3,8 @@ import "../css/Home.css";
 import "../css/Venue.css";
 import axios from "axios";
 import { BiIdCard, BiBeer } from "react-icons/bi";
-import { IoFastFoodOutline as Food } from "react-icons/io5";
-import { FaChild as Child } from "react-icons/fa";
+import { IoFastFoodOutline as Food, IoLogoFacebook as Facebook, IoLogoTwitter as Twitter, IoLogoInstagram as Instagram } from "react-icons/io5";
+import { FaChild as Child, FaTimes as XIcon } from "react-icons/fa";
 
 // class Venue extends Component {
 //   state = {
@@ -48,8 +48,10 @@ function Venue() {
             <img id="profile-image" src={venue.image_one} />
             <h3>{venue.bio}</h3>
             <div>
-              <span>contact: </span>
-              <a href={"mailto:" + venue.email}>{venue.email}</a>{" "}
+              {venue.external_social_facebook ? <a className="social-icons" href= {venue.external_social_facebook}><Facebook /></a> : null}
+              {venue.external_social_instagram ? <a className="social-icons" href= {venue.external_social_instagram}><Instagram /></a> : null}
+              {venue.external_social_twitter ? <a className="social-icons" href= {venue.external_social_twitter}><Twitter /></a> : null}
+
             </div>
           </div>
           <div id="boolean-icons">
@@ -58,7 +60,9 @@ function Venue() {
                 <BiBeer /> Has bar
               </span>
             ) : (
-              <></>
+              <span>
+                <XIcon /> No Bar
+              </span>
             )}
             {venue.all_ages ? (
               <span>
@@ -86,7 +90,9 @@ function Venue() {
                 <Food /> Has food
               </span>
             ) : (
-              <></>
+              <span>
+                <XIcon /> No Food
+              </span>
             )}
           </div>
         </div>
@@ -151,12 +157,14 @@ function Venue() {
                 For booking inquiries at {venue.venue_name} please contact:
               </span>
               <br />
-              <span>{venue.contact_title}: {venue.contact_name}</span>
+              <span>
+                {venue.contact_title}: {venue.contact_name}
+              </span>
               <br />
               <span>
-              Phone: {venue.contact_number}
-              <br/>
-              Email: {venue.contact_email}
+                Phone: {venue.contact_number}
+                <br />
+                Email: <a href={"mailto:" + venue.contact_email}>{venue.contact_email}</a>
               </span>
             </div>
           </div>
