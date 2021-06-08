@@ -6,10 +6,6 @@ import axios from "axios";
 import { FaYoutube } from "react-icons/fa";
 
 function Signup() {
-  //   const [youtube, setYoutube] = React.useState(false);
-  //   const [bandcamp, setBandcamp] = React.useState(false);
-  //   const [soundcloud, setSoundcloud] = React.useState(false);
-
   const [mediaState, setMediaState] = React.useState("-");
   const [linkState, setLinkState] = React.useState("");
 
@@ -29,7 +25,6 @@ function Signup() {
   const [bandcampLinks, setbandcampLinks] = React.useState([]);
 
   const handleMediaAdd = async (linkType) => {
-    // e.preventDefault();
     console.log("Link state!!", linkState);
     if (linkType === "YouTube") {
       setYoutubeLinks([...youtubeLinks, linkState]);
@@ -41,12 +36,7 @@ function Signup() {
 
     setLinkState("");
     setMediaState("-");
-
-    // setYoutube(false);
-    // console.log(youtubeLinks);
   };
-
-  // const [toggleState, setToggleState] = React.useState(1);
 
   console.log(
     "Meida link arrrayyy",
@@ -71,12 +61,15 @@ function Signup() {
       .then((data) => {
         console.log("dataaaa", data);
       });
-    // console.log(youtube);
   }, []);
 
   // Venue Sign Up Page
   if (type === "Venue") {
     signUpForm = (
+        <div id="card-contain">
+        <div class="card shadow-lg p-3 mb-5 shadow bg-white rounded">
+            <h5 class="card-header">Venue Sign Up</h5>
+           <div class="card-body">
       <div>
         <div
           className="modal fade"
@@ -146,7 +139,7 @@ function Signup() {
         </div>
         <form>
           <div className="input-group mb-3">
-            <span className="input-group-text" id="basic-addon1">
+            <span className="input-group-text shadow" id="basic-addon1">
               Username:
             </span>
             <input
@@ -159,7 +152,7 @@ function Signup() {
             />
           </div>
           <div className="input-group mb-3">
-            <span className="input-group-text" id="basic-addon1">
+            <span className="input-group-text shadow" id="basic-addon1">
               Email:
             </span>
             <input
@@ -172,7 +165,7 @@ function Signup() {
             />
           </div>
           <div className="input-group mb-3">
-            <span className="input-group-text" id="basic-addon1">
+            <span className="input-group-text shadow" id="basic-addon1">
               Password:
             </span>
             <input
@@ -185,7 +178,7 @@ function Signup() {
             />
           </div>
           <div className="input-group mb-3">
-            <span className="input-group-text" id="basic-addon1">
+            <span className="input-group-text shadow" id="basic-addon1">
               Confirm Password:
             </span>
             <input
@@ -198,7 +191,7 @@ function Signup() {
             />
           </div>
           <div className="input-group mb-3">
-            <span className="input-group-text" id="basic-addon1">
+            <span className="input-group-text shadow" id="basic-addon1">
               Address:
             </span>
             <input
@@ -211,7 +204,7 @@ function Signup() {
             />
           </div>
           <div className="input-group mb-3">
-            <span className="input-group-text" id="basic-addon1">
+            <span className="input-group-text shadow" id="basic-addon1">
               City:
             </span>
             <input
@@ -224,7 +217,7 @@ function Signup() {
             />
           </div>
           <div className="input-group mb-3">
-            <span className="input-group-text" id="basic-addon1">
+            <span className="input-group-text shadow" id="basic-addon1">
               State:
             </span>
             <select
@@ -286,7 +279,7 @@ function Signup() {
             </select>
           </div>
           <div className="input-group mb-3">
-            <span className="input-group-text" id="basic-addon1">
+            <span className="input-group-text shadow" id="basic-addon1">
               Venue Name:
             </span>
             <input
@@ -299,7 +292,7 @@ function Signup() {
             />
           </div>
           <div className="input-group mb-3">
-            <span className="input-group-text" id="basic-addon1">
+            <span className="input-group-text shadow" id="basic-addon1">
               Bio:
             </span>
             <textarea
@@ -349,17 +342,26 @@ function Signup() {
               </label>
             </div>
           </div>
-          <button type="submit" className="btn btn-primary btn-lg">
+          <div id="sub-but-div">
+          <button id="sub-but" type="submit" className="btn btn-primary btn-lg shadow-lg p-3 mb-5 bg-white rounded">
             Submit!
           </button>
+          </div>
         </form>
       </div>
+      </div>
+    </div>
+    </div>
     );
   }
 
   // Artist Sign Up Page
   else if (type === "Artist") {
     signUpForm = (
+        <div id="card-contain">
+        <div class="card shadow-lg p-3 mb-5 shadow bg-white rounded">
+        <h5 class="card-header">Artist Sign Up</h5>
+        <div class="card-body">
       <div>
         <div
           className="modal fade"
@@ -429,7 +431,7 @@ function Signup() {
         </div>
         <form>
           <div className="input-group mb-3">
-            <span className="input-group-text" id="basic-addon1">
+            <span className="input-group-text shadow rounded" id="basic-addon1">
               Username:
             </span>
             <input
@@ -442,7 +444,7 @@ function Signup() {
             />
           </div>
           <div className="input-group mb-3">
-            <span className="input-group-text" id="basic-addon1">
+            <span className="input-group-text shadow rounded" id="basic-addon1">
               Email:
             </span>
             <input
@@ -455,7 +457,7 @@ function Signup() {
             />
           </div>
           <div className="input-group mb-3">
-            <span className="input-group-text" id="basic-addon1">
+            <span className="input-group-text shadow rounded" id="basic-addon1">
               Password:
             </span>
             <input
@@ -468,7 +470,7 @@ function Signup() {
             />
           </div>
           <div className="input-group mb-3">
-            <span className="input-group-text" id="basic-addon1">
+            <span className="input-group-text shadow rounded" id="basic-addon1">
               Confirm Password:
             </span>
             <input
@@ -481,7 +483,7 @@ function Signup() {
             />
           </div>
           <div className="input-group mb-3">
-            <span className="input-group-text" id="basic-addon1">
+            <span className="input-group-text shadow rounded" id="basic-addon1">
               City:
             </span>
             <input
@@ -494,7 +496,7 @@ function Signup() {
             />
           </div>
           <div className="input-group mb-3">
-            <span className="input-group-text" id="basic-addon1">
+            <span className="input-group-text shadow rounded" id="basic-addon1">
               State:
             </span>
             <select
@@ -556,7 +558,7 @@ function Signup() {
             </select>
           </div>
           <div className="input-group mb-3">
-            <span className="input-group-text" id="basic-addon1">
+            <span className="input-group-text shadow rounded" id="basic-addon1">
               Artist Name:
             </span>
             <input
@@ -569,7 +571,7 @@ function Signup() {
             />
           </div>
           <div className="input-group mb-3">
-            <span className="input-group-text" id="basic-addon1">
+            <span className="input-group-text shadow rounded" id="basic-addon1">
               Bio:
             </span>
             <textarea
@@ -584,14 +586,15 @@ function Signup() {
           <h1 id="h1media">Adding media will help you get noticed...</h1>
           <button
             type="button"
-            className="btn btn-primary"
+            id="modal-but"
+            className="btn btn-primary shadow-sm"
             data-bs-toggle="modal"
             data-bs-target="#picModal"
           >
             Help me add a profile pic!
           </button>
           <div className="input-group mb-3">
-            <span className="input-group-text" id="basic-addon1">
+            <span className="input-group-text shadow rounded" id="basic-addon1">
               Profile Pic:
             </span>
             <input
@@ -606,14 +609,15 @@ function Signup() {
 
           <button
             type="button"
-            className="btn btn-primary"
+            id="modal-but"
+            className="btn btn-primary shadow-sm"
             data-bs-toggle="modal"
             data-bs-target="#embedModal"
           >
             Help me embed!
           </button>
           <div className="input-group mb-3">
-            <span className="input-group-text" id="basic-addon1">
+            <span className="input-group-text shadow rounded" id="basic-addon1">
               Upload Media:
             </span>
             <select
@@ -656,6 +660,7 @@ function Signup() {
                 <button
                   onClickCapture={(e) => handleMediaAdd(mediaState)}
                   type="submit"
+                  id="media-button"
                   className="btn btn-primary btn-lg"
                 >
                   Add Media
@@ -683,7 +688,7 @@ function Signup() {
                       type="text"
                       id="website_url"
                       className="form-control input_values artist_input_values table_values"
-                      placeholder="Your website URL here!"
+                      placeholder="website url"
                       aria-label="website_url"
                       aria-describedby="basic-addon1"
                     />
@@ -695,7 +700,7 @@ function Signup() {
                       type="text"
                       id="bandcamp_url"
                       className="form-control input_values artist_input_values table_values"
-                      placeholder="Your bandcamp URL here!"
+                      placeholder="bandcamp url"
                       aria-label="bandcamp_url"
                       aria-describedby="basic-addon1"
                     />
@@ -707,7 +712,7 @@ function Signup() {
                       type="text"
                       id="soundcloud_url"
                       className="form-control input_values artist_input_values table_values"
-                      placeholder="Your soundcloud URL here!"
+                      placeholder="soundcloud url"
                       aria-label="soundcloud_url"
                       aria-describedby="basic-addon1"
                     />
@@ -719,7 +724,7 @@ function Signup() {
                       type="text"
                       id="spotify_url"
                       className="form-control input_values artist_input_values table_values"
-                      placeholder="Your spotify URL here!"
+                      placeholder="spotify url"
                       aria-label="spotify_url"
                       aria-describedby="basic-addon1"
                     />
@@ -728,11 +733,16 @@ function Signup() {
               </tr>
             </tbody>
           </table>
-          <button type="submit" className="btn btn-primary btn-lg">
+          <div id="sub-but-div">
+          <button id="sub-but" type="submit" className="btn btn-primary btn-lg shadow-lg p-3 mb-5 bg-white rounded">
             Submit!
           </button>
+          </div>
         </form>
       </div>
+      </div>
+        </div>
+        </div>
     );
   }
 
@@ -755,14 +765,14 @@ function Signup() {
                             <input type = 'text' className = 'form-control' required></input>
                         </div>
                     </form> */}
-        <div className="d-flex justify-content-center">
-          <button id="set-signup" onClick={() => setSignupType("Artist")}>
+        <div className="d-flex justify-content-center ">
+          <button className="shadow-lg" id="set-signup" onClick={() => setSignupType("Artist")}>
             Artist
           </button>
           <p id="or" className="d-flex justify-content-center">
             or
           </p>
-          <button id="set-signup" onClick={() => setSignupType("Venue")}>
+          <button className="shadow-lg" id="set-signup" onClick={() => setSignupType("Venue")}>
             Venue
           </button>
         </div>
