@@ -33,6 +33,11 @@
         font-size: 24px;
     }
     
+.social-icons {
+    color: black;
+    font-size: 24px;
+    margin-right: 8px;
+}
 /* nav tabs */
 #venue-nav-tabs {
     display: flex;
