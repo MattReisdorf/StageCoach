@@ -123,7 +123,7 @@ function Signup() {
                     </div>
                     <div className="input-group mb-3">
                         <span className="input-group-text" id="basic-addon1">Address:</span>
-                        <input type="text" id="venue_address" className="form-control input_values venue_input_values" placeholder="Venue's address" aria-label="Address" aria-describedby="basic-addon1" />
+                        <input type="text" id="venue_address" className="form-control input_values venue_input_values" placeholder="Venue's Address" aria-label="Address" aria-describedby="basic-addon1" />
                     </div>
                     <div className="input-group mb-3">
                         <span className="input-group-text" id="basic-addon1">City:</span>
@@ -418,13 +418,14 @@ function Signup() {
                         <textarea type="text" id="artist_bio" className="form-control input_values artist_input_values" placeholder="Tell us about yourself!" aria-label="Bio" aria-describedby="basic-addon1" />
                     </div>
                     <h1 id="h1media">Adding media will help you get noticed...</h1>
+                    <button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#picModal">
+                    Help me add a profile pic!
+                    </button>
                     <div className="input-group mb-3">
                         <span className="input-group-text" id="basic-addon1">Profile Pic:</span>
                         <input type="text" id="imgur_url" className="form-control input_values artist_input_values" placeholder="Upload a photo! Imgur links only please." aria-label="imgur_url" aria-describedby="basic-addon1" />
                     </div>
-                    <button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#picModal">
-                    Help me add a profile pic!
-                    </button>
+                    
                     <button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#embedModal">
                     Help me embed!
                     </button>
