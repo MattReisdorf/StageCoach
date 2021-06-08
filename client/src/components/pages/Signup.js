@@ -1,43 +1,67 @@
-import React, { Component } from 'react';
+import React, { Component, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../css/Home.css';
+import '../css/Signup.css'
 import axios from 'axios';
+import { FaYoutube } from 'react-icons/fa';
 
+function Signup() {
+    const [youtube, setYoutube] = React.useState(
+        false
+    );
+    const [bandcamp, setBandcamp] = React.useState(
+        false
+    );
+    const [soundcloud, setSoundcloud] = React.useState(
+        false
+    );
 
-class Signup extends Component {
-
-    constructor(props) {
-        super(props);
-        this.state = {
-            signupType: ''
-        };
-
-        this.setArtist = this.setArtist.bind(this)
-        this.setVenue = this.setVenue.bind(this)
+    function stateChange(e) {
+        console.log("e", e)
+        if (e === "YouTube") {
+            setYoutube(true);
+        } else if (e === "BandCamp") {
+             setBandcamp(true);
+        } else if (e === "SoundCloud") {
+             setSoundcloud(true)
+        }
+        console.log("youtube", youtube)
     }
+    
+    const youtubeLinks = new Array;
+    const soundcloudLinks = new Array;
+    const bandcampLinks = new Array;
 
-    setArtist = () => {
-        this.setState({
-            signupType: 'Artist'
-        })
-        // console.log(this.state.signupType);
+    const handleMediaAdd = async (e) => {
+        e.preventDefault();
+        youtubeLinks.push(e) 
+        setYoutube(false)
+        console.log(youtubeLinks)
     }
+    
+    // const [toggleState, setToggleState] = React.useState(1);
 
-    setVenue = () => {
-        this.setState({
-            signupType: 'Venue'
-        })
-        // console.log(this.state.signupType);
-    }
+    const [signupType, setSignupType] = React.useState(""); 
+    
+    let type = signupType;
+    let signUpForm;
+  
+    useEffect(() => {
+      axios
+        .get(
+          "/api/signup/" +
+            window.location.pathname.substr(
+              window.location.pathname.lastIndexOf("/") + 1
+            )
+        )
+        .then((data) => {
+          console.log("dataaaa", data);
+        });
+        console.log(youtube)
+    }, [youtube]);
+  
 
-    render() {
-
-        let type = this.state.signupType;
-        let signUpForm;
-
-
-
-
+        
 
 
 
@@ -105,9 +129,9 @@ class Signup extends Component {
                         <span className="input-group-text" id="basic-addon1">City:</span>
                         <input type="text" id="venue_city" className="form-control input_values venue_input_values" placeholder="City Name" aria-label="City" aria-describedby="basic-addon1" />
                     </div>
-                    <div>
+                    <div className="input-group mb-3">
                         <span className="input-group-text" id="basic-addon1">State:</span>
-                        <select className = 'form-select input_values venue_input_values' id="venue_state">
+                        <select className = 'form-select input_values venue_input_values' aria-label="City" aria-describedby="basic-addon1" id="venue_state">
                             <option>AL</option>
                             <option>AK</option>
                             <option>AZ</option>
@@ -329,9 +353,9 @@ class Signup extends Component {
                         <span className="input-group-text" id="basic-addon1">City:</span>
                         <input type="text" id="artist_city" className="form-control input_values artist_input_values" placeholder="City Name" aria-label="City" aria-describedby="basic-addon1" />
                     </div>
-                    <div>
+                    <div className="input-group mb-3">
                         <span className="input-group-text" id="basic-addon1">State:</span>
-                        <select className = 'form-select input_values artist_input_values' id="artist_state">
+                        <select className = 'form-select input_values venue_input_values' aria-label="City" aria-describedby="basic-addon1" id="venue_state">
                             <option>AL</option>
                             <option>AK</option>
                             <option>AZ</option>
@@ -393,7 +417,7 @@ class Signup extends Component {
                         <span className="input-group-text" id="basic-addon1">Bio:</span>
                         <textarea type="text" id="artist_bio" className="form-control input_values artist_input_values" placeholder="Tell us about yourself!" aria-label="Bio" aria-describedby="basic-addon1" />
                     </div>
-                    <h1>Now that the required stuffs out of the way, why not add some of your media?</h1>
+                    <h1 id="h1media">Adding media will help you get noticed...</h1>
                     <div className="input-group mb-3">
                         <span className="input-group-text" id="basic-addon1">Profile Pic:</span>
                         <input type="text" id="imgur_url" className="form-control input_values artist_input_values" placeholder="Upload a photo! Imgur links only please." aria-label="imgur_url" aria-describedby="basic-addon1" />
@@ -401,62 +425,21 @@ class Signup extends Component {
                     <button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#picModal">
                     Help me add a profile pic!
                     </button>
-                    <table className="table text-center">
-                        <thead>
-                            <tr>
-                            <th scope="col">Youtube</th>
-                            <th scope="col">Bandcamp</th>
-                            <th scope="col">Soundcloud</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                            <td><div className="input-group mb-3">
-                                    <span className="input-group-text" id="basic-addon1">Youtube 1:</span>
-                                    <input type="text" id="youtube_one" className="form-control input_values artist_input_values table_values" placeholder="Youtube Embed links only please." aria-label="youtube_one" aria-describedby="basic-addon1" />
-                            </div></td>
-                            <td><div className="input-group mb-3">
-                                <span className="input-group-text" id="basic-addon1">Bandcamp 1:</span>
-                                <input type="text" id="bandcamp_one" className="form-control input_values artist_input_values table_values" placeholder="Bandcamp Embed links only please." aria-label="bandcamp_one" aria-describedby="basic-addon1" />
-                            </div></td>
-                            <td><div className="input-group mb-3">
-                                <span className="input-group-text" id="basic-addon1">Soundcloud 1:</span>
-                                <input type="text" id="soundcloud_one" className="form-control input_values artist_input_values table_values" placeholder="Soundcloud Embed links only please." aria-label="soundcloud_one" aria-describedby="basic-addon1" />
-                            </div></td>
-                            </tr>
-                            <tr>
-                            <td><div className="input-group mb-3">
-                                    <span className="input-group-text" id="basic-addon1">Youtube 2:</span>
-                                    <input type="text" id="youtube_two" className="form-control input_values artist_input_values table_values" placeholder="Youtube Embed links only please." aria-label="youtube_two" aria-describedby="basic-addon1" />
-                            </div></td>
-                            <td><div className="input-group mb-3">
-                                <span className="input-group-text" id="basic-addon1">Bandcamp 2:</span>
-                                <input type="text" id="bandcamp_two" className="form-control input_values artist_input_values table_values" placeholder="Bandcamp Embed links only please." aria-label="bandcamp_two" aria-describedby="basic-addon1" />
-                            </div></td>
-                            <td><div className="input-group mb-3">
-                                <span className="input-group-text" id="basic-addon1">Soundcloud 2:</span>
-                                <input type="text" id="soundcloud_two" className="form-control input_values artist_input_values table_values" placeholder="Soundcloud Embed links only please." aria-label="soundcloud_two" aria-describedby="basic-addon1" />
-                            </div></td>
-                            </tr>
-                            <tr>
-                            <td><div className="input-group mb-3">
-                                    <span className="input-group-text" id="basic-addon1">Youtube 3:</span>
-                                    <input type="text" id="youtube_three" className="form-control input_values artist_input_values table_values" placeholder="Youtube Embed links only please." aria-label="youtube_three" aria-describedby="basic-addon1" />
-                            </div></td>
-                            <td><div className="input-group mb-3">
-                                <span className="input-group-text" id="basic-addon1">Bandcamp 3:</span>
-                                <input type="text" id="bandcamp_three" className="form-control input_values artist_input_values table_values" placeholder="Bandcamp Embed links only please." aria-label="bandcamp_three" aria-describedby="basic-addon1" />
-                            </div></td>
-                            <td><div className="input-group mb-3">
-                                <span className="input-group-text" id="basic-addon1">Soundcloud 3:</span>
-                                <input type="text" id="soundcloud_three" className="form-control input_values artist_input_values table_values" placeholder="Soundcloud Embed links only please." aria-label="soundcloud_three" aria-describedby="basic-addon1" />
-                            </div></td>
-                            </tr>
-                        </tbody>
-                    </table>
                     <button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#embedModal">
                     Help me embed!
                     </button>
+                    <div className="input-group mb-3">
+                        <span className="input-group-text" id="basic-addon1">Upload Media:</span>
+                        <select onChange={(e) => stateChange(e.target.value)} className = 'form-select input_values venue_input_values' aria-label="Media" aria-describedby="basic-addon1" id="artist-media">
+                        <option>-</option>
+                        <option value="YouTube"> YouTube</option>
+                        <option> Bandcamp</option>
+                        <option> Soundcloud</option>
+                        </select>
+                    </div>
+                    {youtubeLinks.map(youtube => (<p>{youtube}</p>))}
+                    { youtube ? <div><form><input type="text" id="website_url" className="form-control input_values artist_input_values table_values" placeholder="Enter embedded YouTube link here..." aria-label="website_url" aria-describedby="basic-addon1" />
+                    <button onClickCapture = {(e) => handleMediaAdd(e)} type="submit" className="btn btn-primary btn-lg">Add Media</button></form></div> : <div></div> }
                     <table className="table text-center">
                         <thead>
                             <tr>
@@ -492,6 +475,7 @@ class Signup extends Component {
             <div className = 'home-background'>
 
                 <div className = 'container'>
+                    <h1 id="top-signup">Sign up as a...</h1>
 
                     {/* <form>
                         <div className = 'form-group'>
@@ -507,13 +491,15 @@ class Signup extends Component {
                             <input type = 'text' className = 'form-control' required></input>
                         </div>
                     </form> */}
-
-                    <button onClick = {this.setArtist}>
+                    <div className="d-flex justify-content-center">
+                    <button id="set-signup" onClick={() => setSignupType("Artist")}>
                         Artist
                     </button>
-                    <button onClick = {this.setVenue}>
+                        <p id="or" className="d-flex justify-content-center">or</p>
+                    <button id="set-signup" onClick={() => setSignupType("Venue")}>
                         Venue
                     </button>
+                    </div>
 
                     {signUpForm}
                     {/* <div className = 'calendar-placeholder'>
@@ -523,7 +509,6 @@ class Signup extends Component {
             </div>
         )
     }
-}
-
+                    
 
 export default Signup;
