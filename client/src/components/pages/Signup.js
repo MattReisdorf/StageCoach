@@ -524,7 +524,7 @@ function Signup() {
           ))}
           <div>
             <form>
-              <span className="input-group-text shadow rounded" id="basic-addon1">
+              <span className="input-group-text input-group shadow rounded" id="basic-addon1">
                 Add Image:
               </span>
               <input

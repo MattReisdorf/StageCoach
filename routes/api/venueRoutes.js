@@ -1,4 +1,5 @@
 const router = require("express").Router();
+const { captureRejectionSymbol } = require("events");
 const { Venue, Show } = require("../../models");
 
 // get all venues
@@ -28,6 +29,7 @@ router.get("/:id", async (req, res) => {
 });
 
 // get all shows for one venue
+// has code to get location of show through venue
 
 router.get("/:id/shows", async (req, res) => {
   try {
@@ -35,6 +37,10 @@ router.get("/:id/shows", async (req, res) => {
     const venueShowData = await Show.findAll({
       where: {
         venue_id: req.params.id
+      },
+      include: {
+        model: Venue,
+        attributes: ["city", "state"]      
       }
     });
 
