@@ -55,9 +55,9 @@
     border-top-left-radius: 8px;
 }
 
-#bottom-btn {
+#bottom-button {
     display: flex;
     justify-content: center;
-    color: red;
+    align-items: center;
 }
 
