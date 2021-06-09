@@ -6,6 +6,7 @@ import Signup from './components/pages/Signup';
 import Artist from './components/pages/Artist';
 import Venue from './components/pages/Venue'
 import Search from './components/pages/Search';
+import CreateShow from './components/pages/CreateShow';
 
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
              <Route exact path = '/signup' component = {Signup} />
              <Route exact path = '/search' component = {Search} />
              <Route exact path = '/venues/:id' component = {Venue} />
+             <Route exact path = '/shows/create' component = {CreateShow} />
 
         </Router>
        

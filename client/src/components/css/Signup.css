@@ -1,15 +1,23 @@
+body {
+    background-color: rgb(218,221,216);
+}
+
 #basic-addon1 {
     width: 150px !important;
     height: auto;
-    font-size: 15px;
+    font-size: 17px;
     text-align: center;
     display: flex;
     justify-content: center;
+    background-color: rgb(218,221,216);
+    color: rgb(192, 78, 33);
 }
 
 #h1media {
-    font-size: 50px;
+    font-size: 30px;
     text-align: center;
+    font-family: 'Pacifico', cursive;
+    font-family: 'Roboto Slab', serif;
 }
 
 #signup-button {
@@ -21,17 +29,103 @@
 
 #top-signup {
     text-align: center;
+    font-family: 'Pacifico', cursive;
+    font-family: 'Roboto Slab', serif;
 }
 
 #set-signup {
     margin: 20px;
     width: 150px;
-    height: 50px;
+    height: 60px;
     font-size: 30px;
+    color: rgb(192, 78, 33);
+    background-color: rgb(218,221,216);
+    font-family: 'Pacifico', cursive;
+    font-family: 'Roboto Slab', serif;
+}
+
+#set-signup:focus {
+    border: solid 6px ;
+    border-image: url(./lasso.png) 70 fill;
+    box-shadow: 0 0 11px rgba(33,33,33,.2);
+    border-image-outset: 5px;
+}
+
+#set-signup:active {
+    border: solid 6px ;
+    border-image: url(./lasso.png) 80 fill;
+    box-shadow: 0 0 21px rgba(33,33,33,.2);
+    border-image-outset: 5px;
 }
 
 #or {
     font-size: 30px;
     margin: 0px !important;
     padding-top: 20px;
+    font-family: 'Pacifico', cursive;
+    font-family: 'Roboto Slab', serif;
 }
+
+#media-button {
+    margin-right: 1px;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 8px;
+    border-top-right-radius: 0px;
+    border-top-left-radius: 0px;
+    background-color: rgba(109, 90, 77, 0.2) !important;
+    border: none !important;
+    color: rgb(192, 78, 33);
+}
+
+#sub-but {
+    color: rgb(192, 78, 33);
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    border-top-right-radius: 8px;
+    border-top-left-radius: 8px;
+    background-color: rgb(236, 235, 228) !important;
+    border: none !important;
+    text-align: center;
+    width: 400px;
+    height: auto;
+    margin-bottom: 20px;
+    font-size: 35px;
+    font-family: 'Pacifico', cursive;
+    font-family: 'Roboto Slab', serif;
+  
+}
+
+#sub-but-div {
+    display: flex;
+    justify-content: center;
+}
+
+.card {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    background-color: rgb(190, 171, 157);
+}
+
+#card-contain {
+    display: flex;
+    justify-content: center;
+}
+
+#modal-but {
+    color: black;
+    margin-bottom: 8px;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    border-top-right-radius: 8px;
+    border-top-left-radius: 8px;
+}
+
+#card-head {
+    font-family: 'Pacifico', cursive;
+    font-family: 'Roboto Slab', serif;
+    background-color:rgb(102, 76, 58);
+    color:rgb(255, 255, 255) ;
+    text-shadow: black .2px .2px;
+}
+

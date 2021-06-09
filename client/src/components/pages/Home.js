@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../css/Home.css';
+import Calendar from '../Calendar';
 import axios from 'axios';
 
 require('dotenv').config();
@@ -53,13 +54,13 @@ export default function Home() {
 
                 <div className = 'container'>
                     <div className = 'calendar-placeholder'>
-                        <h4>Week's Worth of Shows</h4>
+                        <Calendar />
                     </div>
                 </div>
 
                 <div className = 'container'>
                     <div className = 'search-placeholder'>
-                        <p className = 'search-text'>Search for an Artist or Venue</p>
+                        <p className = 'search-text'>Search for an Artist or Venues</p>
                         <form className = 'search-form'>
                             <input className = 'form-control' type = 'search' onChange = {handleSearch} placeholder = '' aria-label = 'search'></input>
                                 <Link

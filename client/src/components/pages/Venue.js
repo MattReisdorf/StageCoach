@@ -3,18 +3,19 @@ import "../css/Home.css";
 import "../css/Venue.css";
 import axios from "axios";
 import { BiIdCard, BiBeer } from "react-icons/bi";
-import { IoFastFoodOutline as Food, IoLogoFacebook as Facebook, IoLogoTwitter as Twitter, IoLogoInstagram as Instagram } from "react-icons/io5";
+import {
+  IoFastFoodOutline as Food,
+  IoLogoFacebook as Facebook,
+  IoLogoTwitter as Twitter,
+  IoLogoInstagram as Instagram,
+} from "react-icons/io5";
 import { FaChild as Child, FaTimes as XIcon } from "react-icons/fa";
-
-// class Venue extends Component {
-//   state = {
-//     venue: {},
-//     tabState: 1,
-//   };
 
 function Venue() {
   const [venue, setVenue] = useState({});
+  const [shows, setShows] = useState([]);
   const [toggleState, setToggleState] = useState(1);
+  
 
   useEffect(() => {
     axios
@@ -25,9 +26,9 @@ function Venue() {
           )
       )
       .then((data) => {
-        console.log("dataaaa", data);
         setVenue(data.data);
-      });
+      })
+      getShows();
   }, []);
 
   const toggleTab = (index) => {
@@ -35,6 +36,53 @@ function Venue() {
     setToggleState(index);
   };
 
+const getShows = () => {
+    axios
+      .get(
+        "/api/venues/" +
+          window.location.pathname.substr(
+            window.location.pathname.lastIndexOf("/") + 1
+          ) +
+          "/shows"
+      )
+      .then((showData) => {
+        console.log(showData.data);
+        setShows(showData.data);
+        console.log("test:", shows);
+      });
+  }
+  if(shows.length> 0) {
+    var dateObj = new Date(shows[0].date);
+    var month = dateObj.getUTCMonth() + 1; //months from 1-12
+    var day = dateObj.getUTCDate();
+    var year = dateObj.getUTCFullYear();
+    console.log('date ???', month, day,year)
+  }
+  const formateDate = (date)=> {
+    var finalStr = ''
+
+    var dateObj = new Date(shows[0].date);
+    var month = dateObj.getUTCMonth() + 1; //months from 1-12
+    var day = dateObj.getUTCDate();
+    var year = dateObj.getUTCFullYear();
+    console.log('date ???', month, day,year)
+    finalStr+= month + '/' + day + '/' + year
+    return finalStr
+  }
+
+  const formatTime = (time)=> {
+    var finalStr = ''
+    var hour = parseInt(time.split(':')[0])
+    if(hour > 12) {
+      hour = hour - 12
+      finalStr+= hour +' P.M.'
+    } else {
+      finalStr+= hour +' A.M.'
+    }
+    console.log('time!', hour)
+    return finalStr
+  }
+  
   return (
     <div className="container-fluid" id="venue-main-box">
       <div className="row" id="test">
@@ -48,10 +96,30 @@ function Venue() {
             <img id="profile-image" src={venue.image_one} />
             <h3>{venue.bio}</h3>
             <div>
-              {venue.external_social_facebook ? <a className="social-icons" href= {venue.external_social_facebook}><Facebook /></a> : null}
-              {venue.external_social_instagram ? <a className="social-icons" href= {venue.external_social_instagram}><Instagram /></a> : null}
-              {venue.external_social_twitter ? <a className="social-icons" href= {venue.external_social_twitter}><Twitter /></a> : null}
-
+              {venue.external_social_facebook ? (
+                <a
+                  className="social-icons"
+                  href={venue.external_social_facebook}
+                >
+                  <Facebook />
+                </a>
+              ) : null}
+              {venue.external_social_instagram ? (
+                <a
+                  className="social-icons"
+                  href={venue.external_social_instagram}
+                >
+                  <Instagram />
+                </a>
+              ) : null}
+              {venue.external_social_twitter ? (
+                <a
+                  className="social-icons"
+                  href={venue.external_social_twitter}
+                >
+                  <Twitter />
+                </a>
+              ) : null}
             </div>
           </div>
           <div id="boolean-icons">
@@ -134,6 +202,15 @@ function Venue() {
               id="shows-view"
             >
               <h3>Upcoming Shows</h3>
+              { shows ? (shows.map((show) => 
+              ( 
+                <div className="upcoming-shows">
+                <div>{show.description}</div>
+                <div>{formateDate(show.date)} at {formatTime(show.time)}</div>
+                </div>
+
+              ))) : <p>This venue has no upcoming shows</p>}
+
             </div>
 
             <div
@@ -164,7 +241,10 @@ function Venue() {
               <span>
                 Phone: {venue.contact_number}
                 <br />
-                Email: <a href={"mailto:" + venue.contact_email}>{venue.contact_email}</a>
+                Email:{" "}
+                <a href={"mailto:" + venue.contact_email}>
+                  {venue.contact_email}
+                </a>
               </span>
             </div>
           </div>
