@@ -1,46 +1,49 @@
-import React, { Component } from 'react';
-import Calendar from '../Calendar'
-// import IPAPI from '../../utils/IPAPI';
+import React, { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../css/Home.css';
+import Calendar from '../Calendar';
+import axios from 'axios';
 
 require('dotenv').config();
 
 
-class Home extends Component {
+export default function Home() {
 
+    const [cityState, setCityState] = React.useState('');
+    const [lat, setLat] = React.useState('');
+    const [long, setLong] = React.useState('');
+    const [search, setSearch] = React.useState('');
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            city: '',
-            state: ''
-        };
+    
+    const handleSearch = (event) => {
+        event.preventDefault();
+
+        let text = event.target.value;
+        console.log(text);
+        setSearch(text);
     }
 
-    // componentDidMount() {
-        // fetch(process.env.REACT_APP_IPIFY)
-        // .then(res => res.json())
-        // .then(
-        //     (result => {
-        //         console.log(result);
-        //         this.setState({
-        //             city: result.location.city,
-        //             state: result.location.region
-        //         })
-        //     })
-        // )
-    // }
 
-    //logical stuff for calendar/location gonna go here
+    // IPIFY API REQUEST
+    // useEffect(() => {
+    //     axios
+    //         .get(
+    //             process.env.REACT_APP_IPIFY
+    //         )
+    //         .then((result) => {
+    //             setCityState(result.data.location.city);
+    //             setLat(result.data.location.lat);
+    //             setLong(result.data.location.lng);
+    //         })
+    // })
 
 
+    // HANDLE SUBMIT FOR SEARCH -> SEND PROPS TO SEARCH COMPONENT
 
-    render() {
-        if (this.state.city === '') {
-
-            return (
-                <div className = 'home-background'>
+    if (cityState === '') {
+        return (
+            <div className = 'home-background'>
 
                 <div className = 'container-fluid'>
                     <div className = 'howdy text-center'>
@@ -59,20 +62,64 @@ class Home extends Component {
                     <div className = 'search-placeholder'>
                         <p className = 'search-text'>Search for an Artist or Venues</p>
                         <form className = 'search-form'>
-                            <input className = 'form-control' type = 'search' placeholder = '' aria-label = 'search'></input>
-                            <div id="bottom-button">
-                            <button id="srch-button" className = 'btn shadow-lg' type = 'submit'>Search</button>
-                            </div>
+                            <input className = 'form-control' type = 'search' onChange = {handleSearch} placeholder = '' aria-label = 'search'></input>
+                                <Link
+                                    to = {{
+                                        pathname: '/search',
+                                        searchProps: { search, cityState, lat, long }
+                                    }}
+                                        className = 'search-link'
+                                >
+                                    <button className = 'btn btn-dark search-button' type = 'submit'>
+                                        Search
+                                    </button>
+                                </Link>
+                            
                         </form>
                     </div>
                 </div>
 
             </div>
-            )
-            
-        }
+        )
     }
+
+    return (
+        <div className = 'home-background'>
+
+            <div className = 'container-fluid'>
+                <div className = 'howdy text-center'>
+                    <h1>Howdy, {cityState}</h1>
+                    <h3>Here's What's Happening In Your Town This Week</h3>
+                </div>
+            </div>
+
+            <div className = 'container'>
+                <div className = 'calendar-placeholder'>
+                    <h4>Week's Worth of Shows</h4>
+                </div>
+            </div>
+
+            <div className = 'container'>
+                <div className = 'search-placeholder'>
+                    <p className = 'search-text'>Search for an Artist or Venue</p>
+                    <form className = 'search-form'>
+                        <input className = 'form-control' type = 'search' onChange = {handleSearch} placeholder = '' aria-label = 'search' id = 'input'></input>
+                        <button className = 'btn btn-dark search-button' type = 'submit'>
+                            <Link
+                                to = {{
+                                    pathname: '/search',
+                                    searchProps: { search, cityState, lat, long }
+                                }}
+                                     className = 'search-link'
+                            >
+                                Search
+                            </Link>
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    )
+
 }
-
-
-export default Home;
