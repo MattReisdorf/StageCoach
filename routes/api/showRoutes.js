@@ -11,6 +11,21 @@ router.get("/", async (req, res) => {
   }
 });
 
+// get all shows on a certain date
+// get all shows
+router.get("/date/:date", async (req, res) => {
+  try {
+    const showData = await Show.findAll({
+      where: {date: req.params.date
+      }
+    });
+    res.status(200).json(showData);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+
 // get a single show
 router.get("/:id", async (req, res) => {
   try {
