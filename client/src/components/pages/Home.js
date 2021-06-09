@@ -51,7 +51,6 @@ class Home extends Component {
 
                 <div className = 'container'>
                     <div className = 'calendar-placeholder'>
-                        <h4>Week's Worth of Shows</h4>
                         <Calendar />
                     </div>
                 </div>
