@@ -51,6 +51,8 @@
     background-color:rgb(102, 76, 58) !important;
     border-radius: 8px;
     font-size: 40px;
+    font-family: 'Pacifico', cursive;
+    font-family: 'Roboto Slab', serif;
 }
 
 #bottom-button {

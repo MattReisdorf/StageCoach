@@ -74,7 +74,7 @@ function Signup() {
     signUpForm = (
         <div id="card-contain">
         <div class="card shadow-lg p-3 mb-5 shadow bg-white rounded">
-            <h5 class="card-header">Venue Sign Up</h5>
+            <h5 id="card-head" class="card-header shadow text-center">Venue Sign Up</h5>
            <div class="card-body">
       <div>
         <div
@@ -310,9 +310,9 @@ function Signup() {
               aria-describedby="basic-addon1"
             />
           </div>
-          <h1>Extraaaaa!</h1>
+          <h1 class="text-center">Is your venue...</h1>
           <div>
-            <h2>Minimum age to enter:</h2>
+            <h4>A minimum age to enter:</h4>
             <div class="form-check">
               <input
                 class="form-check-input"
@@ -567,7 +567,7 @@ function Signup() {
     signUpForm = (
         <div id="card-contain">
         <div class="card shadow-lg p-3 mb-5 shadow bg-white rounded">
-        <h5 class="card-header">Artist Sign Up</h5>
+        <h5 id="card-head" class="card-header shadow text-center">Artist Sign Up</h5>
         <div class="card-body">
       <div>
         <div
@@ -842,13 +842,13 @@ function Signup() {
             </select>
           </div>
           {youtubeLinks.map((youtube) => (
-            <p>Youtube Link Added! {youtube}</p>
+            <p>Youtube Link Added!</p>
           ))}
           {soundcloudLinks.map((sc) => (
-            <p>SoundCloud Link Added! {sc}</p>
+            <p>SoundCloud Link Added!</p>
           ))}
           {bandcampLinks.map((bc) => (
-            <p>BandCamp Link Added! {bc}</p>
+            <p>BandCamp Link Added!</p>
           ))}
           {mediaState !== "-" ? (
             <div>
@@ -973,13 +973,13 @@ function Signup() {
                         </div>
                     </form> */}
         <div className="d-flex justify-content-center ">
-          <button className="shadow-lg" id="set-signup" onClick={() => setSignupType("Artist")}>
+          <button id="set-signup" onClick={() => setSignupType("Artist")}>
             Artist
           </button>
           <p id="or" className="d-flex justify-content-center">
             or
           </p>
-          <button className="shadow-lg" id="set-signup" onClick={() => setSignupType("Venue")}>
+          <button id="set-signup" onClick={() => setSignupType("Venue")}>
             Venue
           </button>
         </div>
