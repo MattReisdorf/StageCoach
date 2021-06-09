@@ -635,13 +635,13 @@ function Signup() {
             </select>
           </div>
           {youtubeLinks.map((youtube) => (
-            <p>Youtube Link! {youtube}</p>
+            <p>Youtube Link Added! {youtube}</p>
           ))}
           {soundcloudLinks.map((sc) => (
-            <p>Sound CLoud Link {sc}</p>
+            <p>SoundCloud Link Added! {sc}</p>
           ))}
           {bandcampLinks.map((bc) => (
-            <p>BandCamp Link! {bc}</p>
+            <p>BandCamp Link Added! {bc}</p>
           ))}
           {mediaState !== "-" ? (
             <div>
