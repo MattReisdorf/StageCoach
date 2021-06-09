@@ -11,9 +11,9 @@ router.get("/", async (req, res) => {
   }
 });
 
-// get all shows on a certain date
-// get all shows
-router.get("/date/:date", async (req, res) => {
+// get all shows in a certain city
+// not currently working
+router.get("/city/:city", async (req, res) => {
   try {
     const showData = await Show.findAll({
       where: {date: req.params.date
