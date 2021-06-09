@@ -35,21 +35,35 @@ function Signup() {
 
   const handleMediaAdd = async (linkType) => {
     console.log("Link state!!", linkState);
-    if (linkType === "YouTube") {
+
+
+    if (linkType === "YouTube" && youtubeLinks.length < 3) {
       setYoutubeLinks([...youtubeLinks, linkState]);
-    } else if (linkType === "SoundCloud") {
+    } else if (linkType === "YouTube" && youtubeLinks.length >= 3) {
+      alert("Only 3 YouTube links allowed")
+    }
+    
+    else if (linkType === "SoundCloud" && soundcloudLinks.length < 3) {
       setsoundcloudLinks([...soundcloudLinks, linkState]);
-    } else if (linkType === "BandCamp") {
+    } else if (linkType === "SoundCloud" && soundcloudLinks.length >= 3) {
+      alert("Only 3 Soundcloud links allowed")
+    }
+    
+    else if (linkType === "BandCamp" && bandcampLinks.length < 3) {
       setbandcampLinks([...bandcampLinks, linkState]);
-    } else if (linkType === "Imgur") {
-      setImgurLinks(...imgurLinks, linkState);
+    } else if (linkType === "BandCamp" && bandcampLinks.length >= 3) {
+      alert("Only 3 Bandcamp links allowed")
+    }
+    
+    else if (linkType === "Imgur" && imgurLinks.length < 5) {
+      setImgurLinks([...imgurLinks, linkState]);
+    } else if (linkType === "Imgur" && imgurLinks.length >= 5) {
+      alert("Only 5 image links allowed")
     }
 
     setLinkState("");
     setMediaState("-");
   };
-
-  console.log(imgurLinks)
 
   const [signupType, setSignupType] = React.useState("");
 
@@ -520,7 +534,7 @@ function Signup() {
           </div>
           <h2>Finally, let's add some pics of your venue</h2>
           {imgurLinks.map((img) => (
-            <p>Hello</p>
+            <p>Image link added! {img}</p>
           ))}
           <div>
             <form>
@@ -541,7 +555,7 @@ function Signup() {
               />
               <button
                 onClickCapture={(e) => handleMediaAdd(mediaState)}
-                type="submit"
+                type="button"
                 id="media-button"
                 className="btn btn-primary btn-lg mb-3"
               >
