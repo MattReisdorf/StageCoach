@@ -60,7 +60,9 @@ class Home extends Component {
                         <p className = 'search-text'>Search for an Artist or Venues</p>
                         <form className = 'search-form'>
                             <input className = 'form-control' type = 'search' placeholder = '' aria-label = 'search'></input>
-                            <button className = 'btn btn-dark search-button' type = 'submit'>Search</button>
+                            <div id="bottom-button">
+                            <button id="srch-button" className = 'btn shadow-lg' type = 'submit'>Search</button>
+                            </div>
                         </form>
                     </div>
                 </div>

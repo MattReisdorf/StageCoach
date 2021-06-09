@@ -42,17 +42,15 @@
     padding-right: 300px;
 }
 
-.search-button {
+#srch-button {
     width: 220px;
     height: 70px;
-    margin-left: 44%;
     margin-top: 10px;
-    background-color: rgb(235,234,227);
-    color: black;
-    border-bottom-left-radius: 8px;
-    border-bottom-right-radius: 8px;
-    border-top-right-radius: 8px;
-    border-top-left-radius: 8px;
+    margin-bottom: 20px;
+    color: rgb(218,221,216);
+    background-color:rgb(102, 76, 58) !important;
+    border-radius: 8px;
+    font-size: 40px;
 }
 
 #bottom-button {
