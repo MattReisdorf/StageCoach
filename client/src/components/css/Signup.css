@@ -16,6 +16,8 @@ body {
 #h1media {
     font-size: 30px;
     text-align: center;
+    font-family: 'Pacifico', cursive;
+    font-family: 'Roboto Slab', serif;
 }
 
 #signup-button {
@@ -27,20 +29,41 @@ body {
 
 #top-signup {
     text-align: center;
+    font-family: 'Pacifico', cursive;
+    font-family: 'Roboto Slab', serif;
 }
 
 #set-signup {
     margin: 20px;
     width: 150px;
-    height: 50px;
+    height: 60px;
     font-size: 30px;
     color: rgb(192, 78, 33);
+    background-color: rgb(218,221,216);
+    font-family: 'Pacifico', cursive;
+    font-family: 'Roboto Slab', serif;
+}
+
+#set-signup:focus {
+    border: solid 6px ;
+    border-image: url(./lasso.png) 70 fill;
+    box-shadow: 0 0 11px rgba(33,33,33,.2);
+    border-image-outset: 5px;
+}
+
+#set-signup:active {
+    border: solid 6px ;
+    border-image: url(./lasso.png) 80 fill;
+    box-shadow: 0 0 21px rgba(33,33,33,.2);
+    border-image-outset: 5px;
 }
 
 #or {
     font-size: 30px;
     margin: 0px !important;
     padding-top: 20px;
+    font-family: 'Pacifico', cursive;
+    font-family: 'Roboto Slab', serif;
 }
 
 #media-button {
@@ -67,6 +90,8 @@ body {
     height: auto;
     margin-bottom: 20px;
     font-size: 35px;
+    font-family: 'Pacifico', cursive;
+    font-family: 'Roboto Slab', serif;
   
 }
 
@@ -94,5 +119,13 @@ body {
     border-bottom-right-radius: 8px;
     border-top-right-radius: 8px;
     border-top-left-radius: 8px;
+}
+
+#card-head {
+    font-family: 'Pacifico', cursive;
+    font-family: 'Roboto Slab', serif;
+    background-color:rgb(102, 76, 58);
+    color:rgb(255, 255, 255) ;
+    text-shadow: black .2px .2px;
 }
 
