@@ -11,7 +11,7 @@ router.get("/", async (req, res) => {
   }
 });
 
-// get a single venues
+// get a single venue
 router.get("/:id", async (req, res) => {
   try {
     const venueData = await Venue.findByPk(req.params.id);
@@ -32,7 +32,6 @@ router.get("/:id", async (req, res) => {
 router.get("/:id/shows", async (req, res) => {
   try {
     console.log("show api search test")
-    // var today = new Date();
     const venueShowData = await Show.findAll({
       where: {
         venue_id: req.params.id

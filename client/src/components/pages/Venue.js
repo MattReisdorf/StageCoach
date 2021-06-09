@@ -11,12 +11,6 @@ import {
 } from "react-icons/io5";
 import { FaChild as Child, FaTimes as XIcon } from "react-icons/fa";
 
-// class Venue extends Component {
-//   state = {
-//     venue: {},
-//     tabState: 1,
-//   };
-
 function Venue() {
   const [venue, setVenue] = useState({});
   const [shows, setShows] = useState([]);
@@ -32,7 +26,6 @@ function Venue() {
           )
       )
       .then((data) => {
-        console.log("dataaaa", data);
         setVenue(data.data);
       })
       getShows();

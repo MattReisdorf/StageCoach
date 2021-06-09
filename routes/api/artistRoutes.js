@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { Artist } = require("../../models");
+const { Artist, Show } = require("../../models");
 
 // get all artists
 router.get("/", async (req, res) => {
@@ -26,6 +26,28 @@ router.get("/:id", async (req, res) => {
     res.status(500).json(err);
   }
 });
+
+// get all shows for one artist
+
+router.get("/:id/shows", async (req, res) => {
+  try {
+    console.log("show api search test")
+    const artistShowData = await Show.findAll({
+      where: {
+        artist_id: req.params.id
+      }
+    });
+    console.log(artistShowData);
+    if (!artistShowData) {
+      res.status(404).json({ message: "No shows found with this artist id!" });
+      return;
+    }
+    res.status(200).json(artistShowData);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 
 // create an artist
 router.post("/", async (req, res) => {
