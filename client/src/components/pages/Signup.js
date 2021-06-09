@@ -24,6 +24,15 @@ function Signup() {
   const [soundcloudLinks, setsoundcloudLinks] = React.useState([]);
   const [bandcampLinks, setbandcampLinks] = React.useState([]);
 
+  const [imgurLinks, setImgurLinks] = React.useState([]);
+
+  // const handleVenueValueChange = async (e) => {
+  //   setLinkState(e);
+  //   console.log(linkState);
+  //   setMediaState('Imgur');
+  //   console.log(mediaState);
+  // }
+
   const handleMediaAdd = async (linkType) => {
     console.log("Link state!!", linkState);
     if (linkType === "YouTube") {
@@ -32,18 +41,15 @@ function Signup() {
       setsoundcloudLinks([...soundcloudLinks, linkState]);
     } else if (linkType === "BandCamp") {
       setbandcampLinks([...bandcampLinks, linkState]);
+    } else if (linkType === "Imgur") {
+      setImgurLinks(...imgurLinks, linkState);
     }
 
     setLinkState("");
     setMediaState("-");
   };
 
-  console.log(
-    "Meida link arrrayyy",
-    youtubeLinks,
-    soundcloudLinks,
-    bandcampLinks
-  );
+  console.log(imgurLinks)
 
   const [signupType, setSignupType] = React.useState("");
 
@@ -341,6 +347,207 @@ function Signup() {
                 21+
               </label>
             </div>
+            <h2>Ammenities!</h2>
+            <div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="checkfood" />
+                <label class="form-check-label" for="checkfood" >
+                  Food
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="checkbar" />
+                <label class="form-check-label" for="checkbar" >
+                  Bar
+                </label>
+              </div>
+            </div>
+          </div>
+          <h2>Add some links to your venue's other content pages!</h2>
+          <table className="table text-center">
+            <thead>
+              <tr>
+                <th scope="col">Website</th>
+                <th scope="col">Bandcamp</th>
+                <th scope="col">Soundcloud</th>
+                <th scope="col">Spotify</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <div className="input-group mb-3">
+                    <input
+                      type="text"
+                      id="venue_website_url"
+                      className="form-control input_values artist_input_values table_values"
+                      placeholder="website url"
+                      aria-label="website_url"
+                      aria-describedby="basic-addon1"
+                    />
+                  </div>
+                </td>
+                <td>
+                  <div className="input-group mb-3">
+                    <input
+                      type="text"
+                      id="venue_bandcamp_url"
+                      className="form-control input_values artist_input_values table_values"
+                      placeholder="bandcamp url"
+                      aria-label="bandcamp_url"
+                      aria-describedby="basic-addon1"
+                    />
+                  </div>
+                </td>
+                <td>
+                  <div className="input-group mb-3">
+                    <input
+                      type="text"
+                      id="venue_soundcloud_url"
+                      className="form-control input_values artist_input_values table_values"
+                      placeholder="soundcloud url"
+                      aria-label="soundcloud_url"
+                      aria-describedby="basic-addon1"
+                    />
+                  </div>
+                </td>
+                <td>
+                  <div className="input-group mb-3">
+                    <input
+                      type="text"
+                      id="venue_spotify_url"
+                      className="form-control input_values artist_input_values table_values"
+                      placeholder="spotify url"
+                      aria-label="spotify_url"
+                      aria-describedby="basic-addon1"
+                    />
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <h2>Add a contact person's details to reach out to!</h2>
+          <table className="table text-center">
+            <thead>
+              <tr>
+                <th scope="col">Contact Title</th>
+                <th scope="col">Contact Name</th>
+                <th scope="col">Contact Phone</th>
+                <th scope="col">Contact Email</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <div className="input-group mb-3">
+                    <input
+                      type="text"
+                      id="venue_contact_title"
+                      className="form-control input_values artist_input_values table_values"
+                      placeholder="Title"
+                      aria-label="venue_contact_title"
+                      aria-describedby="basic-addon1"
+                    />
+                  </div>
+                </td>
+                <td>
+                  <div className="input-group mb-3">
+                    <input
+                      type="text"
+                      id="venue_contact_name"
+                      className="form-control input_values artist_input_values table_values"
+                      placeholder="Name"
+                      aria-label="venue_contact_name"
+                      aria-describedby="basic-addon1"
+                    />
+                  </div>
+                </td>
+                <td>
+                  <div className="input-group mb-3">
+                    <input
+                      type="text"
+                      id="venue_contact_number"
+                      className="form-control input_values artist_input_values table_values"
+                      placeholder="Phone"
+                      aria-label="venue_contact_number"
+                      aria-describedby="basic-addon1"
+                    />
+                  </div>
+                </td>
+                <td>
+                  <div className="input-group mb-3">
+                    <input
+                      type="text"
+                      id="venue_contact_email"
+                      className="form-control input_values artist_input_values table_values"
+                      placeholder="Email"
+                      aria-label="venue_contact_email"
+                      aria-describedby="basic-addon1"
+                    />
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <h2>Tell us a bit about your venue's specs!</h2>
+          <div>
+            <div className="input-group mb-3">
+                <span className="input-group-text shadow" id="basic-addon1">
+                  Total Capacity:
+                </span>
+                <input
+                  type="number"
+                  id="venue_capacity"
+                  className="form-control input_values venue_input_values"
+                  placeholder="0"
+                  aria-label="Capacity"
+                  aria-describedby="basic-addon1"
+                />
+            </div>
+            <div className="input-group mb-3">
+                <span className="input-group-text shadow" id="basic-addon1">
+                Specs:
+                </span>
+                <textarea
+                  type="text"
+                  id="venue_specs_description"
+                  className="form-control input_values venue_input_values"
+                  placeholder="Feel free to use this field as a spot to really describe to artists what to expect (eg. technical equipment, crew, etc)"
+                  aria-label="Specs"
+                  aria-describedby="basic-addon1"
+                />
+            </div>
+          </div>
+          <h2>Finally, let's add some pics of your venue</h2>
+          {imgurLinks.map((img) => (
+            <p>Hello</p>
+          ))}
+          <div>
+            <form>
+              <span className="input-group-text input-group shadow rounded" id="basic-addon1">
+                Add Image:
+              </span>
+              <input
+                type="text"
+                id="imgur_url"
+                className="form-control input_values artist_input_values table_values"
+                placeholder={`Enter embedded Imgur link here...`}
+                aria-label="imgur_url"
+                aria-describedby="basic-addon1"
+                onChange={(e) => {
+                  setLinkState(e.target.value); 
+                  setMediaState('Imgur');
+                }}
+              />
+              <button
+                onClickCapture={(e) => handleMediaAdd(mediaState)}
+                type="submit"
+                id="media-button"
+                className="btn btn-primary btn-lg mb-3"
+              >
+                Add Media
+              </button>
+            </form>
           </div>
           <div id="sub-but-div">
           <button id="sub-but" type="submit" className="btn btn-primary btn-lg shadow-lg p-3 mb-5 bg-white rounded">
@@ -686,7 +893,7 @@ function Signup() {
                   <div className="input-group mb-3">
                     <input
                       type="text"
-                      id="website_url"
+                      id="artist_website_url"
                       className="form-control input_values artist_input_values table_values"
                       placeholder="website url"
                       aria-label="website_url"
@@ -698,7 +905,7 @@ function Signup() {
                   <div className="input-group mb-3">
                     <input
                       type="text"
-                      id="bandcamp_url"
+                      id="artist_bandcamp_url"
                       className="form-control input_values artist_input_values table_values"
                       placeholder="bandcamp url"
                       aria-label="bandcamp_url"
@@ -710,7 +917,7 @@ function Signup() {
                   <div className="input-group mb-3">
                     <input
                       type="text"
-                      id="soundcloud_url"
+                      id="artist_soundcloud_url"
                       className="form-control input_values artist_input_values table_values"
                       placeholder="soundcloud url"
                       aria-label="soundcloud_url"
@@ -722,7 +929,7 @@ function Signup() {
                   <div className="input-group mb-3">
                     <input
                       type="text"
-                      id="spotify_url"
+                      id="artist_spotify_url"
                       className="form-control input_values artist_input_values table_values"
                       placeholder="spotify url"
                       aria-label="spotify_url"
