@@ -5,14 +5,19 @@
 }
 
 .nav-background {
-    background-color: rgb(190, 171, 157);
+    background-color: rgba(102, 76, 58);
     padding: 15px;
+    border-bottom: 2px solid rgba(0, 0, 0, .5);
+    /* background-color: rgb(190, 171, 157); */
 }
 
 .page-name {
-    color: rgb(236, 235, 228);
+    color: rgb(255, 255, 255);
     text-decoration: none;
     font-size: 2.5em;
+    font-family: 'Pacifico', cursive;
+    margin-left: 50px;
+    text-shadow: 3px 3px rgb(192,78,33);
 }
 
 .page-name:hover{
@@ -22,6 +27,10 @@
 .other-links{
     color: rgb(236, 235, 228);
     text-decoration: none;
+    font-family: 'Pacifico', cursive;
+    text-shadow: 2px 2px rgb(192,78,33);
+    margin-right: 30px;
+    
 }
 
 .other-links:hover {
