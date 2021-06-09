@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Calendar from '../Calendar'
 // import IPAPI from '../../utils/IPAPI';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../css/Home.css';
@@ -50,7 +51,7 @@ class Home extends Component {
 
                 <div className = 'container'>
                     <div className = 'calendar-placeholder'>
-                        <h4>Week's Worth of Shows</h4>
+                        <Calendar />
                     </div>
                 </div>
 
