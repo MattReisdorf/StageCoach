@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useState, useEffect, Component, setState } from "react";
 import * as dateFns from "date-fns";
+import axios from "axios";
 import '../components/css/Calendar.css';
 
 
@@ -8,7 +9,22 @@ class Calendar extends React.Component {
     currentMonth: new Date(),
     selectedDate: new Date(),
     currentDay: new Date(),
+    cityShows: [],
   };
+
+  componentDidMount() {
+    console.log("component did mount first line");
+    axios
+      .get(
+        "/api/shows/city/Chicago"
+      )
+      .then((showData) => {
+        console.log(showData.data)
+        this.setState({ cityShows: showData.data })
+
+      })
+      .catch(err => console.log(err));
+  }
 
   renderHeader() {
     const dateFormat = "eeee MMMM do";
@@ -50,6 +66,8 @@ class Calendar extends React.Component {
   }
 
   renderCells() {
+    if (this.state.cityShows[0]) {
+      console.log(this.state.cityShows[0].date_formed)}
     const { currentMonth, selectedDate } = this.state;
     const monthStart = dateFns.startOfMonth(currentMonth);
     const monthEnd = dateFns.endOfMonth(monthStart);
@@ -57,6 +75,7 @@ class Calendar extends React.Component {
     const endDate = dateFns.endOfWeek(monthEnd);
 
     const dateFormat = "d";
+    const apiFormat = "yyyy-MM-dd"
     const rows = [];
 
     let days = [];
@@ -67,7 +86,9 @@ class Calendar extends React.Component {
       for (let i = 0; i < 7; i++) {
         formattedDate = dateFns.format(day, dateFormat);
         const cloneDay = day;
-        console.log(cloneDay);
+        console.log(cloneDay)
+        console.log(dateFns.format(cloneDay, apiFormat))
+        // console.log("day:", day)
         days.push(
           <div
             className={`col shadow cell ${
@@ -79,7 +100,12 @@ class Calendar extends React.Component {
             onClick={() => this.onDateClick(dateFns.parse(cloneDay, "eeee mmmm do", new Date()))}
           >
             <span className="number">{formattedDate}</span>
-            <span className="shows"></span>
+            {/* this is where the api call for shows in the area will go, if date = day maybe with dateFns isSameDay() */}
+            <span className="shows-date">
+              
+              { this.state.cityShows ? (this.state.cityShows.map((show)=> <div>{show.date_formed == dateFns.format(cloneDay, apiFormat) ? <div className="show-text"> {show.artist.artist_name} + " at " {show.venue.venue_name} </div>: null }</div>)) : null}
+              
+              </span>
             {/* this is where the on:hover displays the larger date # for background text */}
             <span className="bg">{formattedDate}</span>
             

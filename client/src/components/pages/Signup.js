@@ -26,12 +26,26 @@ function Signup() {
 
   const [imgurLinks, setImgurLinks] = React.useState([]);
 
-  // const handleVenueValueChange = async (e) => {
-  //   setLinkState(e);
-  //   console.log(linkState);
-  //   setMediaState('Imgur');
-  //   console.log(mediaState);
-  // }
+  const removeImgurLink = imgurLink => {
+    const updatedImgurLinks = imgurLinks.filter(remaining => remaining !== imgurLink.img);
+    setImgurLinks([...updatedImgurLinks]);
+  };
+
+  const removeYoutubeLink = youtubeLink => {
+    const updatedYoutubeLinks = youtubeLinks.filter(remaining => remaining !== youtubeLink.youtube);
+    setYoutubeLinks([...updatedYoutubeLinks]);
+  }
+
+  const removeBandcampLink = bandcampLink => {
+    const updatedBandcampLinks = bandcampLinks.filter(remaining => remaining !== bandcampLink.bc);
+    setbandcampLinks([...updatedBandcampLinks]);
+  }
+
+  const removeSoundcloudLink = soundcloudLink => {
+    const updatedSoundcloudLinks = soundcloudLinks.filter(remaining => remaining !== soundcloudLink.sc);
+    setsoundcloudLinks([...updatedSoundcloudLinks]);
+  }
+
 
   const handleMediaAdd = async (linkType) => {
     console.log("Link state!!", linkState);
@@ -534,7 +548,8 @@ function Signup() {
           </div>
           <h2>Finally, let's add some pics of your venue</h2>
           {imgurLinks.map((img) => (
-            <p>Image link added! {img}</p>
+            <p>Imgur link added!{img}<button onClick={() => removeImgurLink({img})} type="button" class="btn-close" aria-label="Close"/></p>
+            //onClick={(e) => removeImgurLink(e.target.innerText)}
           ))}
           <div>
             <form>
@@ -870,13 +885,13 @@ function Signup() {
             </select>
           </div>
           {youtubeLinks.map((youtube) => (
-            <p>Youtube Link Added!</p>
+            <p>Youtube Link Added! <button onClick={() => removeYoutubeLink({youtube})} type="button" class="btn-close" aria-label="Close"/></p>
           ))}
           {soundcloudLinks.map((sc) => (
-            <p>SoundCloud Link Added!</p>
+            <p>SoundCloud Link Added! <button onClick={() => removeSoundcloudLink({sc})} type="button" class="btn-close" aria-label="Close"/></p>
           ))}
           {bandcampLinks.map((bc) => (
-            <p>BandCamp Link Added!</p>
+            <p>BandCamp Link Added! <button onClick={() => removeBandcampLink({bc})} type="button" class="btn-close" aria-label="Close"/></p>
           ))}
           {mediaState !== "-" ? (
             <div>
