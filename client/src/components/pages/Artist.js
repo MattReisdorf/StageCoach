@@ -96,7 +96,7 @@ const getShows = () => {
                 <div className="upcoming-shows">
                 <Link to={"/shows/" + show.id}>
                 <div>{show.venue.venue_name}</div></Link>
-                <div id="show-time">{formateDate(show.date)} at {formatTime(show.time)}</div>
+                <div id="show-time">{formateDate(show.date)} - {formatTime(show.time)}</div>
                 </div>
 
               ))) : <p>This artist has no upcoming shows</p>}

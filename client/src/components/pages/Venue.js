@@ -203,16 +203,16 @@ const getShows = () => {
               id="shows-view"
             >
               <h3>Upcoming Shows</h3>
+              <ul>
               { shows ? (shows.map((show) => 
               ( 
-                <div className="upcoming-shows">
+                <li className="upcoming-shows">
                 <Link to={"/shows/" + show.id}>
-                <div>{show.artist.artist_name}</div></Link>
-                <div>{formateDate(show.date)} at {formatTime(show.time)}</div>
-                </div>
+                {show.artist.artist_name}</Link> {formateDate(show.date)} - {formatTime(show.time)}
+                </li>
 
               ))) : <p>This venue has no upcoming shows</p>}
-
+            </ul>
             </div>
 
             <div

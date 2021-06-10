@@ -35,7 +35,7 @@ function Artist() {
             {show.venue.venue_name} 
           </Link> </h1> 
               {/* <h2> {show.artist.artist_name} at {show.venue.venue_name}</h2> */}
-            <h5>{show.date_formed}, {show.time}</h5>
+            <h5>{show.date_formed}, {show.time_formed}</h5>
             <h3> {show.venue.all_ages ? "All Ages Show" : null }
                  {show.venue.eighteen_plus ? "18+" : null }
                  {show.venue.twentyone_plus ? "21+" : null }

@@ -37,7 +37,7 @@ router.get("/city/:city", async (req, res) => {
 router.get("/:id", async (req, res) => {
   try {
     const showData = await Show.findByPk(req.params.id, {
-      attributes: ['id', 'artist_id', 'venue_id', 'time', 'description', [sequelize.fn('date_format', sequelize.col('date'), '%Y-%m-%d'), 'date_formed']],
+      attributes: ['id', 'artist_id', 'venue_id', 'time', 'description', [sequelize.fn('date_format', sequelize.col('date'), '%Y-%m-%d'), 'date_formed'], [sequelize.fn('date_format', sequelize.col('time'), '%h:%i%p'), 'time_formed']],
       include: [
         {
           model: Venue
