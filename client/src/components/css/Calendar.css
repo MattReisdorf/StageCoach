@@ -211,6 +211,36 @@ main {
 
 }
 
+.cell:active {
+  border-left: 10px solid transparent;
+  border-image: linear-gradient(45deg,rgb(102, 76, 58)  0%,rgb(192,78,33)  20%);
+  border-image-slice: 1;
+}
+
+.cell:focus{
+  border-left: 10px solid transparent;
+  border-image: linear-gradient(45deg,rgb(102, 76, 58)  0%,rgb(192,78,33)  20%);
+  border-image-slice: 1;
+}
+
+:target{
+  border-left: 10px solid transparent;
+  border-image: linear-gradient(45deg,rgb(102, 76, 58)  0%,rgb(192,78,33)  20%);
+  border-image-slice: 1;
+}
+
+.shows:focus {
+  border-left: 10px solid transparent;
+  border-image: linear-gradient(45deg,rgb(102, 76, 58)  0%,rgb(192,78,33)  20%);
+  border-image-slice: 1;
+}
+
+.shows:active {
+  border-left: 10px solid transparent;
+  border-image: linear-gradient(45deg,rgb(102, 76, 58)  0%,rgb(192,78,33)  20%);
+  border-image-slice: 1;
+}
+
 .shows-date {
   font-size: 8px;
 }
