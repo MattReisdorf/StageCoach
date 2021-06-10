@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "../css/CreateShow.css";
-import "../css/Signup.css";
+import "../css/Show.css";
 
 // scheduling should be a feature here. we either/or:
 // pick a date, and a list of bands in your city WITHOUT shows that day populates
