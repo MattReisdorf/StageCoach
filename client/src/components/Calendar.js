@@ -93,7 +93,7 @@ class Calendar extends React.Component {
         // console.log("day:", day)
         days.push(
           <div
-            className={`col shadow cell ${
+            className={`col cell ${
               !dateFns.isSameMonth(day, monthStart)
                 ? "disabled"
                 : dateFns.isSameDay(day, selectedDate) ? "selected" : ""
