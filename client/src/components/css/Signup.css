@@ -75,6 +75,7 @@ body {
     background-color: rgba(109, 90, 77, 0.2) !important;
     border: none !important;
     color: rgb(192, 78, 33);
+    margin-top: 0;
 }
 
 #sub-but {
