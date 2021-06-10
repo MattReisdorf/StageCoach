@@ -2,6 +2,7 @@ import React, { Component, useEffect } from "react";
 import loginApi from "../../utils/loginStuff";
 import { Redirect } from 'react-router-dom';
 import Cookies from 'universal-cookie';
+import "../css/Login.css";
 
 
 export default function Login() {
@@ -72,6 +73,8 @@ export default function Login() {
             </div>
 
             <div>
+            <div id="card-contain">
+            <div className="card shadow-lg p-3 mb-5 shadow bg-white rounded">   
                 <form>
                     <div class="input-group mb-3">
                         <span className="input-group-text" id="basic-addon1">Username:</span>
@@ -81,9 +84,13 @@ export default function Login() {
                         <span className="input-group-text" id="basic-addon1">Password:</span>
                         <input onChange={(event) => setUserData({...userData, password: event.target.value})} type="password" className="form-control" placeholder="Password" aria-label="Password" aria-describedby="basic-addon1"/>
                     </div>
-                    <button type="button" onClick={() => setSubmitClicked(true)} className="btn btn-primary">Login</button>
+                    <div id="sub-but-div">
+                    <button id="sub-but" type="button" onClick={() => setSubmitClicked(true)} className="btn btn-primary btn-lg shadow-lg p-3 mb-5 bg-white rounded">Login</button>
+                    </div>
                 </form>
             </div>
+        </div>
+        </div>
         </div>
     </div>
     )

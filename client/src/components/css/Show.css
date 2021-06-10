@@ -1,0 +1,15 @@
+#show-image {
+    max-width: 100%; 
+    display: block; 
+    height: auto 
+}
+
+#show-h1 {
+    color: rgb(192,78,33)!important;
+}
+
+#card-contain {
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+}

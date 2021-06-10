@@ -10,9 +10,10 @@ require('dotenv').config();
 
 export default function Home() {
 
-    const [cityState, setCityState] = React.useState('');
-    const [lat, setLat] = React.useState('');
-    const [long, setLong] = React.useState('');
+    // Chnage default states back to empty strings for production
+    const [cityState, setCityState] = React.useState('Chicago');
+    const [lat, setLat] = React.useState('41.88');
+    const [long, setLong] = React.useState('-87.63');
     const [search, setSearch] = React.useState('');
 
     
@@ -20,9 +21,19 @@ export default function Home() {
         event.preventDefault();
 
         let text = event.target.value;
-        console.log(text);
+        // console.log(text);
         setSearch(text);
     }
+
+
+
+    // PLACEHOLDER API FOR BUILDING SEARCH
+    // setCityState('Chicago');
+    // setLat(41.88);
+    // setLong(87.63);
+
+
+
 
 
     // IPIFY API REQUEST
@@ -97,7 +108,7 @@ export default function Home() {
 
             <div className = 'container'>
                 <div className = 'calendar-placeholder'>
-                    <h4>Week's Worth of Shows</h4>
+                    <Calendar />
                 </div>
             </div>
 
