@@ -1,0 +1,8 @@
+#sub-but-div {
+    display: flex;
+    justify-content: center;
+}
+
+#sub-but {
+    margin-top: 20px;
+}
