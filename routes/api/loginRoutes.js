@@ -2,8 +2,8 @@ const router = require("express").Router();
 const { Show, Venue, Artist } = require("../../models");
 const sequelize = require('sequelize');
 
-router.post('/login/venue', async (req, res) => {
-    console.log("Logged in route hit. - venue")
+router.post('/venue', async (req, res) => {
+    console.log("Logged in route hit. - venue", req.body)
     try {
       const venueData = await Venue.findOne({ where: { username: req.body.username } });
   
@@ -39,7 +39,8 @@ router.post('/login/venue', async (req, res) => {
     }
 });
 
-router.post('/login/artist', async (req, res) => {
+
+router.post('/artist', async (req, res) => {
     console.log("Logged in route hit. - artist")
     try {
       const artistData = await Artist.findOne({ where: { username: req.body.username } });
