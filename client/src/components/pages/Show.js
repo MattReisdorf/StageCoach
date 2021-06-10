@@ -42,7 +42,7 @@ function Artist() {
             </h3>
             
             <div id="profile-image-div">
-            <img id="profile-image" src={show.artist.imgur_url ? show.artist.imgur_url : "https://i.imgur.com/K91SDKI.jpg" }/>
+            <img id="show-image" src={show.artist.imgur_url ? show.artist.imgur_url : "https://i.imgur.com/K91SDKI.jpg" }/>
             </div>
 
             </div>

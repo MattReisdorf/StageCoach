@@ -1,4 +1,5 @@
 import React, { Component, useState, useEffect } from "react";
+import { Link } from 'react-router-dom'
 import "../css/Home.css";
 import "../css/Venue.css";
 import axios from "axios";
@@ -205,7 +206,8 @@ const getShows = () => {
               { shows ? (shows.map((show) => 
               ( 
                 <div className="upcoming-shows">
-                <div>{show.description}</div>
+                <Link to={"/shows/" + show.id}>
+                <div>{show.artist.artist_name}</div></Link>
                 <div>{formateDate(show.date)} at {formatTime(show.time)}</div>
                 </div>
 

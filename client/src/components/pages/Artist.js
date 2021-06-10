@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from 'react-router-dom';
 import "../css/Home.css";
 import "../css/Artist.css";
 import axios from "axios";
@@ -17,6 +18,7 @@ function Artist() {
       )
       .then((data) => {
         setArtist(data.data);
+        console.log(data)
       })
       getShows();
   }, []);
@@ -75,8 +77,9 @@ const getShows = () => {
             <div id="bio-content">
               <h1 className="text-center">{artist.artist_name}</h1>
               <h3 className="text-center">{artist.city}, {artist.state}</h3> 
-              <div id="profile-image">
-              <img id="profile-image" src={artist.imgur_url ? artist.imgur_url : "https://i.imgur.com/K91SDKI.jpg" }/>
+              <div id="image-box">
+                {artist.imgur_url ? <img id="profile-image" src={artist.imgur_url} alt={artist.artist_name} /> : null}
+              {/* <img id="profile-image" src={artist.imgur_url ? artist.imgur_url : "https://i.imgur.com/K91SDKI.jpg" }/> */}
               </div>
               <h3 className="text-center">{artist.genre_one}, {artist.genre_two}, {artist.genre_three} </h3>
               <h4 className="text-center">{artist.bio}</h4>
@@ -91,8 +94,9 @@ const getShows = () => {
               { shows ? (shows.map((show) => 
               ( 
                 <div className="upcoming-shows">
-                <div>{show.description}</div>
-                <div>{formateDate(show.date)} at {formatTime(show.time)}</div>
+                <Link to={"/shows/" + show.id}>
+                <div>{show.venue.venue_name}</div></Link>
+                <div id="show-time">{formateDate(show.date)} at {formatTime(show.time)}</div>
                 </div>
 
               ))) : <p>This artist has no upcoming shows</p>}
