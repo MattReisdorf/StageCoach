@@ -13,9 +13,20 @@ import haversine from '../../utils/Haversine-Formula';
 
 export default function Search(props) {
     
+    console.log('props', props);
+
+    if (props.location.searchProps) {
+        localStorage.setItem('search', props.location.searchProps.search)
+        localStorage.setItem('city', props.location.searchProps.cityState)
+        localStorage.setItem('lat', props.location.searchProps.lat)
+        localStorage.setItem('long', props.location.searchProps.long)
+    }
+    
+
+    
     // States
     const [searchData, setSearchData] = useState([])
-    // const [search, setSearch] = useState('');
+    const [search, setSearch] = useState(localStorage.getItem('search'));
     const [sortDirections, setSortDirections] = useState({ name: '', type: '', distance: '' })
 
 
@@ -108,10 +119,11 @@ export default function Search(props) {
     
     // Set Search State in useEffect
     useEffect(async () => {
-        setSearchData(await filterData(props.location.searchProps.search));
+        setSearchData(await filterData(search));
     }, [])
 
-    console.log(searchData);
+    console.log('search state', search);
+    // console.log(searchData);
   
   
 
@@ -131,7 +143,7 @@ export default function Search(props) {
         )
     }
 
-    else if (props.location.searchProps.search == '') {
+    else if (search == '') {
         return (
             <div>NO EMPTY SEARCHES</div>
         )
@@ -198,8 +210,8 @@ export default function Search(props) {
                                 </td>
                                 <td>{type}</td>
                                 <td>{haversine(
-                                    props.location.searchProps.lat,
-                                    props.location.searchProps.long,
+                                    localStorage.getItem('lat'),
+                                    localStorage.getItem('long'),
                                     lat,
                                     long
                                 )}</td>
@@ -210,204 +222,5 @@ export default function Search(props) {
             </table>
         </div>
         )
-        
-
-
-
     }
-
-
-
-
-
-
-
-
-
-
-
-
-//     const [searchData, setSearchData] = useState([])
-//     const [artistDataArray, setArtistDataArray] = useState([])
-//     const artistData = [];
-
-
-
-//     //WITH POORNIMA
-//     const getArtistLatLong = async (city, state, artistData, i) => {
-
-//         console.log('before await');
-//         await axios
-//             .get(`http://api.openweathermap.org/geo/1.0/direct?q=${city},${state},US&appid=b432d6bb20293207031c4335d6e23edb`)
-//             .then((res) => {
-//                 // console.log('latitude', res.data[0].lat);
-//                 // console.log('longitude', res.data[0].lon);
-//                 // console.log('this is res', res);    
-//                 artistData[i].lat = String(res.data[0].lat);
-//                 // console.log(artistData[i].lat);
-//                 artistData[i].lon = String(res.data[0].lon);
-//             })
-//     }
-
-//     // console.log('these are the props', props.location.searchProps);
-   
-//     useEffect(async () => {
-//         await axios.all([
-//             axios.get('api/artists'),
-//             axios.get('api/venues')
-//         ])
-//         .then(
-//             axios.spread((...results) => {
-//             artistData.push(...results[0].data)
-//             // console.log('artist data array', artistData);
-//             const venueData = results[1].data;
-//             let allData = []
-
-//             for (let i = 0; i < artistData.length; i++) {
-//                 // NEED TO MAKE OWAPI CALL FOR DISTANCES
-//                 // BEFORE POORNIMA
-//                 // await axios
-//                 //     .get(`http://api.openweathermap.org/geo/1.0/direct?q=${artistData[i].city},${artistData[i].state},US&appid=b432d6bb20293207031c4335d6e23edb`)
-//                 //     .then((res) => {
-//                 //         // console.log('latitude', res.data[0].lat);
-//                 //         // console.log('longitude', res.data[0].lon);
-
-//                 //         artistData[i].lat = String(res.data[0].lat);
-//                 //         artistData[i].lon = String(res.data[0].lon);
-//                 //     })
-
-//                 getArtistLatLong(artistData[i].city, artistData[i].state, artistData, i)
-//                     .then((data) => {
-//                         // console.log('this is the data', artistData[i]);
-//                         allData.push(artistData[i])
-//                         console.log('inside .then', allData, allData.length);
-//                         setArtistDataArray(allData)
-                        
-//                     })
-
-//                 // allData.push(artistData[i])
-//             }
-
-//             // console.log('this is all data', allData)
-//             // console.log(allData.length);
-
-//             for (let j = 0; j < venueData.length; j++) {
-
-//                 axios
-//                     .get(`http://api.openweathermap.org/geo/1.0/direct?q=${venueData[j].city},${venueData[j].state},US&appid=b432d6bb20293207031c4335d6e23edb`)
-//                     .then((res) => {
-//                         venueData[j].lat = String(res.data[0].lat)
-//                         venueData[j].lon = String(res.data[0].lon)
-//                     })
-
-//                 allData.push(venueData[j])
-//             }
-
-
-
-
-
-
-
-
-//             let searchResults = [];
-
-//                 for (let i = 0; i < artistDataArray.length; i++) {
-
-
-
-//                     // do the same thing as artistDataArray
-//                     if(artistDataArray[i].artist_name) {
-
-//                         if (artistDataArray[i].artist_name.toLowerCase().includes(props.location.searchProps.search.toLowerCase()))
-//                         {
-//                             searchResults.push(artistDataArray[i]);
-
-//                         }
-//                     } 
-                    
-//                     else if (allData[i].venue_name){
-//                         if (allData[i].venue_name.toLowerCase().includes(props.location.searchProps.search.toLowerCase()))
-//                         {
-//                             searchResults.push(allData[i]);
-//                         }
-//                     }
-//                 }
-//                 console.log('search results', searchResults);
-//                 setSearchData(searchResults) 
-
-//         }))
-//     }, [])
-
-    
-
-//     // console.log(searchData);
-    
-    
-//     console.log(searchData);
-
-//     if (props.location.searchProps.search === '') {
-//         return <div>NO EMPTY SEARCHES</div>
-//     }
-
-//     else if (searchData.length == 0) {
-//         return (
-//             <div>NO RESULTS FOUND</div>
-//         )
-//     }
-
-//     else {
-//         return(
-
-//             <table className = 'table table-sortable text-center'>
-//                 <thead>
-//                     <tr>
-//                         <th scope = 'col'>Name</th>
-//                         <th scope = 'col'>Type</th>
-//                         <th scope = 'col'>Distance</th>
-//                         <th scope = 'col'>Genre</th>
-//                     </tr>
-//                 </thead>
-//                 <tbody>
-//                     {searchData.map((thing) => {
-//                         const artistName = thing.artist_name;
-//                         const venueName = thing.venue_name;
-//                         const lat = thing.lat;
-//                         const long = thing.lon;
-//                         console.log('this is the thing', thing.lon);
-                        
-//                         for (let i = 0; i < searchData.length; i++) {
-//                             if (searchData[i].artist_name) {
-//                                 searchData[i].type = 'Artist'
-//                             }
-//                             else if (searchData[i].venue_name) {
-//                                 searchData[i].type = 'Venue'
-//                             }
-//                         }
-
-//                         const type = thing.type;
-    
-//                         return (
-//                             <tr key = {thing.id}>
-//                                 <td>{artistName || venueName}</td>
-//                                 <td>{type}</td>
-//                                 <td>
-//                                     {haversine(
-//                                         props.location.searchProps.lat,
-//                                         props.location.searchProps.long, 
-//                                         lat, 
-//                                         long
-//                                     )}
-//                                 </td>
-//                                 <td>{thing.genre_one}</td>
-//                             </tr>
-//                         ) 
-//                     })}
-                    
-//                 </tbody>
-//             </table>
-//         )
-//     }
-    
-
 }
