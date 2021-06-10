@@ -2,7 +2,6 @@ import axios from "axios";
 
 const login = {
     loginVenue: function (userData) {
-        console.log(userData)
         return axios({
             method: 'post',
             url: '/api/login/venue',
@@ -10,11 +9,17 @@ const login = {
         })
     },
     loginArtist: function (userData) {
-        console.log(userData)
+        console.log('LOGINARTIST LOGINSTUFF HIT:', userData)
         return axios({
             method: 'post',
             url: '/api/login/artist',
             data: userData
+        })
+    },
+    logout: function() {
+        return axios({
+            method: 'DELETE',
+            url: '/api/login/logout'
         })
     }
 }

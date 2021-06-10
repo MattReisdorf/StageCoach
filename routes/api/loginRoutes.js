@@ -1,6 +1,7 @@
 const router = require("express").Router();
 const { Show, Venue, Artist } = require("../../models");
 const sequelize = require('sequelize');
+const Cookies = require('universal-cookie')
 
 router.post('/venue', async (req, res) => {
     console.log("Logged in route hit. - venue", req.body)
@@ -33,6 +34,7 @@ router.post('/venue', async (req, res) => {
         
         res.json({ user: venueData, message: 'You are now logged in!' });
       });
+
   
     } catch (err) {
       res.status(400).json(err);
@@ -42,6 +44,7 @@ router.post('/venue', async (req, res) => {
 
 router.post('/artist', async (req, res) => {
     console.log("Logged in route hit. - artist")
+    console.log(req.body)
     try {
       const artistData = await Artist.findOne({ where: { username: req.body.username } });
   
@@ -77,7 +80,7 @@ router.post('/artist', async (req, res) => {
     }
 });
 
-router.post('/logout', (req, res) => {
+router.delete('/logout', (req, res) => {
     if (req.session.logged_in) {
       req.session.destroy(() => {
         res.status(204).end();
