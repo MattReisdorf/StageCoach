@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "../css/CreateShow.css";
 import "../css/Signup.css";
@@ -8,6 +8,20 @@ import "../css/Signup.css";
 // pick a band, and a list of dates they are free populates
 
 function CreateShow() {
+  
+  const [artists, setArtists] = useState([])
+
+  useEffect(() => {
+    axios
+      .get(
+        "/api/artists")
+      .then((artistData) => {
+        console.log(artistData.data);
+        setArtists(artistData.data);
+        console.log("test:", artists);
+      });
+  }, []);
+
   return (
     <div className="home-background">
       <div className="container">
@@ -46,11 +60,16 @@ function CreateShow() {
                     Artist:
                   </span>
                   <select
-                    class="form-select"
+                    className="form-select"
                     size="3"
                     aria-label="size 3 select example"
                   >
-                    <option selected>Open this select menu</option>
+                   { artists ? (artists.map((artist) => 
+              ( 
+              <option>{artist.artist_name}</option>
+
+              ))) : <p>This venue has no upcoming shows</p>}
+
                   </select>
                 </div>
 

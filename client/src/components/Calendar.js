@@ -11,6 +11,8 @@ class Calendar extends React.Component {
     cityShows: [],
   };
 
+// this will need changed with Geolocation /api/shows/city/whatever
+
   componentDidMount() {
     console.log("component did mount first line");
     axios
@@ -102,7 +104,7 @@ class Calendar extends React.Component {
             {/* this is where the api call for shows in the area will go, if date = day maybe with dateFns isSameDay() */}
             <span className="shows-date">
               
-              { this.state.cityShows ? (this.state.cityShows.map((show)=> <div>{show.date_formed == dateFns.format(cloneDay, apiFormat) ? <div className="show-text"> {show.artist.artist_name} + " at " {show.venue.venue_name} </div>: null }</div>)) : null}
+              { this.state.cityShows ? (this.state.cityShows.map((show)=> <div>{show.date_formed == dateFns.format(cloneDay, apiFormat) ? <div className="show-text"> {show.artist.artist_name} at {show.venue.venue_name} </div>: null }</div>)) : null}
               
               </span>
             {/* this is where the on:hover displays the larger date # for background text */}

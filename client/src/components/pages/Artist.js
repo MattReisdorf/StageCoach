@@ -76,7 +76,7 @@ const getShows = () => {
               <h1>{artist.artist_name}</h1>
               <h3>{artist.city}, {artist.state}</h3> 
 
-              <img id="profile-image" src="https://media.vanityfair.com/photos/5d0bf443a2036c7015753f28/16:9/w_1407,h_791,c_limit/The-Muppet-Movie-The-Rainbow-Connection.jpg"/>
+              <img id="profile-image" src={artist.imgur_url ? artist.imgur_url : "https://i.imgur.com/K91SDKI.jpg" }/>
 
               <h3>{artist.genre_one}, {artist.genre_two}, {artist.genre_three} </h3>
               <h4>{artist.bio}</h4>

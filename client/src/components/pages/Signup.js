@@ -87,9 +87,9 @@ function Signup() {
   if (type === "Venue") {
     signUpForm = (
         <div id="card-contain">
-        <div class="card shadow-lg p-3 mb-5 shadow bg-white rounded">
-            <h5 id="card-head" class="card-header shadow text-center">Venue Sign Up</h5>
-           <div class="card-body">
+        <div className="card shadow-lg p-3 mb-5 shadow bg-white rounded">
+            <h5 id="card-head" className="card-header shadow text-center">Venue Sign Up</h5>
+           <div className="card-body">
       <div>
         <div
           className="modal fade"
@@ -111,8 +111,8 @@ function Signup() {
                   aria-label="Close"
                 ></button>
               </div>
-              <div class="modal-body">...</div>
-              <div class="modal-footer">
+              <div clasName="modal-body">...</div>
+              <div className="modal-footer">
                 <button
                   type="button"
                   className="btn btn-secondary"
@@ -144,8 +144,8 @@ function Signup() {
                   aria-label="Close"
                 ></button>
               </div>
-              <div class="modal-body">...</div>
-              <div class="modal-footer">
+              <div className="modal-body">...</div>
+              <div className="modal-footer">
                 <button
                   type="button"
                   className="btn btn-secondary"
@@ -324,54 +324,54 @@ function Signup() {
               aria-describedby="basic-addon1"
             />
           </div>
-          <h1 class="text-center">Is your venue...</h1>
+          <h1 className="text-center">Is your venue...</h1>
           <div>
             <h4>A minimum age to enter:</h4>
-            <div class="form-check">
+            <div className="form-check">
               <input
-                class="form-check-input"
+                className="form-check-input"
                 type="radio"
                 name="flexRadioDefault"
                 id="flexRadioDefault"
                 checked
               />
-              <label class="form-check-label" for="flexRadioDefault">
+              <label className="form-check-label" for="flexRadioDefault">
                 All Ages
               </label>
             </div>
-            <div class="form-check">
+            <div className="form-check">
               <input
-                class="form-check-input"
+                className="form-check-input"
                 type="radio"
                 name="flexRadioDefault"
                 id="eighteen_plus"
               />
-              <label class="form-check-label" for="flexRadio">
+              <label className="form-check-label" for="flexRadio">
                 18+
               </label>
             </div>
-            <div class="form-check">
+            <div className="form-check">
               <input
-                class="form-check-input"
+                className="form-check-input"
                 type="radio"
                 name="flexRadioDefault"
                 id="twentyone_plus"
               />
-              <label class="form-check-label" for="flexRadio">
+              <label className="form-check-label" for="flexRadio">
                 21+
               </label>
             </div>
             <h2>Ammenities!</h2>
             <div>
-              <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="checkfood" />
-                <label class="form-check-label" for="checkfood" >
+              <div className="form-check">
+                <input className="form-check-input" type="checkbox" value="" id="checkfood" />
+                <label className="form-check-label" for="checkfood" >
                   Food
                 </label>
               </div>
-              <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="checkbar" />
-                <label class="form-check-label" for="checkbar" >
+              <div className="form-check">
+                <input className="form-check-input" type="checkbox" value="" id="checkbar" />
+                <label className="form-check-label" for="checkbar" >
                   Bar
                 </label>
               </div>
@@ -580,9 +580,9 @@ function Signup() {
   else if (type === "Artist") {
     signUpForm = (
         <div id="card-contain">
-        <div class="card shadow-lg p-3 mb-5 shadow bg-white rounded">
-        <h5 id="card-head" class="card-header shadow text-center">Artist Sign Up</h5>
-        <div class="card-body">
+        <div className="card shadow-lg p-3 mb-5 shadow bg-white rounded">
+        <h5 id="card-head" className="card-header shadow text-center">Artist Sign Up</h5>
+        <div className="card-body">
       <div>
         <div
           className="modal fade"
@@ -604,8 +604,8 @@ function Signup() {
                   aria-label="Close"
                 ></button>
               </div>
-              <div class="modal-body">...</div>
-              <div class="modal-footer">
+              <div className="modal-body">...</div>
+              <div className="modal-footer">
                 <button
                   type="button"
                   className="btn btn-secondary"
@@ -637,8 +637,8 @@ function Signup() {
                   aria-label="Close"
                 ></button>
               </div>
-              <div class="modal-body">...</div>
-              <div class="modal-footer">
+              <div className="modal-body">...</div>
+              <div className="modal-footer">
                 <button
                   type="button"
                   className="btn btn-secondary"

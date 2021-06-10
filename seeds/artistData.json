@@ -12,7 +12,8 @@
     "genre_two": "rock",
     "genre_three": "soul",
     "youtube_one": "<iframe width='560' height='315' src='https://www.youtube.com/embed/aCWCF19nUhA' title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>",
-    "bandcamp_one": "<iframe style='border: 0; width: 100%; height: 120px;' src='https://bandcamp.com/EmbeddedPlayer/album=4203570623/size=large/bgcol=ffffff/linkcol=0687f5/tracklist=false/artwork=small/track=1034915847/transparent=true/' seamless><a href='https://hailumergia.bandcamp.com/album/tezeta'>Tezeta by Hailu Mergia</a></iframe>"
+    "bandcamp_one": "<iframe style='border: 0; width: 100%; height: 120px;' src='https://bandcamp.com/EmbeddedPlayer/album=4203570623/size=large/bgcol=ffffff/linkcol=0687f5/tracklist=false/artwork=small/track=1034915847/transparent=true/' seamless><a href='https://hailumergia.bandcamp.com/album/tezeta'>Tezeta by Hailu Mergia</a></iframe>",
+    "imgur_url": "http://wackymaina.com/image/2013/03/guitar-playing-animals/guitar-playing-animals-04.jpg"
 
   },
   {
@@ -28,8 +29,8 @@
     "genre_two": "western",
     "genre_three": "acoustic",
     "youtube_one": "<iframe width='560' height='315' src='https://www.youtube.com/embed/aCWCF19nUhA' title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>",
-    "bandcamp_one": "<iframe style='border: 0; width: 100%; height: 120px;' src='https://bandcamp.com/EmbeddedPlayer/album=4203570623/size=large/bgcol=ffffff/linkcol=0687f5/tracklist=false/artwork=small/track=1034915847/transparent=true/' seamless><a href='https://hailumergia.bandcamp.com/album/tezeta'>Tezeta by Hailu Mergia</a></iframe>"
-    
+    "bandcamp_one": "<iframe style='border: 0; width: 100%; height: 120px;' src='https://bandcamp.com/EmbeddedPlayer/album=4203570623/size=large/bgcol=ffffff/linkcol=0687f5/tracklist=false/artwork=small/track=1034915847/transparent=true/' seamless><a href='https://hailumergia.bandcamp.com/album/tezeta'>Tezeta by Hailu Mergia</a></iframe>",
+    "imgur_url": "http://www.clker.com/cliparts/c/2/b/4/1513744200125655478monkeys-with-guitars.med.png"
   },
 
   {
@@ -45,7 +46,8 @@
     "genre_two": "psychadelic",
     "genre_three": "soul",
     "youtube_one": "<iframe width='560' height='315' src='https://www.youtube.com/embed/aCWCF19nUhA' title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>",
-    "bandcamp_one": "<iframe style='border: 0; width: 100%; height: 120px;' src='https://bandcamp.com/EmbeddedPlayer/album=4203570623/size=large/bgcol=ffffff/linkcol=0687f5/tracklist=false/artwork=small/track=1034915847/transparent=true/' seamless><a href='https://hailumergia.bandcamp.com/album/tezeta'>Tezeta by Hailu Mergia</a></iframe>"
+    "bandcamp_one": "<iframe style='border: 0; width: 100%; height: 120px;' src='https://bandcamp.com/EmbeddedPlayer/album=4203570623/size=large/bgcol=ffffff/linkcol=0687f5/tracklist=false/artwork=small/track=1034915847/transparent=true/' seamless><a href='https://hailumergia.bandcamp.com/album/tezeta'>Tezeta by Hailu Mergia</a></iframe>",
+    "imgur_url": "https://i.ytimg.com/vi/u3kF5UjYjWk/maxresdefault.jpg"
   },
   
   {
