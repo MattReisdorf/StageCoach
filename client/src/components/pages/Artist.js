@@ -73,21 +73,21 @@ const getShows = () => {
         <div className="row" id="test">
           <div className="col-md-6 col-sm-12" id="bio-box">
             <div id="bio-content">
-              <h1>{artist.artist_name}</h1>
-              <h3>{artist.city}, {artist.state}</h3> 
-
+              <h1 className="text-center">{artist.artist_name}</h1>
+              <h3 className="text-center">{artist.city}, {artist.state}</h3> 
+              <div id="profile-image">
               <img id="profile-image" src={artist.imgur_url ? artist.imgur_url : "https://i.imgur.com/K91SDKI.jpg" }/>
-
-              <h3>{artist.genre_one}, {artist.genre_two}, {artist.genre_three} </h3>
-              <h4>{artist.bio}</h4>
-              <div><span>contact: </span><a href={"mailto:" + artist.email}>{artist.email}</a> </div>
+              </div>
+              <h3 className="text-center">{artist.genre_one}, {artist.genre_two}, {artist.genre_three} </h3>
+              <h4 className="text-center">{artist.bio}</h4>
+              <div className="text-center"><span>contact: </span><a href={"mailto:" + artist.email}>{artist.email}</a> </div>
             </div>
           </div>
           
           <div className="col-md-6 col-sm-12" id="events-media-box">
             <div id="upcoming-shows">
-              <h3>upcoming shows</h3>
-              <div>
+              <h3 id="up-show" className="text-center">upcoming shows</h3>
+              <div className="text-center">
               { shows ? (shows.map((show) => 
               ( 
                 <div className="upcoming-shows">
