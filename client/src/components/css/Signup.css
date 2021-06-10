@@ -44,17 +44,10 @@ body {
     font-family: 'Roboto Slab', serif;
 }
 
-#set-signup:focus {
+.pressed {
     border: solid 6px ;
     border-image: url(./lasso.png) 70 fill;
     box-shadow: 0 0 11px rgba(33,33,33,.2);
-    border-image-outset: 5px;
-}
-
-#set-signup:active {
-    border: solid 6px ;
-    border-image: url(./lasso.png) 80 fill;
-    box-shadow: 0 0 21px rgba(33,33,33,.2);
     border-image-outset: 5px;
 }
 

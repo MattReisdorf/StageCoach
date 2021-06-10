@@ -83,7 +83,7 @@ class Calendar extends React.Component {
         const cloneDay = day;
         days.push(
           <div
-            className={`col shadow cell ${
+            className={`col cell ${
               !dateFns.isSameMonth(day, monthStart)
                 ? "disabled"
                 : dateFns.isSameDay(day, selectedDate)

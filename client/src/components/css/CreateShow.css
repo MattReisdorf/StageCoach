@@ -1,0 +1,28 @@
+
+#show-date, #show_time {
+    border-radius: 3px;
+}
+
+#date-input {
+    width: 100%;
+}
+
+#main-card {
+    margin-top: 100px;
+}
+
+#create-button {
+    display: flex;
+    justify-content: center;
+    padding-top: 50px;
+}
+
+#card-header {
+    text-align: center;
+    font-family: 'Pacifico', cursive;
+    font-family: 'Roboto Slab', serif;
+    background-color:rgb(102, 76, 58);
+    color:rgb(255, 255, 255) ;
+    text-shadow: black .2px .2px;
+}
+
