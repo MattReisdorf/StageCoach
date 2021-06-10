@@ -97,24 +97,29 @@ class Calendar extends React.Component {
               )
             }
           >
+        
             <span className="number">{formattedDate}</span>
             {/* this is where the api call for shows in the area will go, if date = day maybe with dateFns isSameDay() */}
-            <span className="shows-date">
+            <div className="shows-date">
               {this.state.cityShows
                 ? this.state.cityShows.map((show) => (
                     <div>
                       {show.date_formed ==
                       dateFns.format(cloneDay, apiFormat) ? (
+                        <div>
                         <Link to={"/shows/" + show.id} className="shows-date">
                           {show.artist.artist_name} at {show.venue.venue_name}
+                          
                         </Link>
+                        </div>
                       ) : null}
+                 
                     </div>
                   ))
                 : null}
-            </span>
+            </div>
             {/* this is where the on:hover displays the larger date # for background text */}
-            <span className="bg">{formattedDate}</span>
+            {/* <span className="bg">{formattedDate}</span> */}
           </div>
         );
         day = dateFns.addDays(day, 1);
