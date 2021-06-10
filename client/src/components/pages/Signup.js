@@ -91,40 +91,7 @@ function Signup() {
             <h5 id="card-head" className="card-header shadow text-center">Venue Sign Up</h5>
            <div className="card-body">
       <div>
-        <div
-          className="modal fade"
-          id="embedModal"
-          tabindex="-1"
-          aria-labelledby="embedModalLabel"
-          aria-hidden="true"
-        >
-          <div className="modal-dialog">
-            <div className="modal-content">
-              <div className="modal-header">
-                <h5 className="modal-title" id="exampleModalLabel">
-                  How to embed a link!
-                </h5>
-                <button
-                  type="button"
-                  className="btn-close"
-                  data-bs-dismiss="modal"
-                  aria-label="Close"
-                ></button>
-              </div>
-              <div clasName="modal-body">...</div>
-              <div className="modal-footer">
-                <button
-                  type="button"
-                  className="btn btn-secondary"
-                  data-bs-dismiss="modal"
-                >
-                  Close
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div
+      <div
           className="modal fade"
           id="picModal"
           tabindex="-1"
@@ -144,11 +111,16 @@ function Signup() {
                   aria-label="Close"
                 ></button>
               </div>
-              <div className="modal-body">...</div>
-              <div className="modal-footer">
+              <div id="modal-body" class="modal-body">go to <a href="http://www.imgur.com">Imgur</a> and click "new post" on the top left of the page <br></br><br></br> <img id="modalimg" src="./images/newpost.png"/> 
+              <br></br><br></br>then drag and drop or choose the picture you want to use from your files. <br></br><br></br> <img id="modalimg" src="./images/addimage.png"/> <br></br><br></br> 
+              Once the image is uploaded, simply click the "..." button on the top right of the image <br></br> <br></br> <img id="modalimg" src="./images/copylink.png"/> <br></br> <br></br> and 
+              click "get share links." once the links are displayed click "copy link" on the "HTML Embed" option. <br></br> <br></br> <img id="modalimg" src="./images/embed.png"/> <br></br>
+              <br></br> Then paste the link in the input below!</div>
+              <div class="modal-footer">
                 <button
+                  id="modal-but-close"
                   type="button"
-                  className="btn btn-secondary"
+                  className="btn btn-secondary shadow-lg"
                   data-bs-dismiss="modal"
                 >
                   Close
@@ -537,9 +509,19 @@ function Signup() {
             <p>Image link added! {img}</p>
           ))}
           <div>
+          <button
+            type="button"
+            id="modal-but"
+            className="btn btn-primary shadow-sm"
+            data-bs-toggle="modal"
+            data-bs-target="#picModal"
+          >
+            Help me add a profile pic!
+          </button>
             <form>
+              <div className="input-group mb-3">
               <span className="input-group-text input-group shadow rounded" id="basic-addon1">
-                Add Image:
+                Add Images:
               </span>
               <input
                 type="text"
@@ -553,13 +535,14 @@ function Signup() {
                   setMediaState('Imgur');
                 }}
               />
+              </div>
               <button
                 onClickCapture={(e) => handleMediaAdd(mediaState)}
                 type="button"
                 id="media-button"
-                className="btn btn-primary btn-lg mb-3"
+                className="btn btn-primary btn-lg mb-3 rounded"
               >
-                Add Media
+                Add Picture
               </button>
             </form>
           </div>
@@ -600,15 +583,24 @@ function Signup() {
                 <button
                   type="button"
                   className="btn-close"
-                  data-bs-dismiss="modal"
+                  data-bs-dismiss="modal" 
                   aria-label="Close"
                 ></button>
               </div>
-              <div className="modal-body">...</div>
-              <div className="modal-footer">
+              <div class="modal-body" id="modal-body"><h1 id="mediah1">For YouTube:</h1> <hr></hr>go to your video and click "share" at the bottom right under the video. <br></br> <br></br> 
+              <img id="modalimg" src="./images/ytshare.png"/> <br></br> <br></br> then click the "embed" option and copy the URL provided and paste into the input below! 
+              <br></br> <br></br> <img id="modalimg" src="./images/ytembed.png"/> <br></br> <br></br> <h1 id="mediah1">For SoundCloud:</h1><hr></hr> go to your song and click "share" below the song 
+              <br></br> <br></br> <img id="modalimg" src="./images/scshare.png"/> <br></br> <br></br> then click the "embed" tab on the top of the pop up copy the link 
+              provided and paste into the input below! <br></br> <br></br> <img id="modalimg" src="./images/scembed.png"/> <br></br> <br></br> <h1 id="mediah1">For BandCamp:</h1>
+              <hr></hr>go to your profile and click on the song you want to share, once on the specific song's page, click the "share/embed" under the picture
+              of the album <br></br> <br></br> <img id="modalimg" src="./images/bcshare.png"/> <br></br> <br></br> then click "embed this track" <br></br> <br></br>
+              <img id="modalimg" src="./images/bcembed.png"/> <br></br> <br></br> choose your size and copy the embedded link to copy and paste in the input below!
+              <br></br> <br></br> <img id="modalimg" src="./images/bcembed2.png"/>  </div>
+              <div class="modal-footer">
                 <button
+                  id="modal-but-close"
                   type="button"
-                  className="btn btn-secondary"
+                  className="btn btn-secondary shadow-lg"
                   data-bs-dismiss="modal"
                 >
                   Close
@@ -637,11 +629,16 @@ function Signup() {
                   aria-label="Close"
                 ></button>
               </div>
-              <div className="modal-body">...</div>
-              <div className="modal-footer">
+              <div id="modal-body" class="modal-body">go to <a href="http://www.imgur.com">Imgur</a> and click "new post" on the top left of the page <br></br><br></br> <img id="modalimg" src="./images/newpost.png"/> 
+              <br></br><br></br>then drag and drop or choose the picture you want to use from your files. <br></br><br></br> <img id="modalimg" src="./images/addimage.png"/> <br></br><br></br> 
+              Once the image is uploaded, simply click the "..." button on the top right of the image <br></br> <br></br> <img id="modalimg" src="./images/copylink.png"/> <br></br> <br></br> and 
+              click "get share links." once the links are displayed click "copy link" on the "HTML Embed" option. <br></br> <br></br> <img id="modalimg" src="./images/embed.png"/> <br></br>
+              <br></br> Then paste the link in the input below!</div>
+              <div class="modal-footer">
                 <button
+                  id="modal-but-close"
                   type="button"
-                  className="btn btn-secondary"
+                  className="btn btn-secondary shadow-lg"
                   data-bs-dismiss="modal"
                 >
                   Close

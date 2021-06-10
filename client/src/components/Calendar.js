@@ -3,6 +3,7 @@ import * as dateFns from "date-fns";
 import axios from "axios";
 import '../components/css/Calendar.css';
 
+
 class Calendar extends React.Component {
   state = {
     currentMonth: new Date(),
@@ -92,7 +93,7 @@ class Calendar extends React.Component {
         // console.log("day:", day)
         days.push(
           <div
-            className={`col cell ${
+            className={`col shadow cell ${
               !dateFns.isSameMonth(day, monthStart)
                 ? "disabled"
                 : dateFns.isSameDay(day, selectedDate) ? "selected" : ""

@@ -5,7 +5,7 @@ body {
 #basic-addon1 {
     width: 150px !important;
     height: auto;
-    font-size: 17px;
+    font-size: 15px;
     text-align: center;
     display: flex;
     justify-content: center;
@@ -75,6 +75,7 @@ body {
     background-color: rgba(109, 90, 77, 0.2) !important;
     border: none !important;
     color: rgb(192, 78, 33);
+    margin-top: 0;
 }
 
 #sub-but {
@@ -129,3 +130,34 @@ body {
     text-shadow: black .2px .2px;
 }
 
+#modalimg {
+    height: auto;
+    width: 100%;
+}
+
+#modal-body {
+    text-align: center;
+    font-size: 22px;
+}
+
+#modal-but-close {
+    width: 300px;
+    height: 50px;
+    color: black;
+    margin-bottom: 8px;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    border-top-right-radius: 8px;
+    border-top-left-radius: 8px;
+    font-size: 22px;
+    background-color:rgb(102, 76, 58);
+}
+
+.modal-footer {
+    display: flex;
+    justify-content: center;
+}
+
+#mediah1 {
+    color: rgb(192, 78, 33);
+}
