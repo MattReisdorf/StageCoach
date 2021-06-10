@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from 'react-router-dom';
 import "../css/Home.css";
 import "../css/Artist.css";
 import axios from "axios";
@@ -17,6 +18,7 @@ function Artist() {
       )
       .then((data) => {
         setArtist(data.data);
+        console.log(data)
       })
       getShows();
   }, []);
@@ -92,8 +94,9 @@ const getShows = () => {
               { shows ? (shows.map((show) => 
               ( 
                 <div className="upcoming-shows">
-                <div>{show.description}</div>
-                <div>{formateDate(show.date)} at {formatTime(show.time)}</div>
+                <Link to={"/shows/" + show.id}>
+                <div>{show.venue.venue_name}</div></Link>
+                <div id="show-time">{formateDate(show.date)} - {formatTime(show.time)}</div>
                 </div>
 
               ))) : <p>This artist has no upcoming shows</p>}

@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { Artist, Show } = require("../../models");
+const { Artist, Show, Venue } = require("../../models");
 
 // get all artists
 router.get("/", async (req, res) => {
@@ -37,7 +37,11 @@ router.get("/:id/shows", async (req, res) => {
     const artistShowData = await Show.findAll({
       where: {
         artist_id: req.params.id
-      }
+      },
+      include: [{
+        model: Venue,
+        attributes: ["venue_name"]
+      }]
     });
     console.log(artistShowData);
     if (!artistShowData) {
