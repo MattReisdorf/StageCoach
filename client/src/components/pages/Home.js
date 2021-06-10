@@ -108,6 +108,12 @@ export default function Home() {
 
             <div className = 'container'>
                 <div className = 'calendar-placeholder'>
+                    <Calendar />
+                </div>
+            </div>
+
+            <div className = 'container'>
+                <div className = 'calendar-placeholder'>
                     <h4>Week's Worth of Shows</h4>
                 </div>
             </div>

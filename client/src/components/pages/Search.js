@@ -30,6 +30,9 @@ export default function Search(props) {
             .then((results) => {
                 artistData = results.data;
             })
+            .catch((err) => {
+                console.log(err);
+            })
 
         for (let i = 0; i < artistData.length; i++) {
             await axios
@@ -48,6 +51,9 @@ export default function Search(props) {
             .get('/api/venues')
             .then((results) => {
                 venueData = results.data
+            })
+            .catch((err) => {
+                console.log(err)
             })
 
         for (let i = 0; i < venueData.length; i++) {
@@ -184,8 +190,11 @@ export default function Search(props) {
                         return (
                             <tr key = {thing.id}>
                                 <td>
-                                    <a href = {route}>{artistName || venueName}</a>
-                                    
+                                    <Link
+                                        to = {route}
+                                    >
+                                        {artistName || venueName}
+                                    </Link>
                                 </td>
                                 <td>{type}</td>
                                 <td>{haversine(
