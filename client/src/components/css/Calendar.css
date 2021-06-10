@@ -110,11 +110,11 @@ main {
   transition: 0.15s ease-out;
 }
 
-.calendar .header .icon:hover {
+/* .calendar .header .icon:hover {
   transform: scale(1.75);
   transition: 0.25s ease-out;
   color: var(--main-color);
-}
+} */
 
 .calendar .header .icon:first-of-type {
   margin-left: 1em;
@@ -143,10 +143,10 @@ main {
   transition: 0.25s ease-out;
 }
 
-.calendar .body .cell:hover {
+/* .calendar .body .cell:hover {
   background: var(--bg-color);
   transition: 0.5s ease-out;
-}
+} */
 
 .calendar .body .selected {
   border-left: 10px solid transparent;
@@ -193,12 +193,12 @@ main {
   letter-spacing: -0.07em;
 }
 
-.calendar .body .cell:hover .bg,
+/* .calendar .body .cell:hover .bg,
 .calendar .body .selected .bg {
   opacity: 0.05;
   transition: 0.5s ease-in;
   color:rgb(192,78,33)!important;
-}
+} */
 
 .calendar .body .col {
   flex-grow: 0;
