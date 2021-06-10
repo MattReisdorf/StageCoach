@@ -113,12 +113,6 @@ export default function Home() {
             </div>
 
             <div className = 'container'>
-                <div className = 'calendar-placeholder'>
-                    <h4>Week's Worth of Shows</h4>
-                </div>
-            </div>
-
-            <div className = 'container'>
                 <div className = 'search-placeholder'>
                     <p className = 'search-text'>Search for an Artist or Venue</p>
                     <form className = 'search-form'>
