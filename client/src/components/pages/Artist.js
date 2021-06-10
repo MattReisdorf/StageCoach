@@ -75,8 +75,9 @@ const getShows = () => {
             <div id="bio-content">
               <h1 className="text-center">{artist.artist_name}</h1>
               <h3 className="text-center">{artist.city}, {artist.state}</h3> 
-              <div id="proflile-div">
-              <img className="img-fluid" id="profile-image" src={artist.imgur_url ? artist.imgur_url : "https://i.imgur.com/K91SDKI.jpg" }/>
+              <div id="image-box">
+                {artist.imgur_url ? <img id="profile-image" src={artist.imgur_url} alt={artist.artist_name} /> : null}
+              {/* <img id="profile-image" src={artist.imgur_url ? artist.imgur_url : "https://i.imgur.com/K91SDKI.jpg" }/> */}
               </div>
               <h3 className="text-center">{artist.genre_one}, {artist.genre_two}, {artist.genre_three} </h3>
               <h4 className="text-center">{artist.bio}</h4>
