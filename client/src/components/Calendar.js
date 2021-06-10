@@ -66,7 +66,7 @@ class Calendar extends React.Component {
       for (let i = 0; i < 7; i++) {
         formattedDate = dateFns.format(day, dateFormat);
         const cloneDay = day;
-        console.log(cloneDay);
+        // console.log(cloneDay);
         days.push(
           <div
             className={`col cell ${
