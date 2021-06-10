@@ -5,6 +5,8 @@ import "../css/Signup.css";
 import axios from "axios";
 import { FaYoutube } from "react-icons/fa";
 
+
+
 function Signup() {
   const [mediaState, setMediaState] = React.useState("-");
   const [linkState, setLinkState] = React.useState("");
@@ -25,6 +27,8 @@ function Signup() {
   const [bandcampLinks, setbandcampLinks] = React.useState([]);
 
   const [imgurLinks, setImgurLinks] = React.useState([]);
+
+
 
   // const handleVenueValueChange = async (e) => {
   //   setLinkState(e);
@@ -64,8 +68,21 @@ function Signup() {
     setLinkState("");
     setMediaState("-");
   };
-
+  const [venueState, setVenueState] = React.useState(null);
+  const [artistState, setArtistState] = React.useState(null);
   const [signupType, setSignupType] = React.useState("");
+
+  const handleOnclick = (e)=>{
+    console.log(e.target.textContent);
+    setSignupType(e.target.textContent);
+    if (e.target.textContent === 'Artist'){
+      setArtistState('pressed');
+      setVenueState(null)
+    }else if (e.target.textContent === 'Venue'){
+      setArtistState(null);
+      setVenueState('pressed');
+    }
+  }
 
   let type = signupType;
   let signUpForm;
@@ -968,37 +985,19 @@ function Signup() {
     <div className="home-background">
       <div className="container">
         <h1 id="top-signup">Sign up as a...</h1>
-
-        {/* <form>
-                        <div className = 'form-group'>
-                            <label htmlFor = 'artistOrVenue'>Artist or Venue?</label>
-                            <select className = 'form-select' id = 'artistOrVenueID'>
-                                <option>Artist</option>
-                                <option>Venue</option>
-                            </select>
-                        </div>
-
-                        <div className = 'form-group' id = 'artistSignup' style = {{display: 'none'}}>
-                            <label htmlFor = 'artistName'>Artist Name:</label>
-                            <input type = 'text' className = 'form-control' required></input>
-                        </div>
-                    </form> */}
         <div className="d-flex justify-content-center ">
-          <button id="set-signup" onClick={() => setSignupType("Artist")}>
+          <button className={artistState ? artistState : ""}id="set-signup" onClick={handleOnclick}> 
             Artist
           </button>
           <p id="or" className="d-flex justify-content-center">
             or
           </p>
-          <button id="set-signup" onClick={() => setSignupType("Venue")}>
+          <button className={venueState ? venueState : ""}id="set-signup" onClick={handleOnclick}> 
             Venue
           </button>
         </div>
 
         {signUpForm}
-        {/* <div className = 'calendar-placeholder'>
-                        <h4>Week's Worth of Shows</h4>
-                    </div> */}
       </div>
     </div>
   );
