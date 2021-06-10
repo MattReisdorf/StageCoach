@@ -1,8 +1,8 @@
 import React, { useState, useEffect, Component, setState } from "react";
+import { Link } from "react-router-dom";
 import * as dateFns from "date-fns";
 import axios from "axios";
-import '../components/css/Calendar.css';
-
+import "../components/css/Calendar.css";
 
 class Calendar extends React.Component {
   state = {
@@ -12,20 +12,15 @@ class Calendar extends React.Component {
     cityShows: [],
   };
 
-// this will need changed with Geolocation /api/shows/city/whatever
+  // this will need changed with Geolocation /api/shows/city/whatever
 
   componentDidMount() {
-    console.log("component did mount first line");
     axios
-      .get(
-        "/api/shows/city/Chicago"
-      )
+      .get("/api/shows/city/Chicago")
       .then((showData) => {
-        console.log(showData.data)
-        this.setState({ cityShows: showData.data })
-
+        this.setState({ cityShows: showData.data });
       })
-      .catch(err => console.log(err));
+      .catch((err) => console.log(err));
   }
 
   renderHeader() {
@@ -68,8 +63,6 @@ class Calendar extends React.Component {
   }
 
   renderCells() {
-    if (this.state.cityShows[0]) {
-      console.log(this.state.cityShows[0].date_formed)}
     const { currentMonth, selectedDate } = this.state;
     const monthStart = dateFns.startOfMonth(currentMonth);
     const monthEnd = dateFns.endOfMonth(monthStart);
@@ -77,40 +70,51 @@ class Calendar extends React.Component {
     const endDate = dateFns.endOfWeek(monthEnd);
 
     const dateFormat = "d";
-    const apiFormat = "yyyy-MM-dd"
+    const apiFormat = "yyyy-MM-dd";
     const rows = [];
 
     let days = [];
     let day = startDate;
     let formattedDate = "";
-    
+
     while (day <= endDate) {
       for (let i = 0; i < 7; i++) {
         formattedDate = dateFns.format(day, dateFormat);
         const cloneDay = day;
-        console.log(cloneDay)
-        console.log(dateFns.format(cloneDay, apiFormat))
-        // console.log("day:", day)
         days.push(
           <div
             className={`col cell ${
               !dateFns.isSameMonth(day, monthStart)
                 ? "disabled"
-                : dateFns.isSameDay(day, selectedDate) ? "selected" : ""
+                : dateFns.isSameDay(day, selectedDate)
+                ? "selected"
+                : ""
             }`}
             key={day}
-            onClick={() => this.onDateClick(dateFns.parse(cloneDay, "eeee mmmm do", new Date()))}
+            onClick={() =>
+              this.onDateClick(
+                dateFns.parse(cloneDay, "eeee mmmm do", new Date())
+              )
+            }
           >
             <span className="number">{formattedDate}</span>
             {/* this is where the api call for shows in the area will go, if date = day maybe with dateFns isSameDay() */}
             <span className="shows-date">
-              
-              { this.state.cityShows ? (this.state.cityShows.map((show)=> <div>{show.date_formed == dateFns.format(cloneDay, apiFormat) ? <div className="show-text"> {show.artist.artist_name} at {show.venue.venue_name} </div>: null }</div>)) : null}
-              
-              </span>
+              {this.state.cityShows
+                ? this.state.cityShows.map((show) => (
+                    <div>
+                      {show.date_formed ==
+                      dateFns.format(cloneDay, apiFormat) ? (
+                        <Link to={"/shows/" + show.id} className="shows-date">
+                          {show.artist.artist_name} at {show.venue.venue_name}
+                        </Link>
+                      ) : null}
+                    </div>
+                  ))
+                : null}
+            </span>
             {/* this is where the on:hover displays the larger date # for background text */}
             <span className="bg">{formattedDate}</span>
-            
           </div>
         );
         day = dateFns.addDays(day, 1);
@@ -125,27 +129,25 @@ class Calendar extends React.Component {
     return <div className="body">{rows}</div>;
   }
 
-  onDateClick = day => {
+  onDateClick = (day) => {
     this.setState({
-      selectedDate: day
+      selectedDate: day,
     });
 
     // this.renderHeader()
-
   };
-
 
   nextMonth = () => {
     this.setState({
       currentMonth: dateFns.addMonths(this.state.currentMonth, 1),
-      currentDay: dateFns.startOfMonth(this.state.currentMonth)
+      currentDay: dateFns.startOfMonth(this.state.currentMonth),
     });
   };
 
   prevMonth = () => {
     this.setState({
       currentMonth: dateFns.subMonths(this.state.currentMonth, 1),
-      currentDay: dateFns.startOfMonth(this.state.currentMonth)
+      currentDay: dateFns.startOfMonth(this.state.currentMonth),
     });
   };
 

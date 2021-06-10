@@ -13,7 +13,7 @@ router.get("/", async (req, res) => {
 });
 
 // get all shows in a certain city
-// not currently working
+
 router.get("/city/:city", async (req, res) => {
   try {
     const showData = await Show.findAll({
@@ -36,7 +36,17 @@ router.get("/city/:city", async (req, res) => {
 // get a single show
 router.get("/:id", async (req, res) => {
   try {
-    const showData = await Show.findByPk(req.params.id);
+    const showData = await Show.findByPk(req.params.id, {
+      attributes: ['id', 'artist_id', 'venue_id', 'time', 'description', [sequelize.fn('date_format', sequelize.col('date'), '%Y-%m-%d'), 'date_formed']],
+      include: [
+        {
+          model: Venue
+        },
+        {
+          model: Artist
+        }
+      ]
+    });
 
     if (!showData) {
       res.status(404).json({ message: "No show found with this id!" });
