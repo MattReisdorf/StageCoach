@@ -18,13 +18,14 @@
 #bio-content {
     padding: 20px;
     background-color: rgb(190,171,157,.20);
+    overflow: auto;
 }
 
-#profile-image {
-    max-width: 100%;
-    
+#image-box img {
+    max-width: 100%; 
+    display: block; 
+    height: auto 
 }
-
 /* shows css */
 
 
