@@ -24,8 +24,8 @@ function CreateShow() {
     <div className="home-background">
       <div className="container">
         <div id="card-contain">
-          <div className="card shadow-lg p-3 mb-5 shadow bg-white rounded">
-            <h5 className="card-header">Let's schedule a show.</h5>
+          <div id="main-card" className="card shadow-lg p-3 mb-5 shadow bg-white rounded">
+            <h5 id="card-header" className="card-header">Let's schedule a show.</h5>
             <div className="card-body">
               <form>
                 {/* date label + input */}
@@ -55,7 +55,7 @@ function CreateShow() {
                 {/* artist select. this looks bad right now. maybe have it input rather than select but still with options */}
                 <div className="input-group mb-3" id="artist-input">
                   <span className="input-group-text shadow" id="basic-addon1">
-                    Artist:
+                    Artists:
                   </span>
                   <select
                     className="form-select"
@@ -84,9 +84,11 @@ function CreateShow() {
                     aria-describedby="basic-addon1"
                   />
                 </div>
+                <div id="create-button">
                 <button id="sub-but" type="submit" className="btn btn-primary btn-lg shadow-lg p-3 mb-5 bg-white rounded">
             Create Show
           </button>
+          </div>
               </form>
             </div>
           </div>

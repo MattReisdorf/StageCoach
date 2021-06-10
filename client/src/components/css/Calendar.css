@@ -244,3 +244,10 @@ main {
 .shows-date {
   font-size: 8px;
 }
+
+.cell {
+  display: flex;
+  justify-content: center;
+  padding-top: 25px;
+}
+
