@@ -9,7 +9,7 @@ function NavBar() {
     // const location = useLocation();
 
     return (
-        <nav className = 'navbar nav-background'>
+        <nav className = 'navbar nav-background col-lg-12 col-md-auto col-sm-auto'>
             <Link
                 to = '/' className = 'page-name'
             >

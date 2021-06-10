@@ -61,3 +61,12 @@
     align-items: center;
 }
 
+.search-link {
+    color: rgb(236, 235, 228);
+    text-decoration: none;
+}
+
+.search-link:hover {
+    color: rgb(255, 255, 255);
+}
+
