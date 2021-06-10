@@ -22,5 +22,13 @@
         "description": "The Beatles Live in Concert at Tom's Backyard",
         "venue_id": 12,
         "artist_id": 3
+    },
+    {
+        "id": 4, 
+        "date": "2021-06-25",
+        "time": "14:00:00",
+        "description": "Indiana Boys at Reggie's Indianapolis",
+        "venue_id": 13,
+        "artist_id": 4
     }
 ]

@@ -1,0 +1,14 @@
+#profile-image {
+    height: 450px;
+    width: auto;
+}
+
+#show-h1 {
+    color: rgb(192,78,33)!important;
+}
+
+#card-contain {
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+}

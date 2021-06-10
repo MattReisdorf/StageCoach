@@ -110,11 +110,11 @@ main {
   transition: 0.15s ease-out;
 }
 
-.calendar .header .icon:hover {
+/* .calendar .header .icon:hover {
   transform: scale(1.75);
   transition: 0.25s ease-out;
   color: var(--main-color);
-}
+} */
 
 .calendar .header .icon:first-of-type {
   margin-left: 1em;
@@ -143,14 +143,14 @@ main {
   transition: 0.25s ease-out;
 }
 
-.calendar .body .cell:hover {
+/* .calendar .body .cell:hover {
   background: var(--bg-color);
   transition: 0.5s ease-out;
-}
+} */
 
 .calendar .body .selected {
   border-left: 10px solid transparent;
-  border-image: linear-gradient(45deg, #1a8fff 0%, #53cbf1 40%);
+  border-image: linear-gradient(45deg,rgb(102, 76, 58)  0%,rgb(192,78,33)  20%);
   border-image-slice: 1;
 }
 
@@ -193,14 +193,61 @@ main {
   letter-spacing: -0.07em;
 }
 
-.calendar .body .cell:hover .bg,
+/* .calendar .body .cell:hover .bg,
 .calendar .body .selected .bg {
   opacity: 0.05;
   transition: 0.5s ease-in;
-}
+  color:rgb(192,78,33)!important;
+} */
 
 .calendar .body .col {
   flex-grow: 0;
   flex-basis: calc(100% / 7);
   width: calc(100% / 7);
 }
+
+.icon {
+  color:rgb(192,78,33)!important;
+
+}
+
+/* .cell:active {
+  border-left: 10px solid transparent;
+  border-image: linear-gradient(45deg,rgb(102, 76, 58)  0%,rgb(192,78,33)  20%);
+  border-image-slice: 1;
+}
+
+.cell:focus{
+  border-left: 10px solid transparent;
+  border-image: linear-gradient(45deg,rgb(102, 76, 58)  0%,rgb(192,78,33)  20%);
+  border-image-slice: 1;
+}
+
+:target{
+  border-left: 10px solid transparent;
+  border-image: linear-gradient(45deg,rgb(102, 76, 58)  0%,rgb(192,78,33)  20%);
+  border-image-slice: 1;
+}
+
+.shows:focus {
+  border-left: 10px solid transparent;
+  border-image: linear-gradient(45deg,rgb(102, 76, 58)  0%,rgb(192,78,33)  20%);
+  border-image-slice: 1;
+}
+
+.shows:active {
+  border-left: 10px solid transparent;
+  border-image: linear-gradient(45deg,rgb(102, 76, 58)  0%,rgb(192,78,33)  20%);
+  border-image-slice: 1;
+} */
+
+.shows-date {
+  font-size: 8px;
+}
+
+.cell {
+  display: flex;
+  justify-content: center;
+  padding-top: 25px;
+}
+

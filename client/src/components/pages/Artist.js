@@ -1,4 +1,4 @@
-import React, { Component, useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import "../css/Home.css";
 import "../css/Artist.css";
 import axios from "axios";
@@ -73,21 +73,21 @@ const getShows = () => {
         <div className="row" id="test">
           <div className="col-md-6 col-sm-12" id="bio-box">
             <div id="bio-content">
-              <h1>{artist.artist_name}</h1>
-              <h3>{artist.city}, {artist.state}</h3> 
-
-              <img id="profile-image" src="https://media.vanityfair.com/photos/5d0bf443a2036c7015753f28/16:9/w_1407,h_791,c_limit/The-Muppet-Movie-The-Rainbow-Connection.jpg"/>
-
-              <h3>{artist.genre_one}, {artist.genre_two}, {artist.genre_three} </h3>
-              <h4>{artist.bio}</h4>
-              <div><span>contact: </span><a href={"mailto:" + artist.email}>{artist.email}</a> </div>
+              <h1 className="text-center">{artist.artist_name}</h1>
+              <h3 className="text-center">{artist.city}, {artist.state}</h3> 
+              <div id="profile-image">
+              <img id="profile-image" src={artist.imgur_url ? artist.imgur_url : "https://i.imgur.com/K91SDKI.jpg" }/>
+              </div>
+              <h3 className="text-center">{artist.genre_one}, {artist.genre_two}, {artist.genre_three} </h3>
+              <h4 className="text-center">{artist.bio}</h4>
+              <div className="text-center"><span>contact: </span><a href={"mailto:" + artist.email}>{artist.email}</a> </div>
             </div>
           </div>
           
           <div className="col-md-6 col-sm-12" id="events-media-box">
             <div id="upcoming-shows">
-              <h3>upcoming shows</h3>
-              <div>
+              <h3 id="up-show" className="text-center">upcoming shows</h3>
+              <div className="text-center">
               { shows ? (shows.map((show) => 
               ( 
                 <div className="upcoming-shows">

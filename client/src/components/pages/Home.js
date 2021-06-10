@@ -74,6 +74,7 @@ export default function Home() {
                         <p className = 'search-text'>Search for an Artist or Venues</p>
                         <form className = 'search-form'>
                             <input className = 'form-control' type = 'search' onChange = {handleSearch} placeholder = '' aria-label = 'search'></input>
+                            <div id="bottom-button">
                                 <Link
                                     to = {{
                                         pathname: '/search',
@@ -81,10 +82,11 @@ export default function Home() {
                                     }}
                                         className = 'search-link'
                                 >
-                                    <button className = 'btn btn-dark search-button' type = 'submit'>
+                                    <button id="srch-button" className = 'btn btn-dark search-button shadow-lg' type = 'submit'>
                                         Search
                                     </button>
                                 </Link>
+                                </div>
                             
                         </form>
                     </div>
@@ -115,7 +117,8 @@ export default function Home() {
                     <p className = 'search-text'>Search for an Artist or Venue</p>
                     <form className = 'search-form'>
                         <input className = 'form-control' type = 'search' onChange = {handleSearch} placeholder = '' aria-label = 'search' id = 'input'></input>
-                        <button className = 'btn btn-dark search-button' type = 'submit'>
+                        <div id="bottom-button">
+                        <button id="srch-button" className = 'btn btn-dark search-button shadow-lg' type = 'submit'>
                             <Link
                                 to = {{
                                     pathname: '/search',
@@ -125,7 +128,7 @@ export default function Home() {
                             >
                                 Search
                             </Link>
-                        </button>
+                        </button></div>
                     </form>
                 </div>
             </div>

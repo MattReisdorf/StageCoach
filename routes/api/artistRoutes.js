@@ -4,7 +4,9 @@ const { Artist, Show } = require("../../models");
 // get all artists
 router.get("/", async (req, res) => {
   try {
-    const artistData = await Artist.findAll();
+    const artistData = await Artist.findAll({
+      order: [['artist_name', 'ASC']]
+    });
     res.status(200).json(artistData);
   } catch (err) {
     res.status(500).json(err);
