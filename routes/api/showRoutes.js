@@ -1,5 +1,6 @@
 const router = require("express").Router();
-const { Show } = require("../../models");
+const { Show, Venue, Artist } = require("../../models");
+const sequelize = require('sequelize')
 
 // get all shows
 router.get("/", async (req, res) => {
@@ -16,8 +17,14 @@ router.get("/", async (req, res) => {
 router.get("/city/:city", async (req, res) => {
   try {
     const showData = await Show.findAll({
-      where: {date: req.params.date
-      }
+      where: {'$Venue.city$': req.params.city
+      },
+      attributes: ['id', 'time', 'description',[sequelize.fn('date_format', sequelize.col('date'), '%Y-%m-%d'), 'date_formed']],
+      include: [{
+        model: Venue,
+        attributes: ["venue_name", "city", "state"]
+      },{ model: Artist, attributes: ["artist_name"]}
+    ]
     });
     res.status(200).json(showData);
   } catch (err) {
