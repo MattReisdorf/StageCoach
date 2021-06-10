@@ -1,6 +1,7 @@
-#profile-image {
-    height: 450px;
-    width: auto;
+#show-image {
+    max-width: 100%; 
+    display: block; 
+    height: auto 
 }
 
 #show-h1 {
