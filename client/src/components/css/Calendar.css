@@ -251,3 +251,6 @@ main {
   padding-top: 25px;
 }
 
+#show-link {
+  color: rgb(192,78,33) !important;
+}

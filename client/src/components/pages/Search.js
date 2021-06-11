@@ -4,6 +4,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "../css/Home.css";
 import axios from 'axios';
 import haversine from '../../utils/Haversine-Formula';
+import "../css/Search.css";
 // import { Artist, Venue } from '../../../../models';
 
 // const express = require('express');
@@ -176,7 +177,7 @@ export default function Search(props) {
     // Return HTML
     if (searchData.length < 1) {
         return (
-            <div>LOADING</div>
+            <div id="loading">LOADING</div>
         )
     }
 
@@ -190,7 +191,7 @@ export default function Search(props) {
         return (
             <div>
             <form className = 'search-form'>
-                <input className = 'form-control' type = 'search' onChange = {handleSearch} placeholder = '' aria-label = 'search'></input>
+                <input className = 'form-control shadow rounded' type = 'search' onChange = {handleSearch} placeholder = '' aria-label = 'search'></input>
                     <Link
                         to = {{
                             pathname: '/search',
@@ -198,9 +199,11 @@ export default function Search(props) {
                         }}
                             className = 'search-link'
                     >
-                        <button className = 'btn btn-dark search-button' type = 'button' onClick = {handleRefresh}>
+                        <div id="srch-div">
+                        <button id="srch-button" className = 'btn btn-dark search-button shadow-lg' type = 'button' onClick = {handleRefresh}>
                             Search
                         </button>
+                        </div>
                     </Link>
 
                     {/* <button className = 'btn btn-dark search-button' type = 'button' onClick = {handleRefresh}>
