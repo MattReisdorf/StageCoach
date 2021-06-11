@@ -17,17 +17,44 @@ export default function Search(props) {
 
     if (props.location.searchProps) {
         localStorage.setItem('search', props.location.searchProps.search)
-        localStorage.setItem('city', props.location.searchProps.cityState)
-        localStorage.setItem('lat', props.location.searchProps.lat)
-        localStorage.setItem('long', props.location.searchProps.long)
+        if(props.location.searchProps.cityState) {
+            localStorage.setItem('city', props.location.searchProps.cityState)
+        }
+        else {
+            localStorage.setItem('city', props.location.searchProps.lsCity)
+        }
+        if(props.location.searchProps.lat) {
+            localStorage.setItem('lat', props.location.searchProps.lat)
+        }
+        else {
+            localStorage.setItem('lat', props.location.searchProps.lsLat);
+        }
+        if(props.location.searchProps.long) {
+            localStorage.setItem('long', props.location.searchProps.long)
+        }
+        else {
+            localStorage.setItem('long', props.location.searchProps.lsLong);
+        }
+        
     }
+
+    
     
 
+    // Pulled localStorage Variables
+    // let lsCity = localStorage.getItem('city');
+    // let lsLat = localStorage.getItem('lat');
+    // let lsLong = localStorage.getItem('long');
     
     // States
     const [searchData, setSearchData] = useState([])
     const [search, setSearch] = useState(localStorage.getItem('search'));
     const [sortDirections, setSortDirections] = useState({ name: '', type: '', distance: '' })
+    const [lsCity, setlsCity] = useState(localStorage.getItem('city'));
+    const [lsLat, setlsLat] = useState(localStorage.getItem('lat'));
+    const [lsLong, setlsLong] = useState(localStorage.getItem('long'));
+    
+   
 
 
 
@@ -112,6 +139,8 @@ export default function Search(props) {
                     searchResults.push(allData[i])
                 }
             }
+
+            // EXPAND WHAT CAN BE FILTERED FROM SEARCH -> GENRES/CITIES/ETC
         }
 
         return searchResults;
@@ -126,15 +155,23 @@ export default function Search(props) {
     // console.log(searchData);
   
   
+    const handleRefresh = (event) => {
+        if (event) {
+            window.location.reload();
+        }
+    }
 
 
-    // const handleSearch = (event) => {
-    //     event.preventDefault();
+    const handleSearch = (event) => {
+        event.preventDefault();
+        event.stopPropagation();
 
-    //     let text = event.target.value;
-    //     // console.log(text);
-    //     setSearch(text);
-    // }
+        let text = event.target.value;
+        
+        setSearch(text);
+        
+        // window.location.reload();
+    }
 
     // Return HTML
     if (searchData.length < 1) {
@@ -143,36 +180,42 @@ export default function Search(props) {
         )
     }
 
-    else if (search == '') {
-        return (
-            <div>NO EMPTY SEARCHES</div>
-        )
-    }
+    // else if (search == '') {
+    //     return (
+    //         <div>NO EMPTY SEARCHES</div>
+    //     )
+    // }
 
     else {
         return (
             <div>
-            {/* <form className = 'search-form'>
+            <form className = 'search-form'>
                 <input className = 'form-control' type = 'search' onChange = {handleSearch} placeholder = '' aria-label = 'search'></input>
                     <Link
                         to = {{
                             pathname: '/search',
-                            searchProps: props.location.searchProps
+                            searchProps: { search, lsCity, lsLat, lsLong, }
                         }}
                             className = 'search-link'
                     >
-                        <button className = 'btn btn-dark search-button' type = 'submit'>
+                        <button className = 'btn btn-dark search-button' type = 'button' onClick = {handleRefresh}>
                             Search
                         </button>
                     </Link>
+
+                    {/* <button className = 'btn btn-dark search-button' type = 'button' onClick = {handleRefresh}>
+                        Search
+                    </button> */}
                 
-            </form> */}
+            </form>
 
             <table className = 'table table-sortable text-center'>
                 <thead>
                     <tr>
                         <th scope = 'col'>Name</th>
+                        <th scope = 'col'>Genre</th>
                         <th scope = 'col'>Type</th>
+                        <th scope = 'col'>City, State</th>
                         <th scope = 'col'>Distance</th>
                     </tr>
                 </thead>
@@ -182,6 +225,11 @@ export default function Search(props) {
                         const venueName = thing.venue_name;
                         const lat = thing.lat;
                         const long = thing.long;
+                        const genre1 = thing.genre_one;
+                        const genre2 = thing.genre_two;
+                        const genre3 = thing.genre_three;
+                        const city = thing.city;
+                        const state = thing.state;
                         
 
                         for (let i = 0; i < searchData.length; i++) {
@@ -208,13 +256,18 @@ export default function Search(props) {
                                         {artistName || venueName}
                                     </Link>
                                 </td>
+                                {genre1
+                                ? <td>{genre1}, {genre2}, {genre3}</td>
+                                : <td></td>
+                                }
                                 <td>{type}</td>
+                                <td>{city}, {state}</td>
                                 <td>{haversine(
                                     localStorage.getItem('lat'),
                                     localStorage.getItem('long'),
                                     lat,
                                     long
-                                )}</td>
+                                )} miles</td>
                             </tr>
                         )
                     })}
