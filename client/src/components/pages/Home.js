@@ -54,10 +54,11 @@ export default function Home() {
                 </div>
 
                 <div className = 'container'>
-                    <div className = 'calendar-placeholder'>
-                        <Calendar />
-                    </div>
+                <div className = 'calendar-placeholder'  id="calendarmain">
+                    <Calendar />
                 </div>
+                <div id = 'comingsoon'><h4>Mobile calendar coming soon! Thank you for your patience.</h4></div>
+            </div>
 
                 <div className = 'container'>
                     <div className = 'search-placeholder'>
@@ -97,9 +98,10 @@ export default function Home() {
             </div>
 
             <div className = 'container'>
-                <div className = 'calendar-placeholder'>
+                <div className = 'calendar-placeholder'  id="calendarmain">
                     <Calendar />
                 </div>
+                <div id = 'comingsoon'><h4>Mobile calendar coming soon! Thank you for your patience.</h4></div>
             </div>
 
             <div className = 'container'>
