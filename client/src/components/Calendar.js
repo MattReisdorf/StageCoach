@@ -107,7 +107,7 @@ class Calendar extends React.Component {
                       {show.date_formed ==
                       dateFns.format(cloneDay, apiFormat) ? (
                         <div>
-                        <Link to={"/shows/" + show.id} className="shows-date">
+                        <Link id="show-link" to={"/shows/" + show.id} className="shows-date">
                           {show.artist.artist_name} at {show.venue.venue_name}
                           
                         </Link>

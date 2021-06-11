@@ -77,11 +77,11 @@ export default function Login() {
             <div className="card shadow-lg p-3 mb-5 shadow bg-white rounded">   
                 <form>
                     <div class="input-group mb-3">
-                        <span className="input-group-text" id="basic-addon1">Username:</span>
+                        <span className="input-group-text shadow-lg" id="basic-addon1">Username:</span>
                         <input onChange={(event) => setUserData({...userData, username: event.target.value})} type="text" className="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1"/>
                     </div>
                     <div className="input-group mb-3">
-                        <span className="input-group-text" id="basic-addon1">Password:</span>
+                        <span className="input-group-text shadow-lg" id="basic-addon1">Password:</span>
                         <input onChange={(event) => setUserData({...userData, password: event.target.value})} type="password" className="form-control" placeholder="Password" aria-label="Password" aria-describedby="basic-addon1"/>
                     </div>
                     <div id="sub-but-div">
