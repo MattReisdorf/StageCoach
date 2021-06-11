@@ -36,3 +36,21 @@
 .other-links:hover {
     color: rgb(209, 208, 201);
 }
+
+@media (max-width: 1059px) {
+    .navbar {
+        display: flex;
+        justify-content: center;
+        margin: 0%;
+        padding: 0%;
+
+    }
+
+    .page-name {
+        margin-left: 0%;
+    }
+
+    .other-links {
+        margin-right: 0%;
+    }
+}
