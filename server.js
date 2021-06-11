@@ -31,6 +31,7 @@ app.use(session(sess));
 // this must be after middleware or routes break.
 app.use(routes);
 
+
 sequelize.sync({ force: false }).then(function () {
   app.listen(PORT, function () {
     console.log(`🌎 ==> API server now on port ${PORT}!`);

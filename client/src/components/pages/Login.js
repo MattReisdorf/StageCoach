@@ -1,6 +1,7 @@
 import React, { Component, useEffect } from "react";
 import loginApi from "../../utils/loginStuff";
 import { Redirect } from 'react-router-dom';
+import Cookies from 'universal-cookie';
 import "../css/Login.css";
 
 
@@ -8,7 +9,7 @@ export default function Login() {
     const [venueState, setVenueState] = React.useState(null);
     const [artistState, setArtistState] = React.useState(null);
 
-
+    const cookies = new Cookies();
 
     const [loginType, setLoginType] = React.useState("");
     const [userData, setUserData] = React.useState({
@@ -22,18 +23,22 @@ export default function Login() {
             console.log(userData)
             loginApi.loginVenue(userData).then((success) => {
                 alert('Venue login successful')
-                return <Redirect to = "/" />
+                cookies.set('id', success.data.user.id, { path: '/' })
+                return window.location.assign('/')
             }).catch((err) => {
                 alert('Invalid username or password!')
+                return window.location.assign('/login');
             })
 
         } else if (loginType === 'Artist'){
             console.log(userData)
             loginApi.loginArtist(userData).then((success) => {
                 alert('Artist login successful')
-                return <Redirect to = "/" />
+                cookies.set('id', success.data.user.id, { path: '/' })
+                return window.location.assign('/')
             }).catch((err) => {
                 alert('Invalid username or password!')
+                return window.location.assign('/login');
             })
         }
     }, [submitClicked]);
