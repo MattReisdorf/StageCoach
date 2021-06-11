@@ -29,24 +29,23 @@ function Artist() {
       <div className="container-fluid" id="show-main-box">
          <div className="show-card text-center">
             {show.artist ? 
-            <div> <h1 id="show-h1"> <Link id="show-h1" to={"/artists/" + show.artist_id} className="show-links">
+            <div> <h1 id="show-header"> <Link className="show-h1" to={"/artists/" + show.artist_id} className="show-links">
             {show.artist.artist_name} 
-          </Link> At <Link id="show-h1" to={"/venues/" + show.venue_id} className="show-links">
+          </Link> at <Link className="show-links" to={"/venues/" + show.venue_id} className="show-links">
             {show.venue.venue_name} 
           </Link> </h1> 
-              {/* <h2> {show.artist.artist_name} at {show.venue.venue_name}</h2> */}
-            <h5>{show.date_formed}, {show.time_formed}</h5>
-            <h3> {show.venue.all_ages ? "All Ages Show" : null }
+            <h3>{show.date_formed}, {show.time_formed}</h3>
+            <h4> {show.venue.all_ages ? "All Ages Show" : null }
                  {show.venue.eighteen_plus ? "18+" : null }
                  {show.venue.twentyone_plus ? "21+" : null }
-            </h3>
+            </h4>
             
             <div id="profile-image-div">
             <img id="show-image" src={show.artist.imgur_url ? show.artist.imgur_url : "https://i.imgur.com/K91SDKI.jpg" }/>
             </div>
 
             </div>
-            : "bye"}
+            : null }
          </div>
         </div>
         </div>

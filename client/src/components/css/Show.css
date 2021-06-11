@@ -4,8 +4,19 @@
     height: auto 
 }
 
-#show-h1 {
+#show-main-box {
+    font-family: 'Roboto Slab', serif;
+
+}
+
+#show-header {
     color: rgb(192,78,33)!important;
+
+}
+
+.show-links {
+    color: rgb(204, 95, 52);
+    
 }
 
 #card-contain {
