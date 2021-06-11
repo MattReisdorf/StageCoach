@@ -8,7 +8,8 @@ import Venue from './components/pages/Venue';
 import Show from './components/pages/Show';
 import Search from './components/pages/Search';
 import CreateShow from './components/pages/CreateShow';
-import Login from './components/pages/Login'
+import Login from './components/pages/Login';
+
 
 
 function App() {
@@ -23,7 +24,7 @@ function App() {
              <Route exact path = '/venues/:id' component = {Venue} />
              <Route exact path = '/shows/:id' component = {Show} />
              <Route exact path = '/shows/create' component = {CreateShow} />
-
+             
         </Router>
        
     )

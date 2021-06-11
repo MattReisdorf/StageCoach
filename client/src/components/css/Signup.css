@@ -28,6 +28,7 @@ body {
 }
 
 #top-signup {
+    margin-top: 25px;
     text-align: center;
     font-family: 'Pacifico', cursive;
     font-family: 'Roboto Slab', serif;
@@ -42,6 +43,7 @@ body {
     background-color: rgb(218,221,216);
     font-family: 'Pacifico', cursive;
     font-family: 'Roboto Slab', serif;
+    text-shadow: black 1px 1px;
 }
 
 .pressed {
@@ -82,7 +84,7 @@ body {
     text-align: center;
     width: 400px;
     height: auto;
-    margin-bottom: 20px;
+    margin-bottom: 5px;
     font-size: 35px;
     font-family: 'Pacifico', cursive;
     font-family: 'Roboto Slab', serif;
@@ -153,4 +155,62 @@ body {
 
 #mediah1 {
     color: rgb(192, 78, 33);
+}
+
+#question {
+    margin-top: 0px;
+}
+
+.card-body {
+    padding: 10px;
+}
+
+@media (max-width: 1059px) {
+    .card-body {
+        width: 100%;
+        margin: 0%;
+        padding: 0%;
+    }
+    
+    #card-contain {
+        width: 100%;
+        margin: 0%;
+        padding: 0%;
+    }
+
+    .main-card-div {
+        width: 100vw !important;
+    }
+
+    table, thead, tbody, th, td, tr { 
+		display: block; 
+	}
+
+    thead tr { 
+		position: absolute;
+		top: -9999px;
+		left: -9999px;
+	}
+
+    tr { border: 1px solid #ccc; }
+	
+	td { 
+		/* Behave  like a "row" */
+		border: none;
+		border-bottom: 1px solid #eee; 
+		position: relative;
+		padding-left: 50%; 
+	}
+	
+	td:before { 
+		/* Now like a table header */
+		position: absolute;
+		/* Top/left values mimic padding */
+		top: 6px;
+		left: 6px;
+		width: 45%; 
+		padding-right: 10px; 
+		white-space: nowrap;
+	}
+    
 }

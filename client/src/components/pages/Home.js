@@ -26,16 +26,6 @@ export default function Home() {
     }
 
 
-
-    // PLACEHOLDER API FOR BUILDING SEARCH
-    // setCityState('Chicago');
-    // setLat(41.88);
-    // setLong(87.63);
-
-
-
-
-
     // IPIFY API REQUEST
     // useEffect(() => {
     //     axios
@@ -59,15 +49,16 @@ export default function Home() {
                 <div className = 'container-fluid'>
                     <div className = 'howdy text-center'>
                         <h1>Howdy,</h1>
-                        <h3>Here's What's Happening In Your Town This Week</h3>
+                        <h3>Here's What's Happening In Your Town This Month </h3>
                     </div>
                 </div>
 
                 <div className = 'container'>
-                    <div className = 'calendar-placeholder'>
-                        <Calendar />
-                    </div>
+                <div className = 'calendar-placeholder'  id="calendarmain">
+                    <Calendar />
                 </div>
+                <div id = 'comingsoon'><h4>Mobile calendar coming soon! Thank you for your patience.</h4></div>
+            </div>
 
                 <div className = 'container'>
                     <div className = 'search-placeholder'>
@@ -101,24 +92,24 @@ export default function Home() {
 
             <div className = 'container-fluid'>
                 <div className = 'howdy text-center'>
-                    <h1>Howdy, {cityState}</h1>
-                    <h3>Here's What's Happening In Your Town This Week</h3>
+                    <h1>Howdy!</h1>
+                    <h3>Here's What's Happening In {cityState} This Month</h3>
                 </div>
             </div>
 
             <div className = 'container'>
-                <div className = 'calendar-placeholder'>
+                <div className = 'calendar-placeholder'  id="calendarmain">
                     <Calendar />
                 </div>
+                <div id = 'comingsoon'><h4>Mobile calendar coming soon! Thank you for your patience.</h4></div>
             </div>
 
             <div className = 'container'>
                 <div className = 'search-placeholder'>
                     <p className = 'search-text'>Search for an Artist or Venue</p>
                     <form className = 'search-form'>
-                        <input className = 'form-control' type = 'search' onChange = {handleSearch} placeholder = '' aria-label = 'search' id = 'input'></input>
+                        <input className = 'form-control shadow' type = 'search' onChange = {handleSearch} placeholder = '' aria-label = 'search' id = 'input'></input>
                         <div id="bottom-button">
-                        <button id="srch-button" className = 'btn btn-dark search-button shadow-lg' type = 'submit'>
                             <Link
                                 to = {{
                                     pathname: '/search',
@@ -126,9 +117,11 @@ export default function Home() {
                                 }}
                                      className = 'search-link'
                             >
-                                Search
+                                <button id="srch-button" className = 'btn btn-dark search-button shadow-lg' type = 'submit'>
+                                    Search
+                                </button>
                             </Link>
-                        </button></div>
+                        </div>
                     </form>
                 </div>
             </div>

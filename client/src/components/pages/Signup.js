@@ -458,7 +458,7 @@ function Signup() {
   if (type === "Venue") {
     signUpForm = (
         <div id="card-contain">
-        <div className="card shadow-lg p-3 mb-5 shadow bg-white rounded">
+        <div className="card shadow-lg p-3 mb-5 shadow bg-white rounded main-card-div">
             <h5 id="card-head" className="card-header shadow text-center">Venue Sign Up</h5>
            <div className="card-body">
       <div>
@@ -676,7 +676,7 @@ function Signup() {
               aria-describedby="basic-addon1"
             />
           </div>
-          <h1 className="text-center">Is your venue...</h1>
+          <h1 id="question" className="text-center">Does your venue have...</h1>
           <div>
             <h4>A minimum age to enter:</h4>
             <div className="form-check">
@@ -731,7 +731,7 @@ function Signup() {
                 21+
               </label>
             </div>
-            <h2>Ammenities!</h2>
+            <h4>Ammenities:</h4>
             <div>
               <div className="form-check">
                 <input
@@ -756,7 +756,7 @@ function Signup() {
             </div>
           </div>
           <h2>Add some links to your venue's other content pages!</h2>
-          <table className="table text-center">
+          <table className="table text-center col-md-12">
             <thead>
               <tr>
                 <th scope="col">Website</th>
@@ -956,7 +956,7 @@ function Signup() {
                 onClickCapture={(e) => handleMediaAdd(mediaState)}
                 type="button"
                 id="media-button"
-                className="btn btn-primary btn-lg mb-3 rounded"
+                className="btn btn-primary btn-lg mb-3 shadow rounded"
               >
                 Add Picture
               </button>
@@ -979,7 +979,7 @@ function Signup() {
   else if (type === "Artist") {
     signUpForm = (
         <div id="card-contain">
-        <div className="card shadow-lg p-3 mb-5 shadow bg-white rounded">
+        <div className="card shadow-lg p-3 mb-5 shadow bg-white rounded main-card-div">
         <h5 id="card-head" className="card-header shadow text-center">Artist Sign Up</h5>
         <div className="card-body">
       <div>
@@ -1304,7 +1304,7 @@ function Signup() {
                   onClickCapture={(e) => handleMediaAdd(mediaState)}
                   type="submit"
                   id="media-button"
-                  className="btn btn-primary btn-lg"
+                  className="btn btn-primary shadow btn-lg"
                 >
                   Add Media
                 </button>
