@@ -61,7 +61,7 @@ const haversine = (IPLat, IPLong, OWLat, OWLong) => {
 
     // console.log(miles);
 
-    return +miles.toFixed(2);
+    return Math.round(miles);
 }
 
 module.exports = haversine;
