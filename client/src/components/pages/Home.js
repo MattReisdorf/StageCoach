@@ -26,16 +26,6 @@ export default function Home() {
     }
 
 
-
-    // PLACEHOLDER API FOR BUILDING SEARCH
-    // setCityState('Chicago');
-    // setLat(41.88);
-    // setLong(87.63);
-
-
-
-
-
     // IPIFY API REQUEST
     // useEffect(() => {
     //     axios

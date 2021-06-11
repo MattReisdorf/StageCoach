@@ -4,17 +4,13 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "../css/Home.css";
 import axios from 'axios';
 import haversine from '../../utils/Haversine-Formula';
-// import { Artist, Venue } from '../../../../models';
-
-// const express = require('express');
-// app.use(express);
-// const db = require('../../../../models');
+import Table from '../Table.js';
 
 
 export default function Search(props) {
-    
-    console.log('props', props);
 
+
+    // Set New Props (or Old Props on Page Refresh) to Local Storage
     if (props.location.searchProps) {
         localStorage.setItem('search', props.location.searchProps.search)
         if(props.location.searchProps.cityState) {
@@ -38,25 +34,15 @@ export default function Search(props) {
         
     }
 
-    
-    
 
-    // Pulled localStorage Variables
-    // let lsCity = localStorage.getItem('city');
-    // let lsLat = localStorage.getItem('lat');
-    // let lsLong = localStorage.getItem('long');
     
     // States
     const [searchData, setSearchData] = useState([])
     const [search, setSearch] = useState(localStorage.getItem('search'));
-    const [sortDirections, setSortDirections] = useState({ name: '', type: '', distance: '' })
     const [lsCity, setlsCity] = useState(localStorage.getItem('city'));
     const [lsLat, setlsLat] = useState(localStorage.getItem('lat'));
     const [lsLong, setlsLong] = useState(localStorage.getItem('long'));
     
-   
-
-
 
 
   
@@ -76,8 +62,16 @@ export default function Search(props) {
             await axios
                 .get(`http://api.openweathermap.org/geo/1.0/direct?q=${artistData[i].city},${artistData[i].state},US&appid=b432d6bb20293207031c4335d6e23edb`)
                 .then((results) => {
+                    // Stuff for Haversine Distance
                     artistData[i].lat = String(results.data[0].lat);
                     artistData[i].long = String(results.data[0].lon);
+
+                    // Stuff for React Table
+                    artistData[i].genres = `${artistData[i].genre_one}, ${artistData[i].genre_two}, ${artistData[i].genre_three}`
+                    artistData[i].type = 'Artist';
+                    artistData[i].distance = `${haversine(localStorage.getItem('lat'), localStorage.getItem('long'), artistData[i].lat, artistData[i].long)} miles`;
+                    artistData[i].name = artistData[i].artist_name;
+                    artistData[i].location = `${artistData[i].city}, ${artistData[i].state}`
                 })
         }
         return artistData
@@ -98,15 +92,22 @@ export default function Search(props) {
             await axios
                 .get(`http://api.openweathermap.org/geo/1.0/direct?q=${venueData[i].city},${venueData[i].state},US&appid=b432d6bb20293207031c4335d6e23edb`)
                 .then((results) => {
+                    // Stuff for Haversine Distance
                     venueData[i].lat = String(results.data[0].lat);
                     venueData[i].long = String(results.data[0].lon);
+
+                    // Stuff for React Table
+                    venueData[i].genres = '';
+                    venueData[i].type = 'Venue';
+                    venueData[i].distance = `${haversine(localStorage.getItem('lat'), localStorage.getItem('long'), venueData[i].lat, venueData[i].long)} miles`;
+                    venueData[i].name = venueData[i].venue_name;
+                    venueData[i].location = `${venueData[i].city}, ${venueData[i].state}`
                 })
         }
         return venueData
     }
 
     const getAllData = async() => {
-        // console.log(await getArtistData());
         let adata = await getArtistData();
         let vdata = await getVenueData();
         let allData = [];
@@ -128,19 +129,18 @@ export default function Search(props) {
 
         for (let i = 0; i < allData.length; i++) {
 
+            // 'Filter' by Artist Name
             if (allData[i].artist_name) {
                 if (allData[i].artist_name.toLowerCase().includes(search.toLowerCase())) {
                     searchResults.push(allData[i])
                 }
             }
-
-            else if (allData[i].venue_name) {
+            // Venue Name
+            if (allData[i].venue_name) {
                 if (allData[i].venue_name.toLowerCase().includes(search.toLowerCase())) {
                     searchResults.push(allData[i])
                 }
             }
-
-            // EXPAND WHAT CAN BE FILTERED FROM SEARCH -> GENRES/CITIES/ETC
         }
 
         return searchResults;
@@ -151,10 +151,7 @@ export default function Search(props) {
         setSearchData(await filterData(search));
     }, [])
 
-    console.log('search state', search);
-    // console.log(searchData);
-  
-  
+ 
     const handleRefresh = (event) => {
         if (event) {
             window.location.reload();
@@ -167,11 +164,9 @@ export default function Search(props) {
         event.stopPropagation();
 
         let text = event.target.value;
-        
         setSearch(text);
-        
-        // window.location.reload();
     }
+
 
     // Return HTML
     if (searchData.length < 1) {
@@ -179,12 +174,6 @@ export default function Search(props) {
             <div>LOADING</div>
         )
     }
-
-    // else if (search == '') {
-    //     return (
-    //         <div>NO EMPTY SEARCHES</div>
-    //     )
-    // }
 
     else {
         return (
@@ -202,14 +191,16 @@ export default function Search(props) {
                             Search
                         </button>
                     </Link>
-
-                    {/* <button className = 'btn btn-dark search-button' type = 'button' onClick = {handleRefresh}>
-                        Search
-                    </button> */}
-                
             </form>
 
-            <table className = 'table table-sortable text-center'>
+
+
+            {/* REACT TABLE */}
+            <Table searchResults = {searchData}></Table>
+
+            {/* ORIGINAL TABLE */}
+            {/* BRING BACK IN IF ANY ISSUES WITH REACT  */}
+            {/* <table className = 'table table-sortable text-center'>
                 <thead>
                     <tr>
                         <th scope = 'col'>Name</th>
@@ -272,7 +263,7 @@ export default function Search(props) {
                         )
                     })}
                 </tbody>
-            </table>
+            </table> */}
         </div>
         )
     }
