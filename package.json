@@ -20,6 +20,7 @@
     "react-simple-image-slider": "^2.1.0",
     "react-table": "^7.7.0",
     "sequelize": "^6.6.2",
+    "session": "^0.1.0",
     "universal-cookie": "^4.0.4"
   },
   "scripts": {

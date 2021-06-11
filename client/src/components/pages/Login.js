@@ -20,7 +20,6 @@ export default function Login() {
 
     useEffect(() => {
         if (loginType === 'Venue'){
-            console.log(userData)
             loginApi.loginVenue(userData).then((success) => {
                 alert('Venue login successful')
                 cookies.set('id', success.data.user.id, { path: '/' })
@@ -31,7 +30,6 @@ export default function Login() {
             })
 
         } else if (loginType === 'Artist'){
-            console.log(userData)
             loginApi.loginArtist(userData).then((success) => {
                 alert('Artist login successful')
                 cookies.set('id', success.data.user.id, { path: '/' })

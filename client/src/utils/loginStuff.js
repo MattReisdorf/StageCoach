@@ -9,7 +9,6 @@ const login = {
         })
     },
     loginArtist: function (userData) {
-        console.log('LOGINARTIST LOGINSTUFF HIT:', userData)
         return axios({
             method: 'post',
             url: '/api/login/artist',
@@ -17,6 +16,7 @@ const login = {
         })
     },
     logout: function() {
+        console.log('Hitting logout route frontend')
         return axios({
             method: 'DELETE',
             url: '/api/login/logout'
