@@ -40,6 +40,7 @@ router.get("/:id/shows", async (req, res) => {
       where: {
         venue_id: req.params.id
       },
+      order: [['date', 'ASC']],
       attributes: [
         'id',
         'time',
