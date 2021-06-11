@@ -60,9 +60,13 @@ router.get("/:id", async (req, res) => {
 });
 
 // create a show
-router.post("/", async (req, res) => {
+router.post("/newshow", async (req, res) => {
+  console.log('show create route hit')
   try {
     const showData = await Show.create(req.body);
+
+    console.log("show create hit: ", showData)
+
     res.status(200).json(showData);
   } catch (err) {
     res.status(400).json(err);
