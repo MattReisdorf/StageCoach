@@ -118,7 +118,6 @@ export default function Home() {
                     <form className = 'search-form'>
                         <input className = 'form-control' type = 'search' onChange = {handleSearch} placeholder = '' aria-label = 'search' id = 'input'></input>
                         <div id="bottom-button">
-                        <button id="srch-button" className = 'btn btn-dark search-button shadow-lg' type = 'submit'>
                             <Link
                                 to = {{
                                     pathname: '/search',
@@ -126,9 +125,11 @@ export default function Home() {
                                 }}
                                      className = 'search-link'
                             >
-                                Search
+                                <button id="srch-button" className = 'btn btn-dark search-button shadow-lg' type = 'submit'>
+                                    Search
+                                </button>
                             </Link>
-                        </button></div>
+                        </div>
                     </form>
                 </div>
             </div>
