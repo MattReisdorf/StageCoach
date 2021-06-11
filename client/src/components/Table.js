@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useTable, useSortBy } from 'react-table';
 import { Link } from 'react-router-dom';
+import './css/Search.css';
 
 function Table(props) {
     const data = React.useMemo(
