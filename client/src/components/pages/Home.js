@@ -26,16 +26,6 @@ export default function Home() {
     }
 
 
-
-    // PLACEHOLDER API FOR BUILDING SEARCH
-    // setCityState('Chicago');
-    // setLat(41.88);
-    // setLong(87.63);
-
-
-
-
-
     // IPIFY API REQUEST
     // useEffect(() => {
     //     axios
@@ -59,7 +49,7 @@ export default function Home() {
                 <div className = 'container-fluid'>
                     <div className = 'howdy text-center'>
                         <h1>Howdy,</h1>
-                        <h3>Here's What's Happening In Your Town This Week</h3>
+                        <h3>Here's What's Happening In Your Town This Month </h3>
                     </div>
                 </div>
 
@@ -101,8 +91,8 @@ export default function Home() {
 
             <div className = 'container-fluid'>
                 <div className = 'howdy text-center'>
-                    <h1>Howdy, {cityState}</h1>
-                    <h3>Here's What's Happening In Your Town This Week</h3>
+                    <h1>Howdy!</h1>
+                    <h3>Here's What's Happening In {cityState} This Month</h3>
                 </div>
             </div>
 
@@ -116,7 +106,7 @@ export default function Home() {
                 <div className = 'search-placeholder'>
                     <p className = 'search-text'>Search for an Artist or Venue</p>
                     <form className = 'search-form'>
-                        <input className = 'form-control' type = 'search' onChange = {handleSearch} placeholder = '' aria-label = 'search' id = 'input'></input>
+                        <input className = 'form-control shadow' type = 'search' onChange = {handleSearch} placeholder = '' aria-label = 'search' id = 'input'></input>
                         <div id="bottom-button">
                             <Link
                                 to = {{

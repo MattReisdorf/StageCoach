@@ -7,7 +7,7 @@
     padding-top: 25px;
     padding-bottom: 25px;
     color: rgb(192,78,33);
-    text-shadow: rgba(102, 76, 58) .2px .2px;
+    text-shadow: rgba(102, 76, 58) .8px .8px;
     font-family: 'Pacifico', cursive;
     font-family: 'Roboto Slab', serif;
 }
@@ -26,16 +26,17 @@
 }
 
 .search-text {
-    display: flex;
+    /* display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: center; */
     text-align: center;
     padding-top: 15px;
     font-size: 1.3em;
     font-family: 'Pacifico', cursive;
     font-family: 'Roboto Slab', serif;
     color: rgb(192,78,33);
+    text-shadow: rgba(102, 76, 58) .2px .2px;
 }
 
 .search-form {
