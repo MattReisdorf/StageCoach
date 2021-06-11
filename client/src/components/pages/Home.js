@@ -59,7 +59,7 @@ export default function Home() {
                 <div className = 'container-fluid'>
                     <div className = 'howdy text-center'>
                         <h1>Howdy,</h1>
-                        <h3>Here's What's Happening In Your Town This Week</h3>
+                        <h3>Here's What's Happening In Your Town This Month </h3>
                     </div>
                 </div>
 
@@ -101,8 +101,8 @@ export default function Home() {
 
             <div className = 'container-fluid'>
                 <div className = 'howdy text-center'>
-                    <h1>Howdy, {cityState}</h1>
-                    <h3>Here's What's Happening In Your Town This Week</h3>
+                    <h1>Howdy!</h1>
+                    <h3>Here's What's Happening In {cityState} This Month</h3>
                 </div>
             </div>
 

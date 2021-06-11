@@ -313,7 +313,7 @@ function Signup() {
               aria-describedby="basic-addon1"
             />
           </div>
-          <h1 className="text-center">Is your venue...</h1>
+          <h1 className="text-center">Does your venue have...</h1>
           <div>
             <h4>A minimum age to enter:</h4>
             <div className="form-check">
@@ -557,7 +557,7 @@ function Signup() {
                 onClickCapture={(e) => handleMediaAdd(mediaState)}
                 type="button"
                 id="media-button"
-                className="btn btn-primary btn-lg mb-3 rounded"
+                className="btn btn-primary btn-lg mb-3 shadow rounded"
               >
                 Add Picture
               </button>
