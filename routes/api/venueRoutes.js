@@ -1,6 +1,7 @@
 const router = require("express").Router();
 const { captureRejectionSymbol } = require("events");
 const { Venue, Show, Artist } = require("../../models");
+const sequelize = require('sequelize');
 
 // get all venues
 router.get("/", async (req, res) => {
@@ -39,7 +40,14 @@ router.get("/:id/shows", async (req, res) => {
       where: {
         venue_id: req.params.id
       },
-      include: [{
+      attributes: [
+        'id',
+        'time',
+        'description',
+        [sequelize.fn('date_format', sequelize.col('date'), '%Y-%m-%d'), 'date_formed'],
+        [sequelize.fn('date_format', sequelize.col('time'), '%h:%i%p'), 'time_formed']
+      ],
+        include: [{
         model: Venue,
         attributes: ["city", "state"]      
       },

@@ -3,7 +3,7 @@
         "id": 1, 
         "date": "2021-06-16",
         "time": "20:00:00",
-        "description": "Tom Tom Club Live at Jee's Club",
+        "description": "show 1",
         "venue_id": 11,
         "artist_id": 1
     },
@@ -11,7 +11,7 @@
         "id": 2, 
         "date": "2021-06-28",
         "time": "21:00:00",
-        "description": "Zach Duty and the Country Coding Boys live at Zach's Rat Shack",
+        "description": "show2 ",
         "venue_id": 10,
         "artist_id": 2
     },
@@ -19,7 +19,7 @@
         "id": 3, 
         "date": "2021-06-25",
         "time": "14:00:00",
-        "description": "The Beatles Live in Concert at Tom's Backyard",
+        "description": "show 3",
         "venue_id": 12,
         "artist_id": 3
     },
@@ -27,7 +27,7 @@
         "id": 4, 
         "date": "2021-06-25",
         "time": "14:00:00",
-        "description": "Indiana Boys at Reggie's Indianapolis",
+        "description": "show 4",
         "venue_id": 13,
         "artist_id": 4
     }

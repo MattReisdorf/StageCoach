@@ -11,6 +11,8 @@ import {
   IoLogoInstagram as Instagram,
 } from "react-icons/io5";
 import { FaChild as Child, FaTimes as XIcon } from "react-icons/fa";
+import SimpleImageSlider from 'react-simple-image-slider';
+
 
 function Venue() {
   const [venue, setVenue] = useState({});
@@ -59,31 +61,31 @@ const getShows = () => {
     var year = dateObj.getUTCFullYear();
     console.log('date ???', month, day,year)
   }
-  const formateDate = (date)=> {
-    var finalStr = ''
+  // const formateDate = (date)=> {
+  //   var finalStr = ''
 
-    var dateObj = new Date(shows[0].date);
-    var month = dateObj.getUTCMonth() + 1; //months from 1-12
-    var day = dateObj.getUTCDate();
-    var year = dateObj.getUTCFullYear();
-    console.log('date ???', month, day,year)
-    finalStr+= month + '/' + day + '/' + year
-    return finalStr
-  }
+  //   var dateObj = new Date(shows[0].date);
+  //   var month = dateObj.getUTCMonth() + 1; //months from 1-12
+  //   var day = dateObj.getUTCDate();
+  //   var year = dateObj.getUTCFullYear();
+  //   console.log('date ???', month, day,year)
+  //   finalStr+= month + '/' + day + '/' + year
+  //   return finalStr
+  // }
 
-  const formatTime = (time)=> {
-    var finalStr = ''
-    var hour = parseInt(time.split(':')[0])
-    if(hour > 12) {
-      hour = hour - 12
-      finalStr+= hour +' P.M.'
-    } else {
-      finalStr+= hour +' A.M.'
-    }
-    console.log('time!', hour)
-    return finalStr
-  }
-  
+  // const formatTime = (time)=> {
+  //   var finalStr = ''
+  //   var hour = parseInt(time.split(':')[0])
+  //   if(hour > 12) {
+  //     hour = hour - 12
+  //     finalStr+= hour +' P.M.'
+  //   } else {
+  //     finalStr+= hour +' A.M.'
+  //   }
+  //   console.log('time!', hour)
+  //   return finalStr
+  // }
+
   return (
     <div className="container-fluid" id="venue-main-box">
       <div className="row" id="test">
@@ -95,6 +97,7 @@ const getShows = () => {
             </h3>
 
             <img id="profile-image" src={venue.image_one} />
+
             <h3>{venue.bio}</h3>
             <div>
               {venue.external_social_facebook ? (
@@ -208,7 +211,7 @@ const getShows = () => {
               ( 
                 <li className="upcoming-shows">
                 <Link to={"/shows/" + show.id}>
-                {show.artist.artist_name}</Link> {formateDate(show.date)} - {formatTime(show.time)}
+                {show.artist.artist_name}</Link> {show.date_formed} - {show.time_formed}
                 </li>
 
               ))) : <p>This venue has no upcoming shows</p>}
