@@ -27,8 +27,3 @@ td a, td {
 #srch-button {
     text-shadow: black .8px .8px;
 }
-
-td {
-    border-right: 1px solid black;
-    border-bottom: 1px solid black;
-}
