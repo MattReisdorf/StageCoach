@@ -1,7 +1,6 @@
 const router = require("express").Router();
-const { Show, Venue, Artist } = require("../../models");
+const { Venue, Artist } = require("../../models");
 const sequelize = require('sequelize');
-const Cookies = require('universal-cookie')
 
 router.post('/venue', async (req, res) => {
     console.log("Logged in route hit. - venue", req.body)
@@ -81,7 +80,9 @@ router.post('/artist', async (req, res) => {
 });
 
 router.delete('/logout', (req, res) => {
-    if (req.session.logged_in) {
+    console.log('hitting logout route backend')
+    console.log(req.session)
+    if (req.session) {
       req.session.destroy(() => {
         res.status(204).end();
       });
