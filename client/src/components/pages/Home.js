@@ -45,7 +45,7 @@ export default function Home() {
             <div className = 'container-fluid'>
                 <div className = 'howdy text-center'>
                     <h1>Howdy!</h1>
-                    <h3>Here's What's Happening In {cityState} This Month</h3>
+                    <h3>Here's what's happening In {cityState} this month</h3>
                 </div>
             </div>
 
