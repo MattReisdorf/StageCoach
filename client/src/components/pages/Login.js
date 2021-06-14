@@ -72,7 +72,7 @@ export default function Login() {
 
             <div>
             <div id="card-contain">
-            <div className="card shadow-lg p-3 mb-5 shadow bg-white rounded">   
+            <div id="sign-card" className="card shadow-lg p-3 mb-5 shadow bg-white rounded">   
                 <form>
                     <div class="input-group mb-3">
                         <span className="input-group-text shadow-lg" id="basic-addon1">Username:</span>
