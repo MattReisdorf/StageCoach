@@ -60,7 +60,7 @@ export default function Search(props) {
 
         for (let i = 0; i < artistData.length; i++) {
             await axios
-                .get(`http://api.openweathermap.org/geo/1.0/direct?q=${artistData[i].city},${artistData[i].state},US&appid=b432d6bb20293207031c4335d6e23edb`)
+                .get(`https://api.openweathermap.org/geo/1.0/direct?q=${artistData[i].city},${artistData[i].state},US&appid=b432d6bb20293207031c4335d6e23edb`)
                 .then((results) => {
                     // Stuff for Haversine Distance
                     artistData[i].lat = String(results.data[0].lat);

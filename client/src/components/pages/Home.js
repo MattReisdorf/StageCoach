@@ -59,7 +59,7 @@ export default function Home() {
             <div className = 'container'>
                 <div className = 'search-placeholder'>
                     <p className = 'search-text'>Search for an Artist or Venue</p>
-                    <form className = 'search-form'>
+                    <form id="search-form-home" className = 'search-form'>
                         <input className = 'form-control shadow' type = 'search' onChange = {handleSearch} placeholder = '' aria-label = 'search' id = 'input'></input>
                         <div id="bottom-button">
                             <Link
