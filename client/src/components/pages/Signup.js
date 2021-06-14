@@ -138,22 +138,6 @@ function Signup() {
 
 
   const venueSubmit = () => {
-    if(imgurLinks[0]) {
-      setVenueData({...venueData, image_one: imgurLinks[0]});
-      if(imgurLinks[1]) {
-        setVenueData({...venueData, image_two: imgurLinks[1]})
-        if(imgurLinks[2]) {
-          setVenueData({...venueData, image_three: imgurLinks[2]})
-          if(imgurLinks[3]) {
-            setVenueData({...venueData, image_four: imgurLinks[3]})
-            if(imgurLinks[4]){
-              setVenueData({...venueData, image_five: imgurLinks[4]})
-            }
-          }
-        }
-      }
-      alert('Thank you for your imgur links!');
-    }
 
     if (venueData.username){
       let usernameSplit = venueData.username.split('');
@@ -250,29 +234,6 @@ function Signup() {
       }
     }
 
-    // if (venueData.image_one && !venueData.image_one.includes('imgur')) {
-    //   return alert('Image links have to be Imgur image address links.')
-    // }
-
-    // if (venueData.image_two && !venueData.image_two.includes('imgur')) {
-    //   return alert('Image links have to be Imgur image address links.')
-    // }
-
-    // if (venueData.image_three && !venueData.image_three.includes('imgur')) {
-    //   return alert('Image links have to be Imgur image address links.')
-    // }
-
-    // if (venueData.image_four && !venueData.image_four.includes('imgur')) {
-    //   return alert('Image links have to be Imgur image address links.')
-    // }
-
-    // if (venueData.image_five && !venueData.image_five.includes('imgur')) {
-    //   return alert('Image links have to be Imgur image address links.')
-    // }
-
- 
-
-
     // Api Post if data verification checks clear
     signupApi.signupVenue(venueData).then((success) => {
       alert('Venue account created!')
@@ -290,39 +251,6 @@ function Signup() {
   }
 
   const artistSubmit = () => {
-    if(youtubeLinks[0]) {
-      setArtistData({...artistData, youtube_one: youtubeLinks[0]})
-      if(youtubeLinks[1]) {
-        setArtistData({...artistData, youtube_two: youtubeLinks[1]})
-        if(youtubeLinks[2]) {
-          setArtistData({...artistData, youtube_three: youtubeLinks[2]})
-        }
-      }
-      console.log(youtubeLinks[0])
-      alert ('Thank you for the youtube links!')
-    }
-
-    if (bandcampLinks[0]) {
-      setArtistData({...artistData, bandcamp_one: bandcampLinks[0]})
-      if (bandcampLinks[1]) {
-        setArtistData({...artistData, bandcamp_two: bandcampLinks[1]})
-        if (bandcampLinks[2]) {
-          setArtistData({...artistData, bandcamp_three: bandcampLinks[2]})
-        }
-      }
-      alert('Thank you for the bandcamp links')
-    }
-
-    if (soundcloudLinks[0]) {
-      setArtistData({...artistData, soundcloud_one: soundcloudLinks[0]})
-      if (soundcloudLinks[1]) {
-        setArtistData({...artistData, soundcloud_two: soundcloudLinks[1]})
-        if (soundcloudLinks[2]) {
-          setArtistData({...artistData, soundcloud_three: soundcloudLinks[2]})
-        }
-      }
-      alert('Thank you for the soundcloud links')
-    }
 
     if (artistData.username){
       let usernameSplit = artistData.username.split('');
@@ -403,43 +331,69 @@ function Signup() {
   }
 
 
-
-
-
-  // const handleVenueValueChange = async (e) => {
-  //   setLinkState(e);
-  //   console.log(linkState);
-  //   setMediaState('Imgur');
-  //   console.log(mediaState);
-  // }
-
   const handleMediaAdd = async (linkType) => {
     console.log("Link state!!", linkState);
 
 
     if (linkType === "YouTube" && artistData.youtube_one === null) {
       setArtistData({...artistData, youtube_one: linkState});
-    } else if (linkType === "YouTube" && youtubeLinks.length >= 3) {
+    } else if (linkType === "YouTube" && artistData.youtube_two === null) {
+      setArtistData({...artistData, youtube_two: linkState});
+    } else if (linkType === "YouTube" && artistData.youtube_three === null) {
+      setArtistData({...artistData, youtube_three: linkState});
+    } else if (linkType === "YouTube" && !artistData.youtube_one === null && !artistData.youtube_two === null && !artistData.youtube_three === null) {
       alert("Only 3 YouTube links allowed")
     }
-    
-    else if (linkType === "SoundCloud" && soundcloudLinks.length < 3) {
-      setsoundcloudLinks([...soundcloudLinks, linkState]);
-    } else if (linkType === "SoundCloud" && soundcloudLinks.length >= 3) {
+
+    if (linkType === "SoundCloud" && artistData.soundcloud_one === null) {
+      setArtistData({...artistData, soundcloud_one: linkState});
+    } else if (linkType === "SoundCloud" && artistData.soundcloud_two === null) {
+      setArtistData({...artistData, soundcloud_two: linkState});
+    } else if (linkType === "SoundCloud" && artistData.soundcloud_three === null) {
+      setArtistData({...artistData, soundcloud_three: linkState});
+    } else if (linkType === "SoundCloud" && !artistData.soundcloud_one === null && !artistData.soundcloud_two === null && !artistData.soundcloud_three === null) {
       alert("Only 3 Soundcloud links allowed")
     }
-    
-    else if (linkType === "BandCamp" && bandcampLinks.length < 3) {
-      setbandcampLinks([...bandcampLinks, linkState]);
-    } else if (linkType === "BandCamp" && bandcampLinks.length >= 3) {
+
+    if (linkType === "BandCamp" && artistData.bandcamp_one === null) {
+      setArtistData({...artistData, bandcamp_one: linkState});
+    } else if (linkType === "BandCamp" && artistData.bandcamp_two === null) {
+      setArtistData({...artistData, bandcamp_two: linkState});
+    } else if (linkType === "BandCamp" && artistData.bandcamp_three === null) {
+      setArtistData({...artistData, bandcamp_three: linkState});
+    } else if (linkType === "BandCamp" && !artistData.bandcamp_one === null && !artistData.bandcamp_two === null && !artistData.bandcamp_three === null) {
       alert("Only 3 Bandcamp links allowed")
     }
-    
-    else if (linkType === "Imgur" && imgurLinks.length < 5) {
-      setImgurLinks([...imgurLinks, linkState]);
-    } else if (linkType === "Imgur" && imgurLinks.length >= 5) {
+
+    if (linkType === "Imgur" && venueData.image_one === null) {
+      setVenueData({...venueData, image_one: linkState});
+    } else if (linkType === "Imgur" && venueData.image_two === null) {
+      setVenueData({...venueData, image_two: linkState});
+    } else if (linkType === "Imgur" && venueData.image_three === null) {
+      setVenueData({...venueData, image_three: linkState});
+    } else if (linkType === "Imgur" && venueData.image_four === null) {
+      setVenueData({...venueData, image_four: linkState});
+    } else if (linkType === "Imgur" && venueData.image_five === null) {
+      setVenueData({...venueData, image_five: linkState});
+    } else if (linkType === "Imgur" && !venueData.image_one === null && !venueData.image_two === null && !venueData.image_three === null && !venueData.image_four === null && !venueData.image_five === null) {
       alert("Only 5 image links allowed")
     }
+
+    if (linkType === "YouTube" && youtubeLinks.length < 3) {
+      setYoutubeLinks([...youtubeLinks, linkState]);
+    }
+    
+    if (linkType === "SoundCloud" && soundcloudLinks.length < 3) {
+      setsoundcloudLinks([...soundcloudLinks, linkState]);
+    } 
+    
+    if (linkType === "BandCamp" && bandcampLinks.length < 3) {
+      setbandcampLinks([...bandcampLinks, linkState]);
+    } 
+    
+    if (linkType === "Imgur" && imgurLinks.length < 5) {
+      setImgurLinks([...imgurLinks, linkState]);
+    } 
 
     setLinkState("");
     setMediaState("-");
