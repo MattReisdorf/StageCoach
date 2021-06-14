@@ -60,11 +60,13 @@ export default function Search(props) {
 
         for (let i = 0; i < artistData.length; i++) {
             await axios
-                .get(`https://api.openweathermap.org/geo/1.0/direct?q=${artistData[i].city},${artistData[i].state},US&appid=b432d6bb20293207031c4335d6e23edb`)
+                // .get(`http://api.openweathermap.org/geo/1.0/direct?q=${artistData[i].city},${artistData[i].state},US&appid=b432d6bb20293207031c4335d6e23edb`)
+                .get(`https://api.geoapify.com/v1/geocode/search?text=${artistData[i].city}%2C%20${artistData[i].state}&lang=en&limit=1&type=city&apiKey=132cf69916864912aab592a3efa6c56c`)
+
                 .then((results) => {
                     // Stuff for Haversine Distance
-                    artistData[i].lat = String(results.data[0].lat);
-                    artistData[i].long = String(results.data[0].lon);
+                    artistData[i].lat = String(results.data.features[0].properties.lat);
+                    artistData[i].long = String(results.data.features[0].properties.lon);
 
                     // Stuff for React Table
                     artistData[i].genres = `${artistData[i].genre_one}, ${artistData[i].genre_two}, ${artistData[i].genre_three}`
@@ -90,11 +92,13 @@ export default function Search(props) {
 
         for (let i = 0; i < venueData.length; i++) {
             await axios
-                .get(`http://api.openweathermap.org/geo/1.0/direct?q=${venueData[i].city},${venueData[i].state},US&appid=b432d6bb20293207031c4335d6e23edb`)
+                // .get(`http://api.openweathermap.org/geo/1.0/direct?q=${venueData[i].city},${venueData[i].state},US&appid=b432d6bb20293207031c4335d6e23edb`)
+                .get(`https://api.geoapify.com/v1/geocode/search?text=${venueData[i].city}%2C%20${venueData[i].state}&lang=en&limit=1&type=city&apiKey=132cf69916864912aab592a3efa6c56c`)
                 .then((results) => {
+                    console.log(results.data.features[0].properties.lat);
                     // Stuff for Haversine Distance
-                    venueData[i].lat = String(results.data[0].lat);
-                    venueData[i].long = String(results.data[0].lon);
+                    venueData[i].lat = String(results.data.features[0].properties.lat);
+                    venueData[i].long = String(results.data.features[0].properties.lon);
 
                     // Stuff for React Table
                     venueData[i].genres = '';
