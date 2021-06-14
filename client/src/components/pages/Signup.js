@@ -298,7 +298,8 @@ function Signup() {
           setArtistData({...artistData, youtube_three: youtubeLinks[2]})
         }
       }
-      // alert ('Thank you for the youtube links!')
+      console.log(youtubeLinks[0])
+      alert ('Thank you for the youtube links!')
     }
 
     if (bandcampLinks[0]) {
@@ -309,7 +310,7 @@ function Signup() {
           setArtistData({...artistData, bandcamp_three: bandcampLinks[2]})
         }
       }
-      // alert('Thank you for the bandcamp links')
+      alert('Thank you for the bandcamp links')
     }
 
     if (soundcloudLinks[0]) {
@@ -320,7 +321,7 @@ function Signup() {
           setArtistData({...artistData, soundcloud_three: soundcloudLinks[2]})
         }
       }
-      // alert('Thank you for the soundcloud links')
+      alert('Thank you for the soundcloud links')
     }
 
     if (artistData.username){
@@ -370,19 +371,24 @@ function Signup() {
       }
     }
 
-    console.log('ARTIST ELSE HIT')
-    signupApi.signupArtist(artistData).then((success) => {
-      alert('Artist account created!')
-      console.log(success.data)
-      cookies.set('id', success.data.id, { path: '/'})
-      return window.location.assign('/')
-    }).catch((err) => {
-      if (err) {
-        console.log(err)
-        alert('Account creation failed, please try again')
-        return window.location.assign('/signup')
-      }
-    })
+    setTimeout(function(){ 
+      console.log(artistData.youtube_one)
+      console.log('ARTIST ELSE HIT')
+      signupApi.signupArtist(artistData).then((success) => {
+        alert('Artist account created!')
+        console.log(success.data)
+        cookies.set('id', success.data.id, { path: '/'})
+        return window.location.assign('/')
+      }).catch((err) => {
+        if (err) {
+          console.log(err)
+          alert('Account creation failed, please try again')
+          return window.location.assign('/signup')
+        }
+      });
+    }, 3000);
+
+    
   }
 
   function stateChange(e) {
@@ -411,8 +417,8 @@ function Signup() {
     console.log("Link state!!", linkState);
 
 
-    if (linkType === "YouTube" && youtubeLinks.length < 3) {
-      setYoutubeLinks([...youtubeLinks, linkState]);
+    if (linkType === "YouTube" && artistData.youtube_one === null) {
+      setArtistData({...artistData, youtube_one: linkState});
     } else if (linkType === "YouTube" && youtubeLinks.length >= 3) {
       alert("Only 3 YouTube links allowed")
     }
