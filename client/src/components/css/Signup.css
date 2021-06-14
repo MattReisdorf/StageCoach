@@ -138,14 +138,16 @@ body {
 #modal-but-close {
     width: 300px;
     height: 50px;
-    color: black;
+    color: rgb(192, 78, 33);
     margin-bottom: 8px;
     border-bottom-left-radius: 8px;
     border-bottom-right-radius: 8px;
     border-top-right-radius: 8px;
     border-top-left-radius: 8px;
     font-size: 22px;
-    background-color:rgb(102, 76, 58);
+    background-color:rgb(102, 76, 58) !important;
+    text-shadow: black .8px .8px;
+    
 }
 
 .modal-footer {
@@ -182,19 +184,19 @@ body {
         width: 100vw !important;
     }
 
-    table, thead, tbody, th, td, tr { 
+    #sign-table, #sign-thead, #sign-tbody, #sign-th, #sign-td, #sign-tr { 
 		display: block; 
 	}
 
-    thead tr { 
+    #sign-thead, #sign-tr { 
 		position: absolute;
 		top: -9999px;
 		left: -9999px;
 	}
 
-    tr { border: 1px solid #ccc; }
+    #sign-tr { border: 1px solid #ccc; }
 	
-	td { 
+	#sign-td { 
 		/* Behave  like a "row" */
 		border: none;
 		border-bottom: 1px solid #eee; 
@@ -202,7 +204,7 @@ body {
 		padding-left: 50%; 
 	}
 	
-	td:before { 
+	#sign-td:before { 
 		/* Now like a table header */
 		position: absolute;
 		/* Top/left values mimic padding */
