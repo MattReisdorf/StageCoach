@@ -15,7 +15,7 @@
 }
 
 .show-links {
-    color: rgb(204, 95, 52);
+    color: rgb(204, 95, 52) !important;
     
 }
 
