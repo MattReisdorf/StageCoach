@@ -39,7 +39,8 @@ class Calendar extends React.Component {
         </div>
         <div className="col col-end" onClick={this.nextMonth}>
           {/* right-facing stagecoach? */}
-          <div className="icon">next</div>
+          <div className="icon"><img className="wagon"/>next</div>
+  
         </div>
       </div>
     );

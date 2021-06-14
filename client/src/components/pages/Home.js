@@ -21,7 +21,6 @@ export default function Home() {
         event.preventDefault();
 
         let text = event.target.value;
-        // console.log(text);
         setSearch(text);
     }
 
@@ -40,60 +39,13 @@ export default function Home() {
     // })
 
 
-    // HANDLE SUBMIT FOR SEARCH -> SEND PROPS TO SEARCH COMPONENT
-
-    if (cityState === '') {
-        return (
-            <div className = 'home-background'>
-
-                <div className = 'container-fluid'>
-                    <div className = 'howdy text-center'>
-                        <h1>Howdy,</h1>
-                        <h3>Here's What's Happening In Your Town This Month </h3>
-                    </div>
-                </div>
-
-                <div className = 'container'>
-                <div className = 'calendar-placeholder'  id="calendarmain">
-                    <Calendar />
-                </div>
-                <div id = 'comingsoon'><h4>Mobile calendar coming soon! Thank you for your patience.</h4></div>
-            </div>
-
-                <div className = 'container'>
-                    <div className = 'search-placeholder'>
-                        <p className = 'search-text'>Search for an Artist or Venues</p>
-                        <form className = 'search-form'>
-                            <input id="home-search" className = 'form-control' type = 'search' onChange = {handleSearch} placeholder = '' aria-label = 'search'></input>
-                            <div id="bottom-button">
-                                <Link
-                                    to = {{
-                                        pathname: '/search',
-                                        searchProps: { search, cityState, lat, long }
-                                    }}
-                                        className = 'search-link'
-                                >
-                                    <button id="srch-button" className = 'btn btn-dark search-button shadow-lg' type = 'submit'>
-                                        Search
-                                    </button>
-                                </Link>
-                                </div>
-                            
-                        </form>
-                    </div>
-                </div>
-
-            </div>
-        )
-    }
-
     return (
         <div className = 'home-background'>
 
             <div className = 'container-fluid'>
                 <div className = 'howdy text-center'>
                     <h1>Howdy!</h1>
-                    <h3>Here's What's Happening In {cityState} This Month</h3>
+                    <h3>Here's what's happening in {cityState} this month</h3>
                 </div>
             </div>
 

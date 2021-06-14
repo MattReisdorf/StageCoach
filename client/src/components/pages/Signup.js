@@ -298,7 +298,8 @@ function Signup() {
           setArtistData({...artistData, youtube_three: youtubeLinks[2]})
         }
       }
-      // alert ('Thank you for the youtube links!')
+      console.log(youtubeLinks[0])
+      alert ('Thank you for the youtube links!')
     }
 
     if (bandcampLinks[0]) {
@@ -309,7 +310,7 @@ function Signup() {
           setArtistData({...artistData, bandcamp_three: bandcampLinks[2]})
         }
       }
-      // alert('Thank you for the bandcamp links')
+      alert('Thank you for the bandcamp links')
     }
 
     if (soundcloudLinks[0]) {
@@ -320,7 +321,7 @@ function Signup() {
           setArtistData({...artistData, soundcloud_three: soundcloudLinks[2]})
         }
       }
-      // alert('Thank you for the soundcloud links')
+      alert('Thank you for the soundcloud links')
     }
 
     if (artistData.username){
@@ -370,19 +371,24 @@ function Signup() {
       }
     }
 
-    console.log('ARTIST ELSE HIT')
-    signupApi.signupArtist(artistData).then((success) => {
-      alert('Artist account created!')
-      console.log(success.data)
-      cookies.set('id', success.data.id, { path: '/'})
-      return window.location.assign('/')
-    }).catch((err) => {
-      if (err) {
-        console.log(err)
-        alert('Account creation failed, please try again')
-        return window.location.assign('/signup')
-      }
-    })
+    setTimeout(function(){ 
+      console.log(artistData.youtube_one)
+      console.log('ARTIST ELSE HIT')
+      signupApi.signupArtist(artistData).then((success) => {
+        alert('Artist account created!')
+        console.log(success.data)
+        cookies.set('id', success.data.id, { path: '/'})
+        return window.location.assign('/')
+      }).catch((err) => {
+        if (err) {
+          console.log(err)
+          alert('Account creation failed, please try again')
+          return window.location.assign('/signup')
+        }
+      });
+    }, 3000);
+
+    
   }
 
   function stateChange(e) {
@@ -411,8 +417,8 @@ function Signup() {
     console.log("Link state!!", linkState);
 
 
-    if (linkType === "YouTube" && youtubeLinks.length < 3) {
-      setYoutubeLinks([...youtubeLinks, linkState]);
+    if (linkType === "YouTube" && artistData.youtube_one === null) {
+      setArtistData({...artistData, youtube_one: linkState});
     } else if (linkType === "YouTube" && youtubeLinks.length >= 3) {
       alert("Only 3 YouTube links allowed")
     }
@@ -756,18 +762,18 @@ function Signup() {
             </div>
           </div>
           <h2>Add some links to your venue's other content pages!</h2>
-          <table className="table text-center col-md-12">
-            <thead>
-              <tr>
-                <th scope="col">Website</th>
-                <th scope="col">Bandcamp</th>
-                <th scope="col">Soundcloud</th>
-                <th scope="col">Spotify</th>
+          <table id="sign-table" className="table text-center col-md-12">
+            <thead id="sign-thead">
+              <tr id="sign-tr">
+                <th id="sign-th" scope="col">Website</th>
+                <th id="sign-th" scope="col">Bandcamp</th>
+                <th id="sign-th" scope="col">Soundcloud</th>
+                <th id="sign-th" scope="col">Spotify</th>
               </tr>
             </thead>
-            <tbody>
-              <tr>
-                <td>
+            <tbody id="sign-tbody">
+              <tr id="sign-tr">
+                <td id="sign-td">
                   <div className="input-group mb-3">
                     <input
                       onChange={(event) => setVenueData({...venueData, external_website: event.target.value})}
@@ -780,7 +786,7 @@ function Signup() {
                     />
                   </div>
                 </td>
-                <td>
+                <td id="sign-td">
                   <div className="input-group mb-3">
                     <input
                       onChange={(event) => setVenueData({...venueData, external_social_facebook: event.target.value})}
@@ -793,7 +799,7 @@ function Signup() {
                     />
                   </div>
                 </td>
-                <td>
+                <td id="sign-td">
                   <div className="input-group mb-3">
                     <input
                       onChange={(event) => setVenueData({...venueData, external_social_instagram: event.target.value})}
@@ -806,7 +812,7 @@ function Signup() {
                     />
                   </div>
                 </td>
-                <td>
+                <td id="sign-td">
                   <div className="input-group mb-3">
                     <input
                       onChange={(event) => setVenueData({...venueData, external_social_twitter: event.target.value})}
@@ -823,18 +829,18 @@ function Signup() {
             </tbody>
           </table>
           <h2>Add a contact person's details to reach out to!</h2>
-          <table className="table text-center">
-            <thead>
-              <tr>
-                <th scope="col">Contact Title</th>
-                <th scope="col">Contact Name</th>
-                <th scope="col">Contact Phone</th>
-                <th scope="col">Contact Email</th>
+          <table id="sign-table" className="table text-center">
+            <thead id="sign-thead">
+              <tr id="sign-tr">
+                <th id="sign-th" scope="col">Contact Title</th>
+                <th id="sign-th" scope="col">Contact Name</th>
+                <th id="sign-th" scope="col">Contact Phone</th>
+                <th id="sign-th" scope="col">Contact Email</th>
               </tr>
             </thead>
-            <tbody>
-              <tr>
-                <td>
+            <tbody id="sign-tbody">
+              <tr id="sign-tr">
+                <td id="sign-td">
                   <div className="input-group mb-3">
                     <input
                       onChange={(event) => setVenueData({...venueData, contact_title: event.target.value})}
@@ -847,7 +853,7 @@ function Signup() {
                     />
                   </div>
                 </td>
-                <td>
+                <td id="sign-td">
                   <div className="input-group mb-3">
                     <input
                       onChange={(event) => setVenueData({...venueData, contact_name: event.target.value})}
@@ -860,7 +866,7 @@ function Signup() {
                     />
                   </div>
                 </td>
-                <td>
+                <td id="sign-td">
                   <div className="input-group mb-3">
                     <input
                       onChange={(event) => setVenueData({...venueData, contact_number: event.target.value})}
@@ -873,7 +879,7 @@ function Signup() {
                     />
                   </div>
                 </td>
-                <td>
+                <td id="sign-td">
                   <div className="input-group mb-3">
                     <input
                       onChange={(event) => setVenueData({...venueData, contact_email: event.target.value})}

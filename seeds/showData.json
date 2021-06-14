@@ -3,7 +3,7 @@
         "id": 1, 
         "date": "2021-06-16",
         "time": "20:00:00",
-        "description": "show 1",
+        "description": "Come out to this show!",
         "venue_id": 11,
         "artist_id": 1
     },
@@ -11,7 +11,7 @@
         "id": 2, 
         "date": "2021-06-28",
         "time": "21:00:00",
-        "description": "show2 ",
+        "description": "Opening bands to be announced.",
         "venue_id": 10,
         "artist_id": 2
     },
@@ -19,7 +19,7 @@
         "id": 3, 
         "date": "2021-06-25",
         "time": "14:00:00",
-        "description": "show 3",
+        "description": "No description available",
         "venue_id": 12,
         "artist_id": 3
     },
@@ -27,8 +27,25 @@
         "id": 4, 
         "date": "2021-06-25",
         "time": "14:00:00",
-        "description": "show 4",
+        "description": "Our first show in Chicago since 2019!",
         "venue_id": 13,
         "artist_id": 4
+    },
+    {
+        "id": 5, 
+        "date": "2021-06-30",
+        "time": "14:00:00",
+        "description": "More details coming soon!",
+        "venue_id": 11,
+        "artist_id": 7
+    },
+    {
+        "id": 6, 
+        "date": "2021-06-13",
+        "time": "14:00:00",
+        "description": "More details coming soon!",
+        "venue_id": 13,
+        "artist_id": 8
     }
+
 ]

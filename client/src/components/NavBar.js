@@ -35,6 +35,10 @@ function NavBar() {
                     
                 </li>
                 <li className = 'nav-item my-nav'>
+                    { userIdCookieValue ? <Link to = '/shows/create' className='other-links' style={{"cursor":"pointer"}}>Create a show</Link> : null }
+                    
+                </li>
+                <li className = 'nav-item my-nav'>
                     <Link
                         to = '/signup' className = 'other-links'
                     >
