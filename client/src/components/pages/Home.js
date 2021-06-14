@@ -26,17 +26,17 @@ export default function Home() {
 
 
     // IPIFY API REQUEST
-    // useEffect(() => {
-    //     axios
-    //         .get(
-    //             process.env.REACT_APP_IPIFY
-    //         )
-    //         .then((result) => {
-    //             setCityState(result.data.location.city);
-    //             setLat(result.data.location.lat);
-    //             setLong(result.data.location.lng);
-    //         })
-    // })
+    useEffect(() => {
+        axios
+            .get(
+                process.env.REACT_APP_IPIFY
+            )
+            .then((result) => {
+                setCityState(result.data.location.city);
+                setLat(result.data.location.lat);
+                setLong(result.data.location.lng);
+            })
+    })
 
 
     return (
