@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "../css/CreateShow.css";
 import "../css/Show.css";
+import createShow from '../../utils/showStuff'
 
 // scheduling should be a feature here. we either/or:
 // pick a date, and a list of bands in your city WITHOUT shows that day populates
@@ -9,6 +10,30 @@ import "../css/Show.css";
 
 function CreateShow() {
   const [artists, setArtists] = useState([]);
+  const [venues, setVenues] = useState([])
+
+  const [newShowData, setNewShowData] = useState({
+    date: '',
+    time: '',
+    description: '',
+    venue_id: '',
+    artist_id: '',
+  })
+
+  const showSubmit = () => {
+    createShow.create(newShowData).then((success) => {
+      alert("Show created!")
+      console.log(success.data)
+      return window.location.assign('/')
+    }).catch((err) => {
+      console.log('Running here...')
+      if(err){
+        console.log(err)
+        alert('Show creation failed')
+        return window.location.assign('/shows/create')
+      }
+    })
+  }
 
   // gets all artists. artistRoutes.js has order: artist_name ASC.
   // current not getting shows for artist. will need to do so if we want to schedule.
@@ -17,8 +42,20 @@ function CreateShow() {
       console.log(artistData.data);
       setArtists(artistData.data);
       console.log("test:", artists);
-    });
+    })
+    getVenues();
   }, []);
+
+
+const getVenues= () => {
+  axios
+  .get(
+    "/api/venues/" 
+      )
+  .then((data) => {
+    setVenues(data.data);
+  })
+}
 
   return (
     <div className="home-background">
@@ -38,6 +75,7 @@ function CreateShow() {
                     id="show-date"
                     aria-label="Date"
                     aria-describedby="basic-addon1"
+                    onChange={(event) => setNewShowData({...newShowData, date: event.target.value})}
                   />
                 </div>
                 {/* time label + input */}
@@ -50,24 +88,46 @@ function CreateShow() {
                     id="show_time"
                     aria-label="Time"
                     aria-describedby="basic-addon1"
+                    onChange={(event) => setNewShowData({...newShowData, time: event.target.value})}
                   />
                 </div>
                 {/* artist select. this looks bad right now. maybe have it input rather than select but still with options */}
                 <div className="input-group mb-3" id="artist-input">
                   <span className="input-group-text shadow" id="basic-addon1">
-                    Artists:
+                    Artist:
                   </span>
                   <select
                     className="form-select"
                     size="3"
                     aria-label="size 3 select example"
+                    onChange={(event) => setNewShowData({...newShowData, artist_id: event.target.value})}
                   >
                     {artists ? (
                       artists.map((artist) => (
-                        <option>{artist.artist_name}</option>
+                        <option label={artist.artist_name}>{artist.id}</option>
                       ))
                     ) : (
-                      <p>This venue has no upcoming shows</p>
+                      <option>no artists to display</option>
+                    )}
+                  </select>
+                </div>
+                {/* placeholder venue field */}
+                <div className="input-group mb-3" id="artist-input">
+                  <span className="input-group-text shadow" id="basic-addon1">
+                    Venue:
+                  </span>
+                  <select
+                    className="form-select"
+                    size="3"
+                    aria-label="size 3 select example"
+                    onChange={(event) => setNewShowData({...newShowData, venue_id: event.target.value})}
+                  >
+                    {venues ? (
+                      venues.map((venue) => (
+                        <option label={venue.venue_name}>{venue.id}</option>
+                      ))
+                    ) : (
+                      <option>no artists to display</option>
                     )}
                   </select>
                 </div>
@@ -78,14 +138,15 @@ function CreateShow() {
                   </span>
                   <input
                     type="text"
-                    id="venue_username"
+                    id="show-description"
                     className="form-control input_values venue_input_values"
-                    aria-label="Username"
+                    aria-label="description"
                     aria-describedby="basic-addon1"
+                    onChange={(event) => setNewShowData({...newShowData, description: event.target.value})}
                   />
                 </div>
                 <div id="create-button">
-                <button id="sub-but" type="submit" className="btn btn-primary btn-lg shadow-lg p-3 mb-5 bg-white rounded">
+                <button id="sub-but" type="submit" className="btn btn-primary btn-lg shadow-lg p-3 mb-5 bg-white rounded" onClick={() => showSubmit()}>
             Create Show
           </button>
           </div>

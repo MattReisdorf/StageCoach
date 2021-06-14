@@ -20,7 +20,6 @@ export default function Login() {
 
     useEffect(() => {
         if (loginType === 'Venue'){
-            console.log(userData)
             loginApi.loginVenue(userData).then((success) => {
                 alert('Venue login successful')
                 cookies.set('id', success.data.user.id, { path: '/' })
@@ -31,7 +30,6 @@ export default function Login() {
             })
 
         } else if (loginType === 'Artist'){
-            console.log(userData)
             loginApi.loginArtist(userData).then((success) => {
                 alert('Artist login successful')
                 cookies.set('id', success.data.user.id, { path: '/' })
@@ -57,10 +55,10 @@ export default function Login() {
 
     return (
     <div className="home-background">
-        <div className="container">
+        <div className="container ">
             <h1 id="top-signup">Log in as a...</h1>
 
-            <div className="d-flex justify-content-center ">
+            <div className="d-flex justify-content-center">
                 <button className={artistState ? artistState : ""}id="set-signup" onClick={handleOnclick}> 
                     Artist
                 </button>

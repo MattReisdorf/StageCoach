@@ -6,3 +6,45 @@
 #sub-but {
     margin-top: 20px;
 }
+
+@media (max-width: 472px) {
+    .main-card-div {
+        width: 50vw !important;
+    }
+    .card-body {
+        width: 100%;
+        margin: 0%;
+        padding: 0%;
+    }
+    
+    #card-contain {
+        width: 100%;
+        margin: 0%;
+        padding: 0%;
+    }
+
+
+}
+/* @media (max-width: 1059px) {
+
+
+} */
+
+@media (max-width: 1059px) {
+    .main-card-div {
+        width: 100vw !important;
+    }
+    .card-body {
+        width: 100%;
+        margin: 0%;
+        padding: 0%;
+    }
+    
+    #card-contain {
+        width: 100%;
+        margin: 0%;
+        padding: 0%;
+    }
+
+
+}
