@@ -39,11 +39,11 @@ function NavBar() {
                     
                 </li>
                 <li className = 'nav-item my-nav'>
-                    <Link
+                    { userIdCookieValue ? <></> : <Link
                         to = '/signup' className = 'other-links'
                     >
                         Signup
-                    </Link>
+                    </Link>}
                 </li>
             </ul>
         </nav>
